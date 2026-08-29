@@ -278,7 +278,7 @@ document.getElementById('lightbox').addEventListener('click', () => {
   </div>
 
   <div class="tabs" role="tablist" aria-label="Filter gallery by category">
-    <button class="tab active" data-filter="all">All work</button>
+    <button class="tab" data-filter="all">All work</button>
     <button class="tab" data-filter="nursery">Nursery Sets</button>
     <button class="tab" data-filter="portraits">Portraits</button>
     <button class="tab" data-filter="forsale">Currently Available</button>
@@ -438,23 +438,36 @@ document.getElementById('lightbox').addEventListener('click', () => {
   &copy; <span id="year"></span> Sarah Woodburn Art. All pieces are original, hand-burned work.
 </footer>
 
-<script>
+ <script>
   // category filter
   const tabs = document.querySelectorAll('.tab');
   const pieces = document.querySelectorAll('.piece');
+
+  function applyFilter(filter) {
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.filter === filter));
+    pieces.forEach(p => {
+      p.classList.toggle('show', filter !== 'all' && p.dataset.cat === filter);
+    });
+  }
+
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
       const filter = tab.dataset.filter;
-      pieces.forEach(p => {
-        p.classList.toggle('show', filter === 'all' || p.dataset.cat === filter);
-      });
+      applyFilter(filter);
+      history.replaceState(null, '', filter === 'all' ? '#gallery' : '#' + filter);
     });
   });
 
+  const startFilter = window.location.hash.replace('#', '');
+  const validFilters = ['nursery', 'portraits', 'forsale', 'random'];
+  if (validFilters.includes(startFilter)) {
+    applyFilter(startFilter);
+    document.getElementById('gallery').scrollIntoView();
+  }
+
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+
 
 </body>
 </html>
