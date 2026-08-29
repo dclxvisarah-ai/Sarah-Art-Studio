@@ -229,9 +229,25 @@
 
   @media (prefers-reduced-motion: reduce){
     *{ transition:none !important; }
-  }
+  } 
+.lightbox{position:fixed;inset:0;background:rgba(28,24,21,0.95);display:none;align-items:center;justify-content:center;z-index:100;cursor:zoom-out;padding:20px;}
+.lightbox.show{display:flex;}
+.lightbox img{max-width:100%;max-height:100%;object-fit:contain;}
+.piece img{cursor:zoom-in;}
 </style>
 </head>
+<div class="lightbox" id="lightbox"><img id="lightbox-img" src="" alt=""></div>
+<script>
+document.querySelectorAll('.piece img').forEach(img => {
+  img.addEventListener('click', () => {
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox').classList.add('show');
+  });
+});
+document.getElementById('lightbox').addEventListener('click', () => {
+  document.getElementById('lightbox').classList.remove('show');
+});
+</script>
 <body>
 
 <div class="grain-bg"></div>
