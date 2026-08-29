@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarah's Pyrography — Woodburn Art & Commissions</title>
+<meta name="description" content="Original woodburning (pyrography) art. Browse the gallery by category and submit a commission request.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --char:      #1c1815;
+    --char-2:    #262019;
+    --ember:     #b5451d;
+    --ember-2:   #e2872f;
+    --parchment: #ece2cf;
+    --ash:       #a89b87;
+    --ash-dim:   #6f6455;
+    --line:      #3a322a;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--char);
+    color:var(--parchment);
+    font-family:'Karla', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height:1.55;
+  }
+
+  h1,h2,h3,.brand{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+
+  .eyebrow{
+    font-family:'Karla', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.16em;
+    font-size:0.72rem;
+    color:var(--ember-2);
+    font-weight:700;
+  }
+
+  a{ color:inherit; }
+
+  /* ---------- background: charred wood-grain texture ---------- */
+  .grain-bg{
+    position:fixed; inset:0; z-index:-1; opacity:0.5;
+    background:
+      repeating-linear-gradient(
+        180deg,
+        rgba(0,0,0,0) 0px,
+        rgba(0,0,0,0.10) 2px,
+        rgba(0,0,0,0) 4px,
+        rgba(0,0,0,0.06) 7px,
+        rgba(0,0,0,0) 11px
+      ),
+      radial-gradient(ellipse at 20% 10%, rgba(181,69,29,0.10), transparent 45%),
+      radial-gradient(ellipse at 85% 80%, rgba(226,135,47,0.08), transparent 50%);
+  }
+
+  /* ---------- header / nav ---------- */
+  header{
+    position:sticky; top:0; z-index:20;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 6vw;
+    background:rgba(28,24,21,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{ font-size:1.25rem; color:var(--parchment); text-decoration:none; }
+  .brand em{ font-style:normal; color:var(--ember-2); }
+  nav a{
+    text-decoration:none; margin-left:26px; font-size:0.9rem;
+    color:var(--ash); transition:color .2s;
+  }
+  nav a:hover{ color:var(--ember-2); }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:14vh 6vw 10vh;
+    max-width:900px;
+  }
+  .hero .eyebrow{ display:block; margin-bottom:18px; }
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 4.4rem);
+    margin:0 0 22px;
+    color:var(--parchment);
+  }
+  .hero h1 .burn{
+    background:linear-gradient(90deg, var(--ember) 0%, var(--ember-2) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p{
+    max-width:52ch; color:var(--ash); font-size:1.08rem;
+  }
+  .hero-actions{ margin-top:34px; display:flex; gap:16px; flex-wrap:wrap; }
+
+  .btn{
+    display:inline-block; padding:13px 26px; border-radius:2px;
+    text-decoration:none; font-size:0.92rem; font-weight:700;
+    letter-spacing:0.02em; transition:transform .15s, box-shadow .15s;
+    border:1px solid transparent;
+  }
+  .btn-ember{
+    background:linear-gradient(90deg, var(--ember), var(--ember-2));
+    color:#1c1815;
+  }
+  .btn-ember:hover{ transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(226,135,47,0.5); }
+  .btn-ghost{
+    border-color:var(--line); color:var(--parchment);
+  }
+  .btn-ghost:hover{ border-color:var(--ember-2); color:var(--ember-2); }
+
+  /* ---------- section shell ---------- */
+  section{ padding:8vh 6vw; }
+  .section-head{ margin-bottom:44px; max-width:640px; }
+  .section-head h2{ font-size:clamp(1.6rem,3vw,2.2rem); margin:10px 0 12px; }
+  .section-head p{ color:var(--ash); }
+
+  /* ---------- category tabs (styled like burn-ring markers) ---------- */
+  .tabs{
+    display:flex; flex-wrap:wrap; gap:10px; margin-bottom:38px;
+  }
+  .tab{
+    cursor:pointer; background:transparent; border:1px solid var(--line);
+    color:var(--ash); padding:9px 18px; border-radius:999px;
+    font-family:'Karla',sans-serif; font-size:0.85rem; letter-spacing:0.03em;
+    transition:all .2s;
+  }
+  .tab:hover{ border-color:var(--ember-2); color:var(--parchment); }
+  .tab.active{
+    background:var(--ember); border-color:var(--ember); color:#1c1815; font-weight:700;
+  }
+  .tab-cta{
+    text-decoration:none; border-color:var(--ember-2); color:var(--ember-2);
+    font-weight:700; border-style:dashed;
+  }
+  .tab-cta:hover{ background:var(--ember-2); color:#1c1815; border-style:solid; }
+
+  /* ---------- gallery grid ---------- */
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+    gap:26px;
+  }
+  .piece{
+    position:relative; overflow:hidden; border:1px solid var(--line);
+    background:var(--char-2);
+    display:none;
+  }
+  .piece.show{ display:block; }
+  .piece img{
+    width:100%; aspect-ratio:4/5; object-fit:cover; display:block;
+    filter:saturate(0.92) contrast(1.02);
+    transition:transform .5s ease, filter .5s ease;
+  }
+  .piece .scorch{
+    position:absolute; inset:0;
+    background:radial-gradient(circle at 50% 50%, rgba(226,135,47,0.0) 0%, rgba(181,69,29,0.0) 100%);
+    transition:background .5s ease;
+    pointer-events:none;
+  }
+  .piece:hover img{ transform:scale(1.05); filter:saturate(1.05) contrast(1.05); }
+  .piece:hover .scorch{
+    background:radial-gradient(circle at 50% 50%, rgba(226,135,47,0.18) 0%, rgba(181,69,29,0.0) 70%);
+  }
+  .piece .caption{
+    padding:14px 16px;
+  }
+  .piece .caption .cat{
+    font-size:0.7rem; text-transform:uppercase; letter-spacing:0.12em;
+    color:var(--ember-2); font-weight:700; display:block; margin-bottom:4px;
+  }
+  .piece .caption .title{
+    font-family:'Fraunces', serif; font-size:1.02rem; color:var(--parchment);
+  }
+  .placeholder-note{
+    color:var(--ash-dim); font-size:0.8rem; padding:14px 16px 18px;
+    border-top:1px dashed var(--line); margin-top:auto;
+  }
+
+  /* ---------- commission form ---------- */
+  .commission{
+    background:var(--char-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .commission-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;
+  }
+  @media (max-width:820px){ .commission-grid{ grid-template-columns:1fr; } }
+
+  .commission-grid ol{ padding-left:20px; color:var(--ash); }
+  .commission-grid ol li{ margin-bottom:10px; }
+  .commission-grid strong{ color:var(--parchment); }
+
+  form{ display:flex; flex-direction:column; gap:16px; }
+  label{
+    font-size:0.78rem; text-transform:uppercase; letter-spacing:0.1em;
+    color:var(--ash); margin-bottom:6px; display:block; font-weight:700;
+  }
+  input, textarea, select{
+    width:100%; background:var(--char); border:1px solid var(--line);
+    color:var(--parchment); padding:12px 14px; border-radius:2px;
+    font-family:'Karla',sans-serif; font-size:0.95rem;
+  }
+  input:focus, textarea:focus, select:focus{
+    outline:none; border-color:var(--ember-2);
+  }
+  textarea{ min-height:120px; resize:vertical; }
+  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:520px){ .field-row{ grid-template-columns:1fr; } }
+  .form-note{ font-size:0.78rem; color:var(--ash-dim); }
+
+  footer{
+    padding:5vh 6vw; text-align:center; color:var(--ash-dim); font-size:0.82rem;
+    border-top:1px solid var(--line);
+  }
+
+  /* focus visibility for keyboard users */
+  a:focus-visible, button:focus-visible, .tab:focus-visible{
+    outline:2px solid var(--ember-2); outline-offset:2px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grain-bg"></div>
+
+<header>
+  <a href="#top" class="brand">Sarah&nbsp;<em>Woodburn</em></a>
+  <nav>
+    <a href="#gallery">Gallery</a>
+    <a href="#commission">Commission</a>
+  </nav>
+</header>
+
+<div id="top" class="hero">
+  <span class="eyebrow">Original Pyrography</span>
+  <h1>Art burned into wood,<br class="hidden-mobile"> one <span class="burn">ember</span> at a time.</h1>
+  <p>Every piece below is hand-burned — no prints, no reproductions. Browse the gallery by category, then send a commission request with your idea and I'll get back to you.</p>
+  <div class="hero-actions">
+    <a href="#gallery" class="btn btn-ember">View the gallery</a>
+    <a href="#commission" class="btn btn-ghost">Request a commission</a>
+  </div>
+</div>
+
+<section id="gallery">
+  <div class="section-head">
+    <span class="eyebrow">Gallery</span>
+    <h2>Browse by category</h2>
+    <p>Click a category to filter. Replace the placeholder tiles below with photos of your own pieces — instructions are in the README.</p>
+  </div>
+
+  <div class="tabs" role="tablist" aria-label="Filter gallery by category">
+    <button class="tab active" data-filter="all">All work</button>
+    <button class="tab" data-filter="nursery">Nursery Sets</button>
+    <button class="tab" data-filter="portraits">Portraits</button>
+    <button class="tab" data-filter="forsale">Currently Available</button>
+    <button class="tab" data-filter="random">Random</button>
+    <a href="#commission" class="tab tab-cta">Create Your Custom Art With Me Today →</a>
+  </div>
+
+  <div class="gallery" id="gallery-grid">
+    <!-- NURSERY SETS -->
+    <article class="piece show" data-cat="nursery">
+      <img src="images/nursery/example-1.jpg" alt="Nursery set woodburning example — replace with your photo" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=Nursery+Set+%231'">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="cat">Nursery Sets</span>
+        <span class="title">Nursery Set — replace title</span>
+      </div>
+    </article>
+
+    <!-- PORTRAITS -->
+    <article class="piece show" data-cat="portraits">
+      <img src="images/portraits/example-1.jpg" alt="Portrait woodburning example — replace with your photo" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=Portrait+%231'">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="cat">Portraits</span>
+        <span class="title">Portrait Study — replace title</span>
+      </div>
+    </article>
+
+    <!-- CURRENTLY AVAILABLE / FOR SALE -->
+    <article class="piece show" data-cat="forsale">
+      <img src="images/forsale/example-1.jpg" alt="Piece currently available for sale — replace with your photo" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=For+Sale+%231'">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="cat">Currently Available</span>
+        <span class="title">For Sale — replace title</span>
+      </div>
+    </article>
+
+    <!-- RANDOM -->
+    <article class="piece show" data-cat="random">
+      <img src="images/random/example-1.jpg" alt="Miscellaneous woodburning example — replace with your photo" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=Random+%231'">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="cat">Random</span>
+        <span class="title">One-Off Piece — replace title</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="commission" class="commission">
+  <div class="commission-grid">
+    <div>
+      <span class="eyebrow">Create Together</span>
+      <h2>Start a custom piece with me</h2>
+      <p style="color:var(--ash); margin-bottom:26px;">This isn't a checkout — it's the start of a conversation. Tell me your name, email, and what you're picturing, and I'll reply so we can shape the idea together.</p>
+      <ol>
+        <li><strong>You send the spark.</strong> Just a rough idea is fine — subject, mood, who it's for.</li>
+        <li><strong>We talk it through.</strong> I'll follow up by email and we'll refine the idea together.</li>
+        <li><strong>We land on a price together.</strong> Every piece is negotiated one-on-one — no fixed pricing.</li>
+      </ol>
+      <p class="form-note">Submissions go straight to your email via Formspree — no store, no cart, no automatic checkout. Setup steps are in the README.</p>
+    </div>
+
+    <form id="commission-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="field-row">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+      </div>
+
+      <div>
+        <label for="details">What are you looking for?</label>
+        <textarea id="details" name="details" placeholder="Tell me your idea — subject, occasion, size, wood preference, timeline. We'll refine it together from here." required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-ember" style="align-self:flex-start;">Start the conversation</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  &copy; <span id="year"></span> Sarah Woodburn Art. All pieces are original, hand-burned work.
+</footer>
+
+<script>
+  // category filter
+  const tabs = document.querySelectorAll('.tab');
+  const pieces = document.querySelectorAll('.piece');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      pieces.forEach(p => {
+        p.classList.toggle('show', filter === 'all' || p.dataset.cat === filter);
+      });
+    });
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
