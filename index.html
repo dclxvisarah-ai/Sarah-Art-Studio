@@ -446,7 +446,7 @@ document.getElementById('lightbox').addEventListener('click', () => {
   function applyFilter(filter) {
     tabs.forEach(t => t.classList.toggle('active', t.dataset.filter === filter));
     pieces.forEach(p => {
-      p.classList.toggle('show', filter !== 'all' && p.dataset.cat === filter);
+      p.classList.toggle('show', filter !== 'all' && p.dataset.cat === filter); 
     });
   }
 
