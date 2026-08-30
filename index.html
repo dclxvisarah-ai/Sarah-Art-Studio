@@ -84,21 +84,8 @@
 
   /* ---------- hero ---------- */
   .hero{
-    position:relative; overflow:hidden;
     padding:14vh 6vw 10vh;
     max-width:900px;
-  }
-  .hero-bg{
-    position:absolute; inset:0;
-    background-image:url('hero-collage.png');
-    background-size:cover;
-    background-position:center 35%;
-    opacity:0.32;
-    filter:grayscale(35%) contrast(1.1) brightness(0.75);
-    mask-image:radial-gradient(ellipse at 40% 40%, black 45%, transparent 90%);
-    -webkit-mask-image:radial-gradient(ellipse at 40% 40%, black 45%, transparent 90%);
-    z-index:-1;
-    pointer-events:none;
   }
   .hero .eyebrow{ display:block; margin-bottom:18px; }
   .hero h1{
@@ -116,22 +103,20 @@
   .hero-actions{ margin-top:34px; display:flex; gap:16px; flex-wrap:wrap; }
 
   .btn{
-    display:inline-block; padding:20px 42px; border-radius:999px;
-    text-decoration:none; font-size:1.1rem; font-weight:700;
-    letter-spacing:0.02em; transition:transform .18s, box-shadow .18s;
-    border:2px solid transparent;
+    display:inline-block; padding:13px 26px; border-radius:2px;
+    text-decoration:none; font-size:0.92rem; font-weight:700;
+    letter-spacing:0.02em; transition:transform .15s, box-shadow .15s;
+    border:1px solid transparent;
   }
   .btn-ember{
     background:linear-gradient(90deg, var(--ember), var(--ember-2));
     color:#1c1815;
-    box-shadow:0 10px 26px -8px rgba(226,135,47,0.55);
   }
-  .btn-ember:hover{ transform:translateY(-3px) scale(1.02); box-shadow:0 14px 30px -8px rgba(226,135,47,0.6); }
+  .btn-ember:hover{ transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(226,135,47,0.5); }
   .btn-ghost{
-    border-color:var(--ember-2); color:var(--parchment);
-    background:rgba(226,135,47,0.06);
+    border-color:var(--line); color:var(--parchment);
   }
-  .btn-ghost:hover{ border-color:var(--ember-2); color:var(--ember-2); transform:translateY(-3px) scale(1.02); background:rgba(226,135,47,0.12); }
+  .btn-ghost:hover{ border-color:var(--ember-2); color:var(--ember-2); }
 
   /* ---------- section shell ---------- */
   section{ padding:8vh 6vw; }
@@ -144,9 +129,9 @@
     display:flex; flex-wrap:wrap; gap:10px; margin-bottom:38px;
   }
   .tab{
-    cursor:pointer; background:transparent; border:2px solid var(--ember-2);
-    color:var(--parchment); padding:13px 24px; border-radius:999px;
-    font-family:'Karla',sans-serif; font-size:0.95rem; font-weight:700; letter-spacing:0.03em;
+    cursor:pointer; background:transparent; border:1px solid var(--line);
+    color:var(--ash); padding:9px 18px; border-radius:999px;
+    font-family:'Karla',sans-serif; font-size:0.85rem; letter-spacing:0.03em;
     transition:all .2s;
   }
   .tab:hover{ border-color:var(--ember-2); color:var(--parchment); }
@@ -193,10 +178,7 @@
   .piece .caption .cat{
     font-size:0.7rem; text-transform:uppercase; letter-spacing:0.12em;
     color:var(--ember-2); font-weight:700; display:block; margin-bottom:4px;
-    background:none; border:none; padding:0; cursor:pointer;
-    font-family:inherit;
   }
-  .piece .caption .cat:hover{ color:var(--parchment); text-decoration:underline; }
   .piece .caption .title{
     font-family:'Fraunces', serif; font-size:1.02rem; color:var(--parchment);
   }
@@ -224,17 +206,11 @@
     width:100%; height:auto; display:block;
   }
 
-  /* two-up (side by side) */
+  /* two-up (side by side, no third image) */
   .set-2up{
     display:flex; gap:4px;
   }
   .set-2up img{ width:50%; }
-
-  /* stacked (pic on top of pic, one column) */
-  .set-stack{
-    display:flex; flex-direction:column; gap:4px;
-  }
-  .set-stack img{ width:100%; }
 
   /* ---------- commission form ---------- */
   .commission{
@@ -284,32 +260,12 @@
   .lightbox{position:fixed;inset:0;background:rgba(28,24,21,0.95);display:none;align-items:center;justify-content:center;z-index:100;cursor:zoom-out;padding:20px;}
   .lightbox.show{display:flex;}
   .lightbox img{max-width:100%;max-height:100%;object-fit:contain;}
-
-  /* ---------- sticky floating CTA (stays visible while scrolling the gallery) ---------- */
-  .floating-cta{
-    position:fixed; bottom:20px; right:20px; z-index:50;
-    background:linear-gradient(90deg, var(--ember), var(--ember-2));
-    color:#1c1815; text-decoration:none;
-    padding:15px 22px; border-radius:999px;
-    font-weight:700; font-size:0.9rem; letter-spacing:0.02em;
-    box-shadow:0 8px 22px -6px rgba(226,135,47,0.55);
-    transition:transform .15s;
-  }
-  .floating-cta:hover{ transform:translateY(-2px) scale(1.03); }
-  @media (max-width:520px){
-    .floating-cta{
-      left:16px; right:16px; bottom:16px;
-      text-align:center; padding:16px;
-      font-size:0.95rem;
-    }
-  }
 </style>
 </head>
 <body>
 
 <div class="grain-bg"></div>
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src="" alt=""></div>
-<a href="#commission" class="floating-cta" id="floating-cta">Request a Commission →</a>
 
 <header>
   <a href="#top" class="brand"><em>Ember and Grain Studios</em></a>
@@ -320,14 +276,12 @@
 </header>
 
 <div id="top" class="hero">
-  <div class="hero-bg"></div>
   <span class="eyebrow">Original Pyrography</span>
   <h1>Art burned into wood,<br class="hidden-mobile"> one <span class="burn">ember</span> at a time.</h1>
   <p>Every piece below is hand-burned by myself — all custom artwork. Browse the gallery by category, then send a commission request with your idea and I'll get back to you.</p>
   <div class="hero-actions">
     <a href="#gallery" class="btn btn-ember">View the gallery</a>
     <a href="#commission" class="btn btn-ghost">Request a commission</a>
-    <a href="https://YOUR-VIDEO-LINK-HERE" class="btn btn-ghost" target="_blank" rel="noopener">Watch Live Art Videos</a>
   </div>
 </div>
 
@@ -343,7 +297,7 @@
     <button class="tab" data-filter="nursery">Nursery Sets</button>
     <button class="tab" data-filter="portraits">Portraits</button>
     <button class="tab" data-filter="forsale">Currently Available</button>
-    <button class="tab" data-filter="random">Sarah's Art</button>
+    <button class="tab" data-filter="random">Random</button>
     <a href="#commission" class="tab tab-cta">Create Your Custom Art With Me Today →</a>
   </div>
 
@@ -357,7 +311,7 @@
         <img src="IMG_6918.jpeg" alt="Teddy bears playing sports, woodburning">
         <img src="RDR_Sports_Bears_Monogram_FULL_VIEW.jpg" alt="Teddy bears sports personalized">
       </div>
-      <div class="caption"><button class="cat" data-filter="nursery">Nursery Sets</button><span class="title">Monogram Teddy Bears Playing Sports</span></div>
+      <div class="caption"><span class="title">Monogram Teddy Bears Playing Sports</span></div>
     </article>
 
     <article class="piece" data-cat="nursery">
@@ -367,25 +321,22 @@
         <img src="IMG_3863.jpeg" alt="Wildflower set 2 of 3">
         <img src="IMG_3864.jpeg" alt="Wildflower set 3 of 3">
       </div>
-      <div class="caption"><button class="cat" data-filter="nursery">Nursery Sets</button><span class="title">Wildflowers Set</span></div>
+      <div class="caption"><span class="title">Wildflowers Set</span></div>
     </article>
 
-    <article class="piece" data-cat="nursery">
-      <div class="scorch"></div>
-      <div class="set-stack">
-        <img src="highland_cow_front_full.jpg" alt="Highland cow woodburning">
-        <img src="highland_cow_back_laney_full.jpg" alt="Highland cow woodburning, back view">
-      </div>
-      <div class="caption"><button class="cat" data-filter="nursery">Nursery Sets</button><span class="title">Highland Cows</span></div>
-    </article>
-
+   <article class="piece" data-cat="nursery">
+    <img src="highland_cow_front_full.jpg" alt="Highland cow woodburning">
+     <div class="scorch"></div>
+  <div class="caption"><span class="title">Highland Cows</span></div>
+</article>
+    
     <article class="piece" data-cat="nursery forsale">
       <div style="position:relative;">
         <img src="IMG_9750.jpeg" alt="Nursery kids fairytale art" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=Growing+Up'">
         <span class="available">Available</span>
       </div>
       <div class="scorch"></div>
-      <div class="caption"><button class="cat" data-filter="nursery">Nursery Sets</button><span class="title">Growing Up — $60.00</span></div>
+      <div class="caption"><span class="title">Growing Up — $60.00</span></div>
     </article>
 
     <article class="piece" data-cat="nursery forsale">
@@ -394,47 +345,47 @@
         <span class="available">Available</span>
       </div>
       <div class="scorch"></div>
-      <div class="caption"><button class="cat" data-filter="nursery">Nursery Sets</button><span class="title">Once Upon a Time</span></div>
+      <div class="caption"><span class="title">Once Upon a Time — $40.00</span></div>
     </article>
 
     <article class="piece" data-cat="nursery">
       <img src="IMG_4936.jpeg" alt="Dog woodburning">
       <div class="scorch"></div>
-      <div class="caption"><button class="cat" data-filter="nursery">Nursery Sets</button><span class="title">Golden Retriever</span></div>
+      <div class="caption"><span class="title">Golden Retriever</span></div>
     </article>
 
     <article class="piece" data-cat="nursery">
       <img src="IMG_4421.jpeg" alt="Nursery set woodburning piece">
       <div class="scorch"></div>
-      <div class="caption"><button class="cat" data-filter="nursery">Nursery Sets</button><span class="title">Winnie the Pooh Spoon</span></div>
+      <div class="caption"><span class="title">Winnie the Pooh Spoon</span></div>
     </article>
 
     <article class="piece" data-cat="nursery">
       <img src="IMG_5013.jpeg" alt="Nursery set woodburning piece">
       <div class="scorch"></div>
-      <div class="caption"><button class="cat" data-filter="nursery">Nursery Sets</button><span class="title">Minecraft Set</span></div>
+      <div class="caption"><span class="title">Minecraft Set</span></div>
     </article>
 
     <article class="piece" data-cat="nursery">
       <img src="IMG_7185.jpeg" alt="Nursery set woodburning piece">
       <div class="scorch"></div>
-      <div class="caption"><button class="cat" data-filter="nursery">Nursery Sets</button><span class="title">Aria Nameplate</span></div>
+      <div class="caption"><span class="title">Aria Nameplate</span></div>
     </article>
 
     <article class="piece" data-cat="nursery">
       <img src="IMG_8245.jpeg" alt="Nursery set woodburning piece">
       <div class="scorch"></div>
-      <div class="caption"><button class="cat" data-filter="nursery">Nursery Sets</button><span class="title">Lightning McQueen</span></div>
+      <div class="caption"><span class="title">Lightning McQueen</span></div>
     </article>
 
     <!-- PORTRAITS -->
     <article class="piece" data-cat="portraits">
       <div class="set-2up">
-        <img src="temp_image_9DEBC108-82C8-46A7-9C63-831F2ED8C284.webp" alt="Dixie yellow roses woodburning">
-        <img src="temp_image_8821E124-2458-48E9-B4F8-0CEA5336F7AA.jpg" alt="Dixie yellow roses woodburning">
+        <img src="dixie.jpeg" alt="Dixie yellow roses woodburning">
+        <img src="Dixie.jpeg" alt="Dixie yellow roses woodburning">
       </div>
       <div class="scorch"></div>
-      <div class="caption"><button class="cat" data-filter="portraits">Portraits</button><span class="title">Dixie Yellow Roses</span></div>
+      <div class="caption"><span class="cat">Portraits</span><span class="title">Dixie Yellow Roses</span></div>
     </article>
 
     <article class="piece" data-cat="portraits">
@@ -443,19 +394,19 @@
         <img src="IMG_5569.JPG" alt="Mohawk Twins portrait woodburning">
       </div>
       <div class="scorch"></div>
-      <div class="caption"><button class="cat" data-filter="portraits">Portraits</button><span class="title">Mohawk Twins</span></div>
+      <div class="caption"><span class="cat">Portraits</span><span class="title">Mohawk Twins</span></div>
     </article>
 
     <article class="piece" data-cat="portraits">
       <img src="IMG_4508.jpeg" alt="Sassie portrait woodburning">
       <div class="scorch"></div>
-      <div class="caption"><button class="cat" data-filter="portraits">Portraits</button><span class="title">Sassie</span></div>
+      <div class="caption"><span class="cat">Portraits</span><span class="title">Sassie</span></div>
     </article>
 
     <article class="piece" data-cat="portraits">
       <img src="Dale - memorial.jpeg" alt="Dale memorial portrait woodburning">
       <div class="scorch"></div>
-      <div class="caption"><button class="cat" data-filter="portraits">Portraits</button><span class="title">Dale - Memorial</span></div>
+      <div class="caption"><span class="cat">Portraits</span><span class="title">Dale - Memorial</span></div>
     </article>
 
     <article class="piece" data-cat="portraits">
@@ -464,7 +415,7 @@
         <img src="IMG_6987.jpeg" alt="Momma Cat cutting board woodburning, back">
       </div>
       <div class="scorch"></div>
-      <div class="caption"><button class="cat" data-filter="portraits">Portraits</button><span class="title">Momma Cat Double Sided Cutting Board</span></div>
+      <div class="caption"><span class="cat">Portraits</span><span class="title">Momma Cat Double Sided Cutting Board</span></div>
     </article>
 
     <article class="piece" data-cat="portraits">
@@ -473,13 +424,7 @@
         <img src="imagejpeg_0.jpg" alt="Sugar R.I.P. memorial portrait woodburning">
       </div>
       <div class="scorch"></div>
-      <div class="caption"><button class="cat" data-filter="portraits">Portraits</button><span class="title">Sugar R.I.P.</span></div>
-    </article>
-
-    <article class="piece" data-cat="portraits">
-      <img src="IMG_5530.jpeg" alt="Portrait woodburning piece">
-      <div class="scorch"></div>
-      <div class="caption"><button class="cat" data-filter="portraits">Portraits</button><span class="title">Piece Title</span></div>
+      <div class="caption"><span class="cat">Portraits</span><span class="title">Sugar R.I.P.</span></div>
     </article>
 
     <article class="piece" data-cat="portraits">
@@ -488,26 +433,247 @@
         <img src="Joey.jpg" alt="Joey portrait woodburning">
       </div>
       <div class="scorch"></div>
-      <div class="caption"><button class="cat" data-filter="portraits">Portraits</button><span class="title">Joey</span></div>
+      <div class="caption"><span class="cat">Portraits</span><span class="title">Joey</span></div>
     </article>
 
     <!-- CURRENTLY AVAILABLE / FOR SALE -->
     <article class="piece" data-cat="forsale">
-      <img src="FILENAME.jpeg" alt="Piece for sale, woodburning" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=Piece'">
+      <div style="position:relative;">
+      <img src="IMG_5828.jpeg" alt="Shibari Love" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=Shibari Release'">
+      <span class="available">Available</span>
       <div class="scorch"></div>
-      <div class="caption"><button class="cat" data-filter="forsale">Currently Available</button><span class="title">Piece Title</span></div>
+        <div class="caption"><button class="cat" data-filter="Currently Available">Sarah's Art</button><span class="title">Shibari Release - $60.00</span></div>
     </article>
 
-    <!-- SARAH'S ART -->
-    <article class="piece" data-cat="random">
-      <img src="images/random/example-1.jpg" alt="Miscellaneous woodburning example — replace with your photo" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=Sarah%27s+Art'">
+    <article class="piece" data-cat="forsale">
+      <div style="position:relative;">
+      <img src="IMG_8679.jpeg" alt="Van Gogh">
+      <span class="available">Available</span>
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Currently Available">Sarah's Art</button><span class="title">Van Gogh Sunflowers - $60.00</span></div>
+</article>
+        
+    <article class="piece" data-cat="forsale">
+     <div style="position:relative;">
+     <img src="IMG_5527.jpeg" alt="skull">
+     <span class="available">Available</span>
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Currently Available">Sarah's Art</button><span class="title">Evelyn - $60.00</span></div>
+</article>
+
+     <article class="piece" data-cat="forsale">
+      <div style="position:relative;">
+      <img src="IMG_1096.jpeg" alt="Skulls" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=Forsale+%231'">
+      <span class="available">Available</span>
       <div class="scorch"></div>
-      <div class="caption">
-        <button class="cat" data-filter="random">Sarah's Art</button>
-        <span class="title">One-Off Piece — replace title</span>
-      </div>
+     <div class="caption"><button class="cat" data-filter="Currently Available">Sarah's Art</button><span class="title">Triplets - $40.00</span></div>
     </article>
-  </div>
+    
+  <article class="piece" data-cat="forsale">
+           <div style="position:relative;">
+          <img src="IMG_2968.jpeg" alt="moth">
+      <span class="available">Available</span>
+        <div class="scorch"></div>
+       <div class="caption"><button class="cat" data-filter="Currently Available">Sarah's Art</button><span class="title">A Friend - $30.00</span></div>
+  </article>
+        
+        
+        <!-- RANDOM -->
+  <article class="piece" data-cat="random">
+  <img src="63A339F2-072A-4056-A410-B39D27F8B501.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_20240824_0009.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_2047.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+    <article class="piece" data-cat="random">
+  <img src="IMG_2548.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_2549.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_2845.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_2986.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+    <article class="piece" data-cat="random">
+  <img src="IMG_3133.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_3409.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_3584.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_4171.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_4223.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_4229.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_4422.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_4438.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_4455.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_4527.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_5229.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_5230.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+ <article class="piece" data-cat="random">
+  <img src="IMG_5530.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_5571.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_5713.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_6661.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_6670.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_6810.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_9257.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_9345.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title">Sarah</span></div>
+</article>
+
+    <article class="piece" data-cat="random">
+  <img src="IMG_9348.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_9360.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_9458.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="IMG_9751.jpeg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+
+  <article class="piece" data-cat="random">
+  <img src="highland_cow_back_laney_full.jpg" alt="DESCRIPTION">
+  <div class="scorch"></div>
+  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+</article>
+        
+  
+   
+
 </section>
 
 <section id="commission" class="commission">
@@ -524,7 +690,7 @@
       <p class="form-note">Submissions go straight to your email via Formspree — no store, no cart, no automatic checkout. Setup steps are in the README.</p>
     </div>
 
-    <form id="commission-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form id="commission-form" action="https://formspree.io/f/xaeynkao" method="POST">
       <div class="field-row">
         <div>
           <label for="name">Name</label>
@@ -547,7 +713,7 @@
 </section>
 
 <footer>
-  &copy; <span id="year"></span> Sarah DeFazio Ember and Grain Studios. All pieces are original, hand-burned work.
+  &copy; <span id="year"></span> Sarah DeFazio - Ember and Grain Studios. All pieces are original, hand-burned work. All rights reserved. Original artwork, photography, designs, and written content may not be reproduced, copied, distributed, or used without permission.
 </footer>
 
 <script>
@@ -565,7 +731,6 @@
   // category filter
   const tabs = document.querySelectorAll('.tab');
   const pieces = document.querySelectorAll('.piece');
-  const catButtons = document.querySelectorAll('.piece .caption .cat');
 
   function getCats(p) {
     return p.dataset.cat.split(' ');
@@ -575,11 +740,6 @@
     tabs.forEach(t => t.classList.toggle('active', t.dataset.filter === filter));
     pieces.forEach(p => {
       p.classList.toggle('show', filter === 'all' || getCats(p).includes(filter));
-    });
-    // hide the clickable category label once you're already inside that single category —
-    // redundant there. Keep it visible on "All work" and on the homepage preview.
-    catButtons.forEach(btn => {
-      btn.style.display = (filter === 'all') ? '' : 'none';
     });
   }
 
@@ -591,7 +751,6 @@
       if (newCat) { seen.add(newCat); p.classList.add('show'); }
       else { p.classList.remove('show'); }
     });
-    catButtons.forEach(btn => { btn.style.display = ''; });
   }
 
   tabs.forEach(tab => {
@@ -599,16 +758,6 @@
       const filter = tab.dataset.filter;
       applyFilter(filter);
       history.replaceState(null, '', filter === 'all' ? '#gallery' : '#' + filter);
-    });
-  });
-
-  // clicking a category label on a card jumps straight to that filtered view
-  catButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter;
-      applyFilter(filter);
-      history.replaceState(null, '', '#' + filter);
-      document.getElementById('gallery').scrollIntoView();
     });
   });
 
@@ -622,16 +771,6 @@
   }
 
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  // hide the floating CTA once the real commission form is on screen
-  const floatingCta = document.getElementById('floating-cta');
-  const commissionSection = document.getElementById('commission');
-  const ctaObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      floatingCta.style.display = entry.isIntersecting ? 'none' : '';
-    });
-  }, { threshold: 0.15 });
-  ctaObserver.observe(commissionSection);
 </script>
 
 </body>
