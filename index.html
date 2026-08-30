@@ -160,6 +160,7 @@
     width:100%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);
     filter:saturate(0.92) contrast(1.02);
     transition:transform .5s ease, filter .5s ease;
+    cursor:zoom-in;
   }
   .piece .scorch{
     position:absolute; inset:0;
@@ -185,6 +186,31 @@
     color:var(--ash-dim); font-size:0.8rem; padding:14px 16px 18px;
     border-top:1px dashed var(--line); margin-top:auto;
   }
+  .available{
+    position:absolute; top:10px; right:10px; background:var(--ember-2);
+    color:#1c1815; font-size:0.7rem; font-weight:700; text-transform:uppercase;
+    letter-spacing:0.06em; padding:4px 10px; border-radius:999px;
+  }
+
+  /* two-up + one full-width set layout (Wildflowers, Teddy Bears, etc.) */
+  .set-2plus1{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4px;
+  }
+  .set-2plus1 img:nth-child(3){
+    grid-column:1 / -1;
+    aspect-ratio:8/5;
+  }
+  .set-2plus1 img{
+    width:100%; height:auto; display:block;
+  }
+
+  /* two-up (side by side, no third image) */
+  .set-2up{
+    display:flex; gap:4px;
+  }
+  .set-2up img{ width:50%; }
 
   /* ---------- commission form ---------- */
   .commission{
@@ -229,28 +255,17 @@
 
   @media (prefers-reduced-motion: reduce){
     *{ transition:none !important; }
-  } 
-.lightbox{position:fixed;inset:0;background:rgba(28,24,21,0.95);display:none;align-items:center;justify-content:center;z-index:100;cursor:zoom-out;padding:20px;}
-.lightbox.show{display:flex;}
-.lightbox img{max-width:100%;max-height:100%;object-fit:contain;}
-.piece img{cursor:zoom-in;}
+  }
+
+  .lightbox{position:fixed;inset:0;background:rgba(28,24,21,0.95);display:none;align-items:center;justify-content:center;z-index:100;cursor:zoom-out;padding:20px;}
+  .lightbox.show{display:flex;}
+  .lightbox img{max-width:100%;max-height:100%;object-fit:contain;}
 </style>
 </head>
-<div class="lightbox" id="lightbox"><img id="lightbox-img" src="" alt=""></div>
-<script>
-document.querySelectorAll('.piece img').forEach(img => {
-  img.addEventListener('click', () => {
-    document.getElementById('lightbox-img').src = img.src;
-    document.getElementById('lightbox').classList.add('show');
-  });
-});
-document.getElementById('lightbox').addEventListener('click', () => {
-  document.getElementById('lightbox').classList.remove('show');
-});
-</script>
 <body>
 
 <div class="grain-bg"></div>
+<div class="lightbox" id="lightbox"><img id="lightbox-img" src="" alt=""></div>
 
 <header>
   <a href="#top" class="brand"><em>Ember and Grain Studios</em></a>
@@ -287,187 +302,158 @@ document.getElementById('lightbox').addEventListener('click', () => {
   </div>
 
   <div class="gallery" id="gallery-grid">
-    
-    <!-- NURSERY SETS -->
-<article class="piece show" data-cat="nursery">
-  <div style="display:flex; gap:4px;">
-    <img src="IMG_6917.jpeg" alt="Teddy bears playing sports, woodburning" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
-    <img src="IMG_6918.jpeg" alt="Teddy bears playing sports, woodburning" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Teddy Bears Sports</span></div>
-</article>
-    
-<article class="piece show" data-cat="nursery">
-  <img src="RDR_Sports_Bears_Monogram_FULL_VIEW.jpg" alt="Teddy bears playing sports, monogram woodburning">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Teddy Bears Playing Sports</span></div>
-</article>    
-    
-<article class="piece show" data-cat="nursery">
- <div style="display:flex; gap:4px;">
-  <img src="highland_cow_front_full.jpg" alt="Highland cow woodburning" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
-  <img src="highland_cow_back_laney_full.jpg" alt="Highland cow woodburning, back view" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Highland Cows</span></div>
-</article>   
-    
-<article class="piece show" data-cat="nursery">
-  <img src="IMG_6917.jpeg" alt="Teddy bears playing sports, woodburning">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Teddy Bears Playing Sports</span></div>
-</article>
-    
-<article class="piece show" data-cat="nursery">
-  <img src="IMG_6918.jpeg" alt="Teddy bears playing sports, woodburning">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Teddy Bears Playing Sports</span></div>
-</article>
-    
-<article class="piece show" data-cat="nursery">
-  <div style="display:flex; gap:4px;">
-    <img src="IMG_3844.jpeg" alt="Wildflower set 1of3" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
-    <img src="IMG-3864.jpeg" alt="2of3" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
-    <img src="IMG_3863.jpeg" alt="3of3" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Wildflowers Set </span></div>
-</article>
-    <article class="piece show" data-cat="nursery forsale">
- <div style="position:relative;">
-   <img 
-    src="IMG_9750.jpeg" 
-    alt="nursery kids fairytale art"
-    style="width:100%; aspect-ratio:4/5; object-fit:contain;background:#fff:">
-     <span class="available">Available
-     </span>
-  </div>
-  <div class="scorch"></div>
-  <div class="caption">
-     <span class="cat">Nursery Sets</span>
-     <span class="title">Growing Up</span>
-  </div>
-</article>  
-    
-  <article class="piece show" data-cat="nursery forsale">
-  <img src="IMG_8623.jpeg" alt="Nursery set woodburning piece">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Once Upon a Time</span></div>
-</article>  
-<article class="piece show" data-cat="nursery">
-  <img src="IMG_4936.jpeg" alt="dog woodburning">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Golden Retriever</span></div>
-</article>
-<article class="piece show" data-cat="nursery">
-  <img src="IMG_4421.jpeg" alt="Nursery set woodburning piece">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Winnie the Pooh Spoon</span></div>
-</article>
-<article class="piece show" data-cat="nursery">
-  <img src="IMG_5013.jpeg" alt="Nursery set woodburning piece">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Minecraft Set</span></div>
-</article>
-<article class="piece show" data-cat="nursery">
-  <img src="IMG_7185.jpeg" alt="Nursery set woodburning piece">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Aria Nameplate</span></div>
-</article>
-<article class="piece show" data-cat="nursery">
-  <img src="IMG_8245.jpeg" alt="Nursery set woodburning piece">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Lightning McQueen</span></div>
-</article>
-<article class="piece show" data-cat="nursery">
-  <img src="IMG_3844.jpeg" alt="Wildflower woodburning">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Wildflower 1 of 3</span></div>
-</article>
-<article class="piece show" data-cat="nursery">
-  <img src="IMG_3863.jpeg" alt="woodburning">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Wildflower 2 of 3</span></div>
-</article>
-<article class="piece show" data-cat="nursery">
-  <img src="IMG_3864.jpeg" alt="woodburning">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Wildflower 3 of 3</span></div>
-</article>
 
+    <!-- NURSERY SETS -->
+    <article class="piece" data-cat="nursery">
+      <div class="scorch"></div>
+      <div class="set-2plus1">
+        <img src="IMG_6917.jpeg" alt="Teddy bears playing sports, woodburning">
+        <img src="IMG_6918.jpeg" alt="Teddy bears playing sports, woodburning">
+        <img src="RDR_Sports_Bears_Monogram_FULL_VIEW.jpg" alt="Teddy bears sports personalized">
+      </div>
+      <div class="caption"><span class="title">Monogram Teddy Bears Playing Sports</span></div>
+    </article>
+
+    <article class="piece" data-cat="nursery">
+      <div class="scorch"></div>
+      <div class="set-2plus1">
+        <img src="IMG_3844.jpeg" alt="Wildflower set 1 of 3">
+        <img src="IMG_3863.jpeg" alt="Wildflower set 2 of 3">
+        <img src="IMG_3864.jpeg" alt="Wildflower set 3 of 3">
+      </div>
+      <div class="caption"><span class="title">Wildflowers Set</span></div>
+    </article>
+
+    <article class="piece" data-cat="nursery">
+      <div class="scorch"></div>
+      <div class="set-2up">
+        <img src="highland_cow_front_full.jpg" alt="Highland cow woodburning">
+        <img src="highland_cow_back_laney_full.jpg" alt="Highland cow woodburning, back view">
+      </div>
+      <div class="caption"><span class="title">Highland Cows</span></div>
+    </article>
+
+    <article class="piece" data-cat="nursery forsale">
+      <div style="position:relative;">
+        <img src="IMG_9750.jpeg" alt="Nursery kids fairytale art" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=Growing+Up'">
+        <span class="available">Available</span>
+      </div>
+      <div class="scorch"></div>
+      <div class="caption"><span class="title">Growing Up — $60.00</span></div>
+    </article>
+
+    <article class="piece" data-cat="nursery forsale">
+      <div style="position:relative;">
+        <img src="IMG_8623.jpeg" alt="Nursery fairytale kids art" style="width:100%; aspect-ratio:4/5; object-fit:contain; background:#fff;">
+        <span class="available">Available</span>
+      </div>
+      <div class="scorch"></div>
+      <div class="caption"><span class="title">Once Upon a Time</span></div>
+    </article>
+
+    <article class="piece" data-cat="nursery">
+      <img src="IMG_4936.jpeg" alt="Dog woodburning">
+      <div class="scorch"></div>
+      <div class="caption"><span class="title">Golden Retriever</span></div>
+    </article>
+
+    <article class="piece" data-cat="nursery">
+      <img src="IMG_4421.jpeg" alt="Nursery set woodburning piece">
+      <div class="scorch"></div>
+      <div class="caption"><span class="title">Winnie the Pooh Spoon</span></div>
+    </article>
+
+    <article class="piece" data-cat="nursery">
+      <img src="IMG_5013.jpeg" alt="Nursery set woodburning piece">
+      <div class="scorch"></div>
+      <div class="caption"><span class="title">Minecraft Set</span></div>
+    </article>
+
+    <article class="piece" data-cat="nursery">
+      <img src="IMG_7185.jpeg" alt="Nursery set woodburning piece">
+      <div class="scorch"></div>
+      <div class="caption"><span class="title">Aria Nameplate</span></div>
+    </article>
+
+    <article class="piece" data-cat="nursery">
+      <img src="IMG_8245.jpeg" alt="Nursery set woodburning piece">
+      <div class="scorch"></div>
+      <div class="caption"><span class="title">Lightning McQueen</span></div>
+    </article>
 
     <!-- PORTRAITS -->
-<article class="piece show" data-cat="portraits">
- <div style="display:flex; gap:4px;">
-  <img src="temp_image_9DEBC108-82C8-46A7-9C63-831F2ED8C284.webp" alt="" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
-  <img src="temp_image_8821E124-2458-48E9-B4F8-0CEA5336F7AA.jpg" alt="" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Portraits</span><span class="title">Dixie Yellow Roses</span></div>
-</article> 
- <article class="piece show" data-cat="portraits">
-  <div style="display:flex; gap:4px;">
-   <img src="IMG_5573.jpg" alt="short description" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
-   <img src="IMG_5569.JPG" alt="short description" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Portraits</span><span class="title">Mohawk Twins</span></div>
-</article>
-<article class="piece show" data-cat="portraits">
-  <img src="IMG_4508.jpeg" alt="Sassie">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Portraits</span><span class="title">Sassie</span></div>
-</article>  
- <article class="piece show" data-cat="portraits">
-  <img src="Dale - memorial.jpeg" alt="short description">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Portraits</span><span class="title">Dale - Memorial</span></div>
-</article>
- <article class="piece show" data-cat="portraits">
-  <div style="display:flex; gap:4px;">
-   <img src="Momma Cat front .jpeg" alt="short description" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
-   <img src="IMG_6987.jpeg" alt="short deacription" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Portraits</span><span class="title">Momma Cat Double sided Cutting Board</span></div>
-</article>
-  <article class="piece show" data-cat="portraits">
-  <div style="display:flex; gap:4px;">
-    <img src="IMG_5189.jpeg" alt="short description" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
-    <img src="imagejpeg_0.jpg" alt="short description" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Portraits</span><span class="title">Sugar R. I. P</span></div>
-</article>
- <article class="piece show" data-cat="portraits">
-  <img src="IMG_5530.jpeg" alt="short description">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Portraits</span><span class="title">Piece Title</span></div>
-</article>
-<article class="piece show" data-cat="portraits">
-  <div style="display:flex; gap:4px;">
-  <img src="IMG_A7A19E8B-F56B-40E0-92CD-5091057614E4.JPEG" alt="Joey" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
-  <img sec="Joey .jpg" alt="Joey" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">  
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Portraits</span><span class="title">Joey</span></div>
-</article>
- 
+    <article class="piece" data-cat="portraits">
+      <div class="set-2up">
+        <img src="temp_image_9DEBC108-82C8-46A7-9C63-831F2ED8C284.webp" alt="Dixie yellow roses woodburning">
+        <img src="temp_image_8821E124-2458-48E9-B4F8-0CEA5336F7AA.jpg" alt="Dixie yellow roses woodburning">
+      </div>
+      <div class="scorch"></div>
+      <div class="caption"><span class="cat">Portraits</span><span class="title">Dixie Yellow Roses</span></div>
+    </article>
+
+    <article class="piece" data-cat="portraits">
+      <div class="set-2up">
+        <img src="IMG_5573.jpg" alt="Mohawk Twins portrait woodburning">
+        <img src="IMG_5569.JPG" alt="Mohawk Twins portrait woodburning">
+      </div>
+      <div class="scorch"></div>
+      <div class="caption"><span class="cat">Portraits</span><span class="title">Mohawk Twins</span></div>
+    </article>
+
+    <article class="piece" data-cat="portraits">
+      <img src="IMG_4508.jpeg" alt="Sassie portrait woodburning">
+      <div class="scorch"></div>
+      <div class="caption"><span class="cat">Portraits</span><span class="title">Sassie</span></div>
+    </article>
+
+    <article class="piece" data-cat="portraits">
+      <img src="Dale - memorial.jpeg" alt="Dale memorial portrait woodburning">
+      <div class="scorch"></div>
+      <div class="caption"><span class="cat">Portraits</span><span class="title">Dale - Memorial</span></div>
+    </article>
+
+    <article class="piece" data-cat="portraits">
+      <div class="set-2up">
+        <img src="Momma Cat front .jpeg" alt="Momma Cat cutting board woodburning, front">
+        <img src="IMG_6987.jpeg" alt="Momma Cat cutting board woodburning, back">
+      </div>
+      <div class="scorch"></div>
+      <div class="caption"><span class="cat">Portraits</span><span class="title">Momma Cat Double Sided Cutting Board</span></div>
+    </article>
+
+    <article class="piece" data-cat="portraits">
+      <div class="set-2up">
+        <img src="IMG_5189.jpeg" alt="Sugar R.I.P. memorial portrait woodburning">
+        <img src="imagejpeg_0.jpg" alt="Sugar R.I.P. memorial portrait woodburning">
+      </div>
+      <div class="scorch"></div>
+      <div class="caption"><span class="cat">Portraits</span><span class="title">Sugar R.I.P.</span></div>
+    </article>
+
+    <article class="piece" data-cat="portraits">
+      <img src="IMG_5530.jpeg" alt="Portrait woodburning piece">
+      <div class="scorch"></div>
+      <div class="caption"><span class="cat">Portraits</span><span class="title">Piece Title</span></div>
+    </article>
+
+    <article class="piece" data-cat="portraits">
+      <div class="set-2up">
+        <img src="IMG_A7A19E8B-F56B-40E0-92CD-5091057614E4.JPEG" alt="Joey portrait woodburning">
+        <img src="Joey.jpg" alt="Joey portrait woodburning">
+      </div>
+      <div class="scorch"></div>
+      <div class="caption"><span class="cat">Portraits</span><span class="title">Joey</span></div>
+    </article>
 
     <!-- CURRENTLY AVAILABLE / FOR SALE -->
-  <article class="piece show" data-cat="forsale">
- <img src="IMG_9750.jpeg" alt="short description">
- <div class="scorch"></div>
- <div class="caption"><span class="cat">Currently Available</span><span class="title">GrowingUp $60.00</span></div>
-</article>
-    
-    <article class="piece show" data-cat="forsale">
- <img src="img_9750.jpeg" alt="Fairytale kids nursery art" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=For+Sale+%231'">
- <div class="scorch"></div>
- <div class="caption"><span class="cat">Currently Available</span><span class="title">Growing Up $60.00</span></div>
-</article>
+    <article class="piece" data-cat="forsale">
+      <img src="FILENAME.jpeg" alt="Random piece woodburning" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=Piece'">
+      <div class="scorch"></div>
+      <div class="caption"><span class="cat">Random</span><span class="title">Piece Title</span></div>
+    </article>
 
     <!-- RANDOM -->
-     <article class="piece show" data-cat="Random Art">
-  <img src="FILENAME.jpeg" alt="short description">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Random Art</span><span class="title">Piece Title</span></div>
-</article>
-
-    <article class="piece show" data-cat="random">
+    <article class="piece" data-cat="random">
       <img src="images/random/example-1.jpg" alt="Miscellaneous woodburning example — replace with your photo" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=Random+%231'">
       <div class="scorch"></div>
       <div class="caption">
@@ -518,15 +504,40 @@ document.getElementById('lightbox').addEventListener('click', () => {
   &copy; <span id="year"></span> Sarah DeFazio Ember and Grain Studios. All pieces are original, hand-burned work.
 </footer>
 
- <script>
+<script>
+  // lightbox
+  document.querySelectorAll('.piece img').forEach(img => {
+    img.addEventListener('click', () => {
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox').classList.add('show');
+    });
+  });
+  document.getElementById('lightbox').addEventListener('click', () => {
+    document.getElementById('lightbox').classList.remove('show');
+  });
+
   // category filter
   const tabs = document.querySelectorAll('.tab');
   const pieces = document.querySelectorAll('.piece');
 
+  function getCats(p) {
+    return p.dataset.cat.split(' ');
+  }
+
   function applyFilter(filter) {
     tabs.forEach(t => t.classList.toggle('active', t.dataset.filter === filter));
     pieces.forEach(p => {
-      p.classList.toggle('show', filter !== 'all' && p.dataset.cat === filter); 
+      p.classList.toggle('show', filter === 'all' || getCats(p).includes(filter));
+    });
+  }
+
+  function showPreview() {
+    tabs.forEach(t => t.classList.remove('active'));
+    const seen = new Set();
+    pieces.forEach(p => {
+      const newCat = getCats(p).find(c => !seen.has(c));
+      if (newCat) { seen.add(newCat); p.classList.add('show'); }
+      else { p.classList.remove('show'); }
     });
   }
 
@@ -543,11 +554,12 @@ document.getElementById('lightbox').addEventListener('click', () => {
   if (validFilters.includes(startFilter)) {
     applyFilter(startFilter);
     document.getElementById('gallery').scrollIntoView();
+  } else {
+    showPreview();
   }
 
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
-
 
 </body>
 </html>
