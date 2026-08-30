@@ -253,7 +253,7 @@ document.getElementById('lightbox').addEventListener('click', () => {
 <div class="grain-bg"></div>
 
 <header>
-  <a href="#top" class="brand">Sarah&nbsp;<em>Woodburn</em></a>
+  <a href="#top" class="brand">Sarah&nbsp;<em>Ember and Grain Studios</em></a>
   <nav>
     <a href="#gallery">Gallery</a>
     <a href="#commission">Commission</a>
@@ -263,7 +263,7 @@ document.getElementById('lightbox').addEventListener('click', () => {
 <div id="top" class="hero">
   <span class="eyebrow">Original Pyrography</span>
   <h1>Art burned into wood,<br class="hidden-mobile"> one <span class="burn">ember</span> at a time.</h1>
-  <p>Every piece below is hand-burned — no prints, all custom artwork. Browse the gallery by category, then send a commission request with your idea and I'll get back to you.</p>
+  <p>Every piece below is hand-burned by myself — all custom artwork. Browse the gallery by category, then send a commission request with your idea and I'll get back to you.</p>
   <div class="hero-actions">
     <a href="#gallery" class="btn btn-ember">View the gallery</a>
     <a href="#commission" class="btn btn-ghost">Request a commission</a>
@@ -294,30 +294,35 @@ document.getElementById('lightbox').addEventListener('click', () => {
     <img src="IMG_6917.jpeg" alt="Teddy bears playing sports, woodburning" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
     <img src="IMG_6918.jpeg" alt="Teddy bears playing sports, woodburning" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
   <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Teddy Bears - Sports</span></div>
+  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Teddy Bears Sports</span></div>
 </article>
+    
 <article class="piece show" data-cat="nursery">
   <img src="RDR_Sports_Bears_Monogram_FULL_VIEW.jpg" alt="Teddy bears playing sports, monogram woodburning">
   <div class="scorch"></div>
   <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Teddy Bears Playing Sports</span></div>
 </article>    
+    
 <article class="piece show" data-cat="nursery">
  <div style="display:flex; gap:4px;">
   <img src="highland_cow_front_full.jpg" alt="Highland cow woodburning" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
   <img src="highland_cow_back_laney_full.jpg" alt="Highland cow woodburning, back view" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
   <div class="scorch"></div>
   <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Highland Cows</span></div>
-</article>    
+</article>   
+    
 <article class="piece show" data-cat="nursery">
   <img src="IMG_6917.jpeg" alt="Teddy bears playing sports, woodburning">
   <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Teddy Bears Playing Sports 1</span></div>
+  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Teddy Bears Playing Sports</span></div>
 </article>
+    
 <article class="piece show" data-cat="nursery">
   <img src="IMG_6918.jpeg" alt="Teddy bears playing sports, woodburning">
   <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Teddy Bears Playing Sports 2</span></div>
+  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Teddy Bears Playing Sports</span></div>
 </article>
+    
 <article class="piece show" data-cat="nursery">
   <div style="display:flex; gap:4px;">
     <img src="IMG_3844.jpeg" alt="Wildflower set 1of3" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
@@ -326,12 +331,23 @@ document.getElementById('lightbox').addEventListener('click', () => {
   <div class="scorch"></div>
   <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Wildflowers Set </span></div>
 </article>
-<article class="piece show" data-cat="nursery">
-  <img src="IMG_9750.jpeg" alt="Nursery set woodburning piece">
+    <article class="piece show" data-cat="nursery forsale">
+ <div style="position:relative;">
+   <img 
+    src="IMG_9750.jpeg" 
+    alt="nursery kids fairytale art"
+    style="width:100%; aspect-ratio:4/5; object-fit:contain;background:#fff:">
+     <span class="available">Available
+     </span>
+  </div>
   <div class="scorch"></div>
-  <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Growing Up</span></div>
+  <div class="caption">
+     <span class="cat">Nursery Sets</span>
+     <span class="title">Growing Up</span>
+  </div>
 </article>  
-  <article class="piece show" data-cat="nursery">
+    
+  <article class="piece show" data-cat="nursery forsale">
   <img src="IMG_8623.jpeg" alt="Nursery set woodburning piece">
   <div class="scorch"></div>
   <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Once Upon a Time</span></div>
@@ -341,8 +357,6 @@ document.getElementById('lightbox').addEventListener('click', () => {
   <div class="scorch"></div>
   <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Golden Retriever</span></div>
 </article>
-
-
 <article class="piece show" data-cat="nursery">
   <img src="IMG_4421.jpeg" alt="Nursery set woodburning piece">
   <div class="scorch"></div>
@@ -363,9 +377,6 @@ document.getElementById('lightbox').addEventListener('click', () => {
   <div class="scorch"></div>
   <div class="caption"><span class="cat">Nursery Sets</span><span class="title">Lightning McQueen</span></div>
 </article>
-
-
-    
 <article class="piece show" data-cat="nursery">
   <img src="IMG_3844.jpeg" alt="Wildflower woodburning">
   <div class="scorch"></div>
@@ -384,50 +395,50 @@ document.getElementById('lightbox').addEventListener('click', () => {
 
 
     <!-- PORTRAITS -->
-<article class="piece show" data-cat="Portraits">
+<article class="piece show" data-cat="portraits">
  <div style="display:flex; gap:4px;">
   <img src="temp_image_9DEBC108-82C8-46A7-9C63-831F2ED8C284.webp" alt="" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
   <img src="temp_image_8821E124-2458-48E9-B4F8-0CEA5336F7AA.jpg" alt="" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
   <div class="scorch"></div>
   <div class="caption"><span class="cat">Portraits</span><span class="title">Dixie Yellow Roses</span></div>
 </article> 
- <article class="piece show" data-cat="Portraits">
+ <article class="piece show" data-cat="portraits">
   <div style="display:flex; gap:4px;">
    <img src="IMG_5573.jpg" alt="short description" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
    <img src="IMG_5569.JPG" alt="short description" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
   <div class="scorch"></div>
   <div class="caption"><span class="cat">Portraits</span><span class="title">Mohawk Twins</span></div>
 </article>
-<article class="piece show" data-cat="Portraits">
+<article class="piece show" data-cat="portraits">
   <img src="IMG_4508.jpeg" alt="Sassie">
   <div class="scorch"></div>
   <div class="caption"><span class="cat">Portraits</span><span class="title">Sassie</span></div>
 </article>  
- <article class="piece show" data-cat="Portraits">
+ <article class="piece show" data-cat="portraits">
   <img src="Dale - memorial.jpeg" alt="short description">
   <div class="scorch"></div>
   <div class="caption"><span class="cat">Portraits</span><span class="title">Dale - Memorial</span></div>
 </article>
- <article class="piece show" data-cat="Portraits">
+ <article class="piece show" data-cat="portraits">
   <div style="display:flex; gap:4px;">
    <img src="Momma Cat front .jpeg" alt="short description" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
    <img src="IMG_6987.jpeg" alt="short deacription" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
   <div class="scorch"></div>
   <div class="caption"><span class="cat">Portraits</span><span class="title">Momma Cat Double sided Cutting Board</span></div>
 </article>
-  <article class="piece show" data-cat="Portraits">
+  <article class="piece show" data-cat="portraits">
   <div style="display:flex; gap:4px;">
     <img src="IMG_5189.jpeg" alt="short description" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
     <img src="imagejpeg_0.jpg" alt="short description" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
   <div class="scorch"></div>
   <div class="caption"><span class="cat">Portraits</span><span class="title">Sugar R. I. P</span></div>
 </article>
- <article class="piece show" data-cat="Portraits">
+ <article class="piece show" data-cat="portraits">
   <img src="IMG_5530.jpeg" alt="short description">
   <div class="scorch"></div>
   <div class="caption"><span class="cat">Portraits</span><span class="title">Piece Title</span></div>
 </article>
-<article class="piece show" data-cat="Portraits">
+<article class="piece show" data-cat="portraits">
   <div style="display:flex; gap:4px;">
   <img src="IMG_A7A19E8B-F56B-40E0-92CD-5091057614E4.JPEG" alt="Joey" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">
   <img sec="Joey .jpg" alt="Joey" style="width:50%; aspect-ratio:4/5; object-fit:contain; background:var(--char-2);">  
@@ -437,20 +448,17 @@ document.getElementById('lightbox').addEventListener('click', () => {
  
 
     <!-- CURRENTLY AVAILABLE / FOR SALE -->
-     <article class="piece show" data-cat="Available For Sale">
-  <img src="FILENAME.jpeg" alt="short description">
-  <div class="scorch"></div>
-  <div class="caption"><span class="cat">Available For Sale</span><span class="title">Piece Title</span></div>
+  <article class="piece show" data-cat="forsale">
+ <img src="IMG_9750.jpeg" alt="short description">
+ <div class="scorch"></div>
+ <div class="caption"><span class="cat">Currently Available</span><span class="title">GrowingUp</span></div>
 </article>
-
+    
     <article class="piece show" data-cat="forsale">
-      <img src="images/forsale/example-1.jpg" alt="Piece currently available for sale — replace with your photo" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=For+Sale+%231'">
-      <div class="scorch"></div>
-      <div class="caption">
-        <span class="cat">Currently Available</span>
-        <span class="title">For Sale — replace title</span>
-      </div>
-    </article>
+ <img src="img_9750.jpeg" alt="Piece currently available for sale — replace with your photo" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=For+Sale+%231'">
+ <div class="scorch"></div>
+ <div class="caption"><span class="cat">Currently Available</span><span class="Growing up">For Sale — replace title</span></div>
+</article>
 
     <!-- RANDOM -->
      <article class="piece show" data-cat="Random Art">
