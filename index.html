@@ -84,8 +84,21 @@
 
   /* ---------- hero ---------- */
   .hero{
+    position:relative; overflow:hidden;
     padding:14vh 6vw 10vh;
     max-width:900px;
+  }
+  .hero-bg{
+    position:absolute; inset:0;
+    background-image:url('hero-collage.png');
+    background-size:cover;
+    background-position:center 35%;
+    opacity:0.32;
+    filter:grayscale(35%) contrast(1.1) brightness(0.75);
+    mask-image:radial-gradient(ellipse at 40% 40%, black 45%, transparent 90%);
+    -webkit-mask-image:radial-gradient(ellipse at 40% 40%, black 45%, transparent 90%);
+    z-index:-1;
+    pointer-events:none;
   }
   .hero .eyebrow{ display:block; margin-bottom:18px; }
   .hero h1{
@@ -103,20 +116,22 @@
   .hero-actions{ margin-top:34px; display:flex; gap:16px; flex-wrap:wrap; }
 
   .btn{
-    display:inline-block; padding:13px 26px; border-radius:2px;
-    text-decoration:none; font-size:0.92rem; font-weight:700;
-    letter-spacing:0.02em; transition:transform .15s, box-shadow .15s;
-    border:1px solid transparent;
+    display:inline-block; padding:20px 42px; border-radius:999px;
+    text-decoration:none; font-size:1.1rem; font-weight:700;
+    letter-spacing:0.02em; transition:transform .18s, box-shadow .18s;
+    border:2px solid transparent;
   }
   .btn-ember{
     background:linear-gradient(90deg, var(--ember), var(--ember-2));
     color:#1c1815;
+    box-shadow:0 10px 26px -8px rgba(226,135,47,0.55);
   }
-  .btn-ember:hover{ transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(226,135,47,0.5); }
+  .btn-ember:hover{ transform:translateY(-3px) scale(1.02); box-shadow:0 14px 30px -8px rgba(226,135,47,0.6); }
   .btn-ghost{
-    border-color:var(--line); color:var(--parchment);
+    border-color:var(--ember-2); color:var(--parchment);
+    background:rgba(226,135,47,0.06);
   }
-  .btn-ghost:hover{ border-color:var(--ember-2); color:var(--ember-2); }
+  .btn-ghost:hover{ border-color:var(--ember-2); color:var(--ember-2); transform:translateY(-3px) scale(1.02); background:rgba(226,135,47,0.12); }
 
   /* ---------- section shell ---------- */
   section{ padding:8vh 6vw; }
@@ -129,18 +144,19 @@
     display:flex; flex-wrap:wrap; gap:10px; margin-bottom:38px;
   }
   .tab{
-    cursor:pointer; background:transparent; border:1px solid var(--line);
-    color:var(--ash); padding:9px 18px; border-radius:999px;
-    font-family:'Karla',sans-serif; font-size:0.85rem; letter-spacing:0.03em;
+    cursor:pointer; background:transparent; border:2px solid var(--ember-2);
+    color:var(--parchment); padding:13px 24px; border-radius:999px;
+    font-family:'Karla',sans-serif; font-size:0.95rem; font-weight:700; letter-spacing:0.03em;
     transition:all .2s;
   }
-  .tab:hover{ border-color:var(--ember-2); color:var(--parchment); }
+  .tab:hover{ background:rgba(226,135,47,0.12); }
   .tab.active{
     background:var(--ember); border-color:var(--ember); color:#1c1815; font-weight:700;
   }
   .tab-cta{
-    text-decoration:none; border-color:var(--ember-2); color:var(--ember-2);
-    font-weight:700; border-style:dashed;
+    text-decoration:none; border:2px dashed var(--ember-2); color:var(--ember-2);
+    font-weight:700; padding:13px 24px; border-radius:999px; font-size:0.95rem;
+    transition:all .2s;
   }
   .tab-cta:hover{ background:var(--ember-2); color:#1c1815; border-style:solid; }
 
@@ -178,6 +194,7 @@
   .piece .caption .cat{
     font-size:0.7rem; text-transform:uppercase; letter-spacing:0.12em;
     color:var(--ember-2); font-weight:700; display:block; margin-bottom:4px;
+    background:none; border:none; padding:0; cursor:pointer; font-family:inherit;
   }
   .piece .caption .title{
     font-family:'Fraunces', serif; font-size:1.02rem; color:var(--parchment);
@@ -247,6 +264,9 @@
     padding:5vh 6vw; text-align:center; color:var(--ash-dim); font-size:0.82rem;
     border-top:1px solid var(--line);
   }
+  footer a{ color:var(--ember-2); text-decoration:none; }
+  footer a:hover{ text-decoration:underline; }
+  .footer-contact{ margin-bottom:10px; font-size:0.9rem; color:var(--parchment); }
 
   /* focus visibility for keyboard users */
   a:focus-visible, button:focus-visible, .tab:focus-visible{
@@ -260,22 +280,44 @@
   .lightbox{position:fixed;inset:0;background:rgba(28,24,21,0.95);display:none;align-items:center;justify-content:center;z-index:100;cursor:zoom-out;padding:20px;}
   .lightbox.show{display:flex;}
   .lightbox img{max-width:100%;max-height:100%;object-fit:contain;}
+
+  /* ---------- sticky floating CTA (stays visible while scrolling the gallery) ---------- */
+  .floating-cta{
+    position:fixed; bottom:20px; right:20px; z-index:50;
+    background:linear-gradient(90deg, var(--ember), var(--ember-2));
+    color:#1c1815; text-decoration:none;
+    padding:15px 22px; border-radius:999px;
+    font-weight:700; font-size:0.9rem; letter-spacing:0.02em;
+    box-shadow:0 8px 22px -6px rgba(226,135,47,0.55);
+    transition:transform .15s;
+  }
+  .floating-cta:hover{ transform:translateY(-2px) scale(1.03); }
+  @media (max-width:520px){
+    .floating-cta{
+      left:16px; right:16px; bottom:16px;
+      text-align:center; padding:16px;
+      font-size:0.95rem;
+    }
+  }
 </style>
 </head>
 <body>
 
 <div class="grain-bg"></div>
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src="" alt=""></div>
+<a href="#commission" class="floating-cta" id="floating-cta">Create Your Custom Art With Me Today →</a>
 
 <header>
   <a href="#top" class="brand"><em>Ember and Grain Studios</em></a>
   <nav>
     <a href="#gallery">Gallery</a>
     <a href="#commission">Commission</a>
+    <a href="mailto:Emberandgrainstudios@gmail.com">Contact</a>
   </nav>
 </header>
 
 <div id="top" class="hero">
+  <div class="hero-bg"></div>
   <span class="eyebrow">Original Pyrography</span>
   <h1>Art burned into wood,<br class="hidden-mobile"> one <span class="burn">ember</span> at a time.</h1>
   <p>Every piece below is hand-burned by myself — all custom artwork. Browse the gallery by category, then send a commission request with your idea and I'll get back to you.</p>
@@ -441,239 +483,241 @@
       <div style="position:relative;">
       <img src="IMG_5828.jpeg" alt="Shibari Love" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=Shibari Release'">
       <span class="available">Available</span>
+      </div>
       <div class="scorch"></div>
-        <div class="caption"><button class="cat" data-filter="Currently Available">Sarah's Art</button><span class="title">Shibari Release - $60.00</span></div>
+        <div class="caption"><button class="cat" data-filter="forsale">Currently Available</button><span class="title">Shibari Release - $60.00</span></div>
     </article>
 
     <article class="piece" data-cat="forsale">
       <div style="position:relative;">
       <img src="IMG_8679.jpeg" alt="Van Gogh">
       <span class="available">Available</span>
+      </div>
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Currently Available">Sarah's Art</button><span class="title">Van Gogh Sunflowers - $60.00</span></div>
+  <div class="caption"><button class="cat" data-filter="forsale">Currently Available</button><span class="title">Van Gogh Sunflowers - $60.00</span></div>
 </article>
         
     <article class="piece" data-cat="forsale">
      <div style="position:relative;">
      <img src="IMG_5527.jpeg" alt="skull">
      <span class="available">Available</span>
+     </div>
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Currently Available">Sarah's Art</button><span class="title">Evelyn - $60.00</span></div>
+  <div class="caption"><button class="cat" data-filter="forsale">Currently Available</button><span class="title">Evelyn - $60.00</span></div>
 </article>
 
      <article class="piece" data-cat="forsale">
       <div style="position:relative;">
       <img src="IMG_1096.jpeg" alt="Skulls" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=Forsale+%231'">
       <span class="available">Available</span>
-      <div class="scorch"></div>
-     <div class="caption"><button class="cat" data-filter="Currently Available">Sarah's Art</button><span class="title">Triplets - $40.00</span></div>
+      </div>
+     <div class="scorch"></div>
+     <div class="caption"><button class="cat" data-filter="forsale">Currently Available</button><span class="title">Triplets - $40.00</span></div>
     </article>
     
   <article class="piece" data-cat="forsale">
            <div style="position:relative;">
           <img src="IMG_2968.jpeg" alt="moth">
       <span class="available">Available</span>
+      </div>
         <div class="scorch"></div>
-       <div class="caption"><button class="cat" data-filter="Currently Available">Sarah's Art</button><span class="title">A Friend - $30.00</span></div>
+       <div class="caption"><button class="cat" data-filter="forsale">Currently Available</button><span class="title">A Friend - $30.00</span></div>
   </article>
-        
         
         <!-- RANDOM -->
   <article class="piece" data-cat="random">
   <img src="63A339F2-072A-4056-A410-B39D27F8B501.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_20240824_0009.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_2047.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
     <article class="piece" data-cat="random">
   <img src="IMG_2548.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_2549.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_2845.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_2986.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
     <article class="piece" data-cat="random">
   <img src="IMG_3133.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_3409.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_3584.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_4171.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_4223.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_4229.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_4422.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_4438.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_4455.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_4527.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_5229.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_5230.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
  <article class="piece" data-cat="random">
   <img src="IMG_5530.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_5571.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_5713.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_6661.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_6670.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_6810.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_9257.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_9345.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title">Sarah</span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title">Sarah</span></div>
 </article>
 
     <article class="piece" data-cat="random">
   <img src="IMG_9348.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_9360.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_9458.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="IMG_9751.jpeg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
 
   <article class="piece" data-cat="random">
   <img src="highland_cow_back_laney_full.jpg" alt="DESCRIPTION">
   <div class="scorch"></div>
-  <div class="caption"><button class="cat" data-filter="Random">Sarah's Art</button><span class="title"></span></div>
+  <div class="caption"><button class="cat" data-filter="random">Random</button><span class="title"></span></div>
 </article>
-        
-  
-   
 
+</div>
 </section>
 
 <section id="commission" class="commission">
@@ -713,6 +757,7 @@
 </section>
 
 <footer>
+  <p class="footer-contact">Contact us directly: <a href="mailto:Emberandgrainstdios@gmail.com">Emberandgrainstudios@gmail.com</a></p>
   &copy; <span id="year"></span> Sarah DeFazio - Ember and Grain Studios. All pieces are original, hand-burned work. All rights reserved. Original artwork, photography, designs, and written content may not be reproduced, copied, distributed, or used without permission.
 </footer>
 
@@ -731,6 +776,7 @@
   // category filter
   const tabs = document.querySelectorAll('.tab');
   const pieces = document.querySelectorAll('.piece');
+  const catButtons = document.querySelectorAll('.piece .caption .cat');
 
   function getCats(p) {
     return p.dataset.cat.split(' ');
@@ -741,6 +787,7 @@
     pieces.forEach(p => {
       p.classList.toggle('show', filter === 'all' || getCats(p).includes(filter));
     });
+    catButtons.forEach(btn => { btn.style.display = (filter === 'all') ? '' : 'none'; });
   }
 
   function showPreview() {
@@ -751,6 +798,7 @@
       if (newCat) { seen.add(newCat); p.classList.add('show'); }
       else { p.classList.remove('show'); }
     });
+    catButtons.forEach(btn => { btn.style.display = ''; });
   }
 
   tabs.forEach(tab => {
@@ -758,6 +806,15 @@
       const filter = tab.dataset.filter;
       applyFilter(filter);
       history.replaceState(null, '', filter === 'all' ? '#gallery' : '#' + filter);
+    });
+  });
+
+  catButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      applyFilter(filter);
+      history.replaceState(null, '', '#' + filter);
+      document.getElementById('gallery').scrollIntoView();
     });
   });
 
@@ -771,6 +828,16 @@
   }
 
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // hide the floating CTA once the real commission form is on screen
+  const floatingCta = document.getElementById('floating-cta');
+  const commissionSection = document.getElementById('commission');
+  const ctaObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      floatingCta.style.display = entry.isIntersecting ? 'none' : '';
+    });
+  }, { threshold: 0.15 });
+  ctaObserver.observe(commissionSection);
 </script>
 
 </body>
