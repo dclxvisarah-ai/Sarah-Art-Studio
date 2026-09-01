@@ -307,25 +307,34 @@ font-size:0.95rem;
 }
   </style>
 </head>
+<body>
+
+<div class="grain-bg"></div>
+<div class="lightbox" id="lightbox"><img id="lightbox-img" src="" alt=""></div>
+<button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
 
 <header>
   <a href="#top" class="brand"><em>Ember and Grain Studios-Sarah DeFazio</em></a>
   <nav>
     <a href="#gallery">Gallery</a>
     <a href="#commission">Commission</a>
-  href="mailto:Emberandgrainstudios@gmail.com">Contact</a>
+    <a href="mailto:Emberandgrainstudios@gmail.com">Contact</a>
   </nav>
 </header>
 
-<button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
+<div id="top" class="hero">
   <div class="hero-bg"></div>
   <span class="eyebrow">Original Pyrography</span>
   <h1>Art burned into wood,<br class="hidden-mobile"> one <span class="burn">ember</span> at a time.</h1>
-  <p>Every piece below is hand-burned by myself — all original, one-of-a-kind artwork. Browse the gallery by category. See something available? Send a request to buy it as-is. Love a design that’s not for sale, or already sold? I can recreate that exact piece for you. Or, if you’d rather start something new, I’ll build a custom piece with you from scratch.</p>
+  <p>Every piece below is hand-burned by myself — all original, one-of-a-kind artwork. Browse the gallery by category. See something available? Send a request to buy it as-is. Love a design that's not for sale, or already sold? I can recreate that exact piece for you. Or, if you'd rather start something new, I'll build a custom piece with you from scratch.</p>
   <div class="hero-actions">
     <a href="#gallery" class="btn btn-ember">View the gallery</a>
     <a href="#commission" class="btn btn-ghost">Request a commission</a>
   </div>
+  <div style="margin-top:18px; font-size:0.85rem; color:var(--ash); cursor:pointer;" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+🐶 <strong style="color:var(--parchment);">Shiver</strong> — "I always follow you. I can bring you home."
+  </div>
+</div>
 
 <section id="gallery">
   <div class="section-head">
