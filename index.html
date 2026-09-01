@@ -320,7 +320,9 @@ font-size:0.95rem;
 
 <div class="grain-bg"></div>
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src="" alt=""></div>
-<a href="#commission" class="floating-cta" id="floating-cta">Create Your Custom Art With Me Today →</a>
+<a href="#commission" class="floating-cta" id="floating-cta">Create Your Custom Art With Me Today →</a> <a href="#top" class="back-to-top" id="back-to-top" aria-label="Back to top">↑</a>
+
+
 
 <header>
   <a href="#top" class="brand"><em>Ember and Grain Studios-Sarah DeFazio</em></a>
@@ -960,6 +962,12 @@ applyFilter('forsale');
     });
   }, { threshold: 0.15 });
   ctaObserver.observe(commissionSection);
+  
+  const backToTop = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+  backToTop.classList.toggle('show', window.scrollY > 500);
+});
+
 </script>
 
 </body>
