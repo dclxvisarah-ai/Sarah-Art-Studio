@@ -939,19 +939,17 @@ applyFilter('forsale');
  
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // hide the floating CTA once the real commission form is on screen
-  const floatingCta = document.getElementById('floating-cta');
-  const commissionSection = document.getElementById('commission');
-  const ctaObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      floatingCta.style.display = entry.isIntersecting ? 'none' : '';
-    });
-  }, { threshold: 0.15 });
-  ctaObserver.observe(commissionSection);
+
   
   const backToTop = document.getElementById('back-to-top');
 window.addEventListener('scroll', () => {
   backToTop.classList.toggle('show', window.scrollY > 500);
+});
+backToTop.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 });
 
 </script>
