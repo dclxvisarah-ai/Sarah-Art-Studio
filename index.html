@@ -15,8 +15,8 @@
     --char-2:    #262019;
     --ember:     #b5451d;
     --ember-2:   #e2872f;
-    --parchment: #ece2cf;
-    --ash:       #a89b87;
+    --parchment: #2b2420
+    --ash:       #5b5145
     --ash-dim:   #6f6455;
     --line:      #3a322a;
   }
@@ -74,14 +74,15 @@
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line);
   }
-  .brand{ font-size:1.25rem; color:var(--parchment); text-decoration:none; }
-  .brand em{ font-style:normal; color:var(--ember-2); }
-  nav a{
-    text-decoration:none; margin-left:26px; font-size:0.9rem;
-    color:var(--ash); transition:color .2s;
-  }
+  header .brand{ color:#ece2cf; font-size:1.25rem}
+header nav a{ color:#a89b87; }
+nav a{
+  text-decoration:none; margin-left:26px;
+  font-size:0.9rem;
+  color:var(--ash); transition:color .2s;
+}
   nav a:hover{ color:var(--ember-2); }
-
+ 
   /* ---------- hero ---------- */
   .hero{
     position:relative; overflow:hidden;
