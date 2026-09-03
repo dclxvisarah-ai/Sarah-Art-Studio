@@ -91,16 +91,18 @@ nav a{
     max-width:999px;
   }
   .hero-bg{
-    position:absolute; inset:0;
-    background-image:url('hero-collage.png');
-    background-size:cover;
-    background-position:center 35%;
-    opacity:0.32;
-    filter:grayscale(35%) contrast(1.1) brightness(0.75);
-    mask-image:radial-gradient(ellipse at 40% 40%, black 50%, transparent 80%);
-    -webkit-mask-image:radial-gradient(ellipse at 40% 40%, black 45%, transparent 90%);
-    z-index:-1;
-    pointer-events:none;
+  position:absolute; inset:0;
+  background-image:url('hero-collage.png');
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+  opacity:0.32;
+  filter:grayscale(35%) contrast(1.1) brightness(0.75);
+  mask-image:radial-gradient(ellipse at 50% 50%, black 60%, transparent 95%);
+  -webkit-mask-image:radial-gradient(ellipse at 50% 50%, black 60%, transparent 95%);
+  z-index:-1;
+  pointer-events:none;
+}
   }
   .hero .eyebrow{ display:block; margin-bottom:18px; }
   .hero h1{
