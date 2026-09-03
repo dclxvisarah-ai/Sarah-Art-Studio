@@ -88,12 +88,12 @@ nav a{
   .hero{
     position:relative; overflow:hidden;
     padding:14vh 6vw 10vh;
-    max-width:999px;
+    .hero-inner{ max-width:900px; position:relative; z-index:1; }
   }
   .hero-bg{
   position:absolute; inset:0;
   background-image:url('hero-collage.png');
-  background-size:contain;
+  background-size:cover;
   background-repeat:no-repeat;
   background-position:center;
   opacity:0.32;
@@ -115,8 +115,12 @@ nav a{
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
   .hero p{
-    max-width:52ch; color:var(--ash); font-size:1.08rem;
-  }
+  max-width:52ch;
+  color:#2b2420;
+  font-family:'Fraunces', serif;
+  font-weight:700;
+  font-size:1.25rem;
+}
   .hero-actions{ margin-top:34px; display:flex; gap:16px; flex-wrap:wrap; }
 
   .btn{
@@ -332,6 +336,8 @@ font-size:0.95rem;
 
 <div id="top" class="hero">
   <div class="hero-bg"></div>
+  <div class="hero-inner">
+
   <span class="eyebrow">Original Pyrography</span>
   <h1>Art burned into wood,<br class="hidden-mobile"> one <span class="burn">ember</span> at a time.</h1>
   <p>Every piece below is hand-burned by myself — all original, one-of-a-kind artwork. Browse the gallery by category. See something available? Send a request to buy it as-is. Love a design that's not for sale, or already sold? I can recreate that exact piece for you. Or, if you'd rather start something new, I'll build a custom piece with you from scratch.</p>
@@ -339,8 +345,9 @@ font-size:0.95rem;
     <a href="#gallery" class="btn btn-ember">View the gallery</a>
     <a href="#commission" class="btn btn-ghost">Request a commission</a>
   </div>
-  <div style="margin-top:18px; font-size:0.85rem; color:var(--ash); cursor:pointer;" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-🐶 <strong style="color:var(--parchment);">Shiver</strong> — "I always follow you. I can bring you home."
+  <div style="margin-top:18px; font-size:1.1rem; font-weight:700; color:#2b2420; cursor:pointer;" onclick="window.scrollTo({top:0,behavior:'smooth'})"></div>
+
+🐶 <strong style="color:#b5451d;"Shiver</strong> — "I always follow you. I can bring you home."
   </div>
 </div>
 
