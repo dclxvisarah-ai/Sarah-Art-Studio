@@ -31,6 +31,24 @@
     --line:      #3a322a;
     --amber:     #FFFBEB;
   }
+  .tab {
+  position: relative; /* required so the badge can anchor to the button */
+}
+
+.updated-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #c0392b;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
 
   *{ box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
@@ -711,7 +729,8 @@
 
     <button class="tab" data-filter="forsale">Currently Available</button>
     <button class="tab" data-filter="studio">Studio Videos</button>
-    <button class="tab" data-filter="wip">Works in Progress</button>
+    
+    <button class="tab" data-filter="wip">Works in Progress<span class="updated-badge">UPDATED🌟</span></button>
     <button class="tab" data-filter="all">Sarah's World</button>
     <button class="tab" data-filter="nursery">Nursery and Kids</button>
     <button class="tab" data-filter="portraits">Portraits</button>
