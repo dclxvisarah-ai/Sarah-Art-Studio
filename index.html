@@ -664,6 +664,29 @@
     font-size: 0.95rem;
   }
 }
+.wip-subtab-thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+.wip-subtab-btn.coming-soon {
+  border-style: dashed;
+  opacity: 0.75;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.wip-subtab-sub {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
 
 </style>
 </head>
@@ -918,10 +941,20 @@
 
 
     <div class="wip-subtabs" id="wipSubtabs">
-  <button class="wip-subtab-btn active" data-project="fbb1">Forest Baby Boy 1</button>
-  <button class="wip-subtab-btn" data-project="fbb2">Forest Baby Boy 2</button>
-  <button class="wip-subtab-btn" data-project="pending">Pending Project</button>
+  <button class="wip-subtab-btn coming-soon" disabled>
+    <span class="wip-subtab-label">✨ Coming Soon</span>
+    <span class="wip-subtab-sub">Getting ready to build something exciting</span>
+  </button>
+  <button class="wip-subtab-btn active" data-project="fbb1">
+    <img src="fbb1-thumb.jpg" alt="Forest Baby Boy 1 thumbnail" class="wip-subtab-thumb">
+    Forest Baby Boy 1
+  </button>
+  <button class="wip-subtab-btn" data-project="fbb2">
+    <img src="fbb2-thumb.jpg" alt="Forest Baby Boy 2 thumbnail" class="wip-subtab-thumb">
+    Forest Baby Boy 2
+  </button>
 </div>
+
      <!-- WORKS IN PROGRESS -->
 <article class="piece studio-video" data-cat="nursery wip studio" data-project="fbb1" id="boy">
   <video controls playsinline preload="metadata" width="100%">
@@ -1004,9 +1037,40 @@
   </div>
 </article>
   
-
   <article class="piece" data-cat="wip nursery" data-project="fbb1">
   <img src="images/bowls/13.jpeg" alt="Full scene nearly complete, all trees burned in">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Final</span>
+  </div>
+</article>
+
+ <article class="piece" data-cat="wip" data-project="fbb2">
+  <img src="images/IMG_3230.jpeg" alt="Forest Baby Boy 2 process photo">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Step 1</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="wip" data-project="fbb2">
+  <img src="images/IMG_3281.jpeg" alt="Forest Baby Boy 2 process photo">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Step 2</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="wip" data-project="fbb2">
+  <img src="images/IMG_3589.jpeg" alt="Forest Baby Boy 2 process photo">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Step 3</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="wip" data-project="fbb2">
+  <img src="images/IMG_3634.jpeg" alt="Forest Baby Boy 2 process photo">
   <div class="scorch"></div>
   <div class="caption">
     <span class="title">Final</span>
@@ -1480,7 +1544,7 @@
     <!-- STUDIO VIDEOS -->
  <!-- STUDIO VIDEOS -->
 
-<article class="piece studio-video" data-cat="studio">
+<article class="piece studio-video" data-cat="studio wip" data-project="fbb2">
   <video controls playsinline preload="metadata" width="100%>
     <source src="images/8ba9b84491a3429587d313ec7ef2f2c4.mov" type="video/quicktime">
     </video>
@@ -1906,6 +1970,21 @@
       btn.style.display = '';
 
     });
+    
+    function applyProjectFilter(project) {
+  document.querySelectorAll('.wip-subtab-btn[data-project]').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.project === project);
+  });
+
+  document.querySelectorAll('.piece[data-cat~="wip"]').forEach(p => {
+    p.classList.toggle('show', p.dataset.project === project);
+  });
+}
+
+document.querySelectorAll('.wip-subtab-btn[data-project]').forEach(btn => {
+  btn.addEventListener('click', () => applyProjectFilter(btn.dataset.project));
+});
+
 
   }
 
