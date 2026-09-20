@@ -32,22 +32,22 @@
     --amber:     #FFFBEB;
   }
   .tab {
-  position: relative; /* required so the badge can anchor to the button */
+  position: relative;
 }
 
-.updated-badge {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background: #c0392b;
-  color: white;
-  font-size: 0.65rem;
-  font-weight: bold;
-  padding: 2px 6px;
-  border-radius: 999px;
-  white-space: nowrap;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-}
+  .updated-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #c0392b;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 999px;
+    white-space: nowrap;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
 
 
   *{ box-sizing:border-box; }
@@ -78,7 +78,6 @@
 
   a{ color:inherit; }
 
-  /* ---------- background: charred wood-grain texture ---------- */
   .grain-bg{
     position:fixed;
     inset:0;
@@ -97,7 +96,6 @@
       radial-gradient(ellipse at 85% 80%, rgba(226,135,47,0.08), transparent 50%);
   }
 
-  /* ---------- header / nav ---------- */
   header{
     position:sticky;
     top:0;
@@ -133,7 +131,6 @@
     color:var(--ember-2);
   }
 
-  /* ---------- hero ---------- */
   .hero{
     position:relative;
     overflow:hidden;
@@ -230,7 +227,6 @@
     background:rgba(226,135,47,0.12);
   }
 
-  /* ---------- section shell ---------- */
   section{
     padding:8vh 6vw;
   }
@@ -249,7 +245,6 @@
     color:var(--ash);
   }
 
-  /* ---------- category tabs ---------- */
   .tabs{
     display:flex;
     flex-wrap:wrap;
@@ -299,7 +294,6 @@
     border-style:solid;
   }
 
-  /* ---------- gallery grid ---------- */
   .gallery{
     display:grid;
     grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
@@ -392,7 +386,6 @@
     border-radius:999px;
   }
 
-  /* ---------- two-up + one full-width set ---------- */
   .set-2plus1{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -410,7 +403,6 @@
     display:block;
   }
 
-  /* ---------- two-up ---------- */
   .set-2up{
     display:flex;
     gap:4px;
@@ -420,7 +412,6 @@
     width:50%;
   }
 
-  /* ---------- STUDIO VIDEOS ---------- */
   .studio-video video{
     width:100%;
     display:block;
@@ -452,7 +443,6 @@
     color:#1c1815;
   }
 
-  /* ---------- commission form ---------- */
   .commission{
     background:var(--char);
     border-top:1px solid var(--line);
@@ -566,7 +556,6 @@
     color:var(--parchment);
   }
 
-  /* ---------- focus visibility ---------- */
   a:focus-visible,
   button:focus-visible,
   .tab:focus-visible{
@@ -580,7 +569,6 @@
     }
   }
 
-  /* ---------- lightbox ---------- */
   .lightbox{
     position:fixed;
     inset:0;
@@ -603,7 +591,6 @@
     object-fit:contain;
   }
 
-  /* ---------- back to top ---------- */
   .back-to-top{
     position:fixed;
     bottom:20px;
@@ -664,29 +651,36 @@
     font-size: 0.95rem;
   }
 }
-.wip-subtab-thumb {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 6px;
-}
-.wip-subtab-btn.coming-soon {
-  border-style: dashed;
-  opacity: 0.75;
-  cursor: default;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.wip-subtab-sub {
-  font-size: 0.75rem;
-  opacity: 0.8;
-}
 
+  #wipSubtabs {
+    display: none;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .wip-subtab-thumb {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 6px;
+  }
+  .wip-subtab-btn.coming-soon {
+    border-style: dashed;
+    opacity: 0.75;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .wip-subtab-sub {
+    font-size: 0.75rem;
+    opacity: 0.8;
+  }
 
 </style>
 </head>
@@ -735,7 +729,7 @@
     </div>
 
     <div style="margin-top:18px; font-size:0.9rem; font-weight:700; color:#FFFBEB;">
-      🐶 <strong style="color:#FFFBEB;">My name is Shiver — "I always follow you and I can bring you home."</span>
+      🐶 <strong style="color:#FFFBEB;">My name is Shiver — "I always follow you and I can bring you home."</strong>
     </div>
   </div>
 </div>
@@ -767,8 +761,6 @@
 
   <div class="gallery" id="gallery-grid">
 
-    <!-- CURRENTLY AVAILABLE / FOR SALE -->
-    
     <article class="piece" data-cat="forsale nursery">
       <div style="position:relative;">
         <img src="IMG_8623.jpeg" alt="Decor">
@@ -941,22 +933,13 @@
 
 
     <div class="wip-subtabs" id="wipSubtabs">
-  <button class="wip-subtab-btn coming-soon" disabled>
-    <span class="wip-subtab-label">✨ Coming Soon</span>
-    <span class="wip-subtab-sub">Getting ready to build something exciting</span>
-  </button>
-  <button class="wip-subtab-btn active" data-project="fbb1">
-    <img src="fbb1-thumb.jpg" alt="Forest Baby Boy 1 thumbnail" class="wip-subtab-thumb">
-    Forest Baby Boy 1
-  </button>
-  <button class="wip-subtab-btn" data-project="fbb2">
-    <img src="fbb2-thumb.jpg" alt="Forest Baby Boy 2 thumbnail" class="wip-subtab-thumb">
-    Forest Baby Boy 2
-  </button>
+  <button class="wip-subtab-btn coming-soon" disabled>✨ Coming Soon — Getting ready to build something exciting</button>
+  <button class="wip-subtab-btn" data-project="fbb1">Forest Baby Boy 1</button>
+  <button class="wip-subtab-btn" data-project="fbb2">Forest Baby Boy 2</button>
 </div>
 
      <!-- WORKS IN PROGRESS -->
-<article class="piece studio-video" data-cat="nursery wip studio" data-project="fbb1" id="boy">
+<article class="piece studio-video" data-cat="nursery studio" data-project="fbb1" id="boy">
   <video controls playsinline preload="metadata" width="100%">
     <source src="images/Media/Boy.MOV" type="video/quicktime">
   </video>
@@ -965,7 +948,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="wip" data-project="fbb1">
+<article class="piece" data-cat="fbb1-photo" data-project="fbb1">
   <img src="images/bowls/1.jpeg" alt="Blank wood slice, ready to burn">
   <div class="scorch"></div>
   <div class="caption">
@@ -973,7 +956,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="wip" data-project="fbb1">
+<article class="piece" data-cat="fbb1-photo" data-project="fbb1">
   <img src="images/bowls/2.jpeg" alt="Boot design sketched and first boot burned in">
   <div class="scorch"></div>
   <div class="caption">
@@ -981,7 +964,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="wip" data-project="fbb1">
+<article class="piece" data-cat="fbb1-photo" data-project="fbb1">
   <img src="images/bowls/3.jpeg" alt="Both boots burned in">
   <div class="scorch"></div>
   <div class="caption">
@@ -989,7 +972,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="wip" data-project="fbb1">
+<article class="piece" data-cat="fbb1-photo" data-project="fbb1">
   <img src="images/bowls/5.jpeg" alt="Full scene sketched, boots outlined only">
   <div class="scorch"></div>
   <div class="caption">
@@ -997,7 +980,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="wip" data-project="fbb1">
+<article class="piece" data-cat="fbb1-photo" data-project="fbb1">
   <img src="images/bowls/6.jpeg" alt="Boot woodburning close detail">
   <div class="scorch"></div>
   <div class="caption">
@@ -1005,7 +988,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="wip" data-project="fbb1">
+<article class="piece" data-cat="fbb1-photo" data-project="fbb1">
   <img src="images/bowls/9.jpeg" alt="Boots, mountains, and birds burned, left tree line still unburned sketch">
   <div class="scorch"></div>
   <div class="caption">
@@ -1013,7 +996,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="wip" data-project="fbb1">
+<article class="piece" data-cat="fbb1-photo" data-project="fbb1">
   <img src="images/bowls/10.jpeg" alt="Close detail shot of boots and mountains mid-burn">
   <div class="scorch"></div>
   <div class="caption">
@@ -1021,7 +1004,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="wip" data-project="fbb1">
+<article class="piece" data-cat="fbb1-photo" data-project="fbb1">
   <img src="images/bowls/11.jpeg" alt="Full scene nearly complete, all trees burned in">
   <div class="scorch"></div>
   <div class="caption">
@@ -1029,7 +1012,7 @@
   </div>
 </article>
   
-  <article class="piece" data-cat="wip" data-project="fbb1">
+  <article class="piece" data-cat="fbb1-photo" data-project="fbb1">
   <img src="images/bowls/12.jpeg" alt="Full scene nearly complete, all trees burned in">
   <div class="scorch"></div>
   <div class="caption">
@@ -1037,7 +1020,7 @@
   </div>
 </article>
   
-  <article class="piece" data-cat="wip nursery" data-project="fbb1">
+  <article class="piece" data-cat="nursery" data-project="fbb1">
   <img src="images/bowls/13.jpeg" alt="Full scene nearly complete, all trees burned in">
   <div class="scorch"></div>
   <div class="caption">
@@ -1045,7 +1028,7 @@
   </div>
 </article>
 
- <article class="piece" data-cat="wip" data-project="fbb2">
+ <article class="piece" data-cat="fbb2-photo" data-project="fbb2">
   <img src="images/IMG_3230.jpeg" alt="Forest Baby Boy 2 process photo">
   <div class="scorch"></div>
   <div class="caption">
@@ -1053,7 +1036,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="wip" data-project="fbb2">
+<article class="piece" data-cat="fbb2-photo" data-project="fbb2">
   <img src="images/IMG_3281.jpeg" alt="Forest Baby Boy 2 process photo">
   <div class="scorch"></div>
   <div class="caption">
@@ -1061,7 +1044,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="wip" data-project="fbb2">
+<article class="piece" data-cat="fbb2-photo" data-project="fbb2">
   <img src="images/IMG_3589.jpeg" alt="Forest Baby Boy 2 process photo">
   <div class="scorch"></div>
   <div class="caption">
@@ -1069,7 +1052,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="wip" data-project="fbb2">
+<article class="piece" data-cat="fbb2-photo" data-project="fbb2">
   <img src="images/IMG_3634.jpeg" alt="Forest Baby Boy 2 process photo">
   <div class="scorch"></div>
   <div class="caption">
@@ -1542,10 +1525,9 @@
     </article>
 
     <!-- STUDIO VIDEOS -->
- <!-- STUDIO VIDEOS -->
 
-<article class="piece studio-video" data-cat="studio wip" data-project="fbb2">
-  <video controls playsinline preload="metadata" width="100%>
+<article class="piece studio-video" data-cat="studio" data-project="fbb2">
+  <video controls playsinline preload="metadata" width="100%">
     <source src="images/8ba9b84491a3429587d313ec7ef2f2c4.mov" type="video/quicktime">
     </video>
     <div class="caption">
@@ -1760,8 +1742,6 @@
   </div>
 </article>
 
-
-
 <article class="piece studio-video" data-cat="studio">
   <video controls playsinline preload="metadata" width="100%">
     <source src="images/Media/export_1788472590448.mov" type="video/quicktime">
@@ -1933,7 +1913,36 @@
 
     });
 
+    const wipSubtabs = document.getElementById('wipSubtabs');
+    if (wipSubtabs) {
+      wipSubtabs.style.display = (filter === 'wip') ? 'flex' : 'none';
+    }
+
+    if (filter === 'wip') {
+      document.querySelectorAll('.piece[data-project]').forEach(p => {
+        p.classList.remove('show');
+      });
+      document.querySelectorAll('.wip-subtab-btn[data-project]').forEach(btn => {
+        btn.classList.remove('active');
+      });
+    }
+
   }
+
+
+  function applyProjectFilter(project) {
+    document.querySelectorAll('.wip-subtab-btn[data-project]').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.project === project);
+    });
+
+    document.querySelectorAll('.piece[data-project]').forEach(p => {
+      p.classList.toggle('show', p.dataset.project === project);
+    });
+  }
+
+  document.querySelectorAll('.wip-subtab-btn[data-project]').forEach(btn => {
+    btn.addEventListener('click', () => applyProjectFilter(btn.dataset.project));
+  });
 
 
   function showPreview() {
@@ -1970,21 +1979,6 @@
       btn.style.display = '';
 
     });
-    
-    function applyProjectFilter(project) {
-  document.querySelectorAll('.wip-subtab-btn[data-project]').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.project === project);
-  });
-
-  document.querySelectorAll('.piece[data-cat~="wip"]').forEach(p => {
-    p.classList.toggle('show', p.dataset.project === project);
-  });
-}
-
-document.querySelectorAll('.wip-subtab-btn[data-project]').forEach(btn => {
-  btn.addEventListener('click', () => applyProjectFilter(btn.dataset.project));
-});
-
 
   }
 
