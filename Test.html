@@ -1,0 +1,2103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarah's Pyrography — Woodburn Art & Commissions</title>
+<meta name="description" content="Original woodburning (pyrography) art. Browse the gallery by category and submit a commission request.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <meta property="og:title" content="Ember and Grain Studios — Woodburn Art & Commissions">
+<meta property="og:description" content="Original hand-burned pyrography art. Browse the gallery and request a custom piece.">
+<meta property="og:image" content="https://emberandgrainstudios.com/hero-collage.png">
+<meta property="og:url" content="https://emberandgrainstudios.com">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ember and Grain Studios — Woodburn Art & Commissions">
+<meta name="twitter:image" content="https://emberandgrainstudios.com/hero-collage.png">
+
+<style>
+  :root{
+    --char:      #1c1815;
+    --char-2:    #262019;
+    --ember:     #b5451d;
+    --ember-2:   #e2872f;
+    --parchment: #ece2cf;
+    --ash:       #a89b87;
+    --ash-dim:   #6f6455;
+    --line:      #3a322a;
+    --amber:     #FFFBEB;
+  }
+  .tab {
+  position: relative;
+}
+
+  .updated-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #c0392b;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 999px;
+    white-space: nowrap;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--char);
+    color:var(--parchment);
+    font-family:'Karla', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height:1.55;
+  }
+
+  h1,h2,h3,.brand{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+
+  .eyebrow{
+    font-family:'Karla', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.16em;
+    font-size:0.5rem;
+    color:var(--ember-2);
+    font-weight:700;
+  }
+
+  a{ color:inherit; }
+
+  .grain-bg{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    opacity:0.5;
+    background:
+      repeating-linear-gradient(
+        180deg,
+        rgba(0,0,0,0) 0px,
+        rgba(0,0,0,0.10) 2px,
+        rgba(0,0,0,0) 4px,
+        rgba(0,0,0,0.06) 7px,
+        rgba(0,0,0,0) 11px
+      ),
+      radial-gradient(ellipse at 20% 10%, rgba(181,69,29,0.10), transparent 45%),
+      radial-gradient(ellipse at 85% 80%, rgba(226,135,47,0.08), transparent 50%);
+  }
+
+  header{
+    position:sticky;
+    top:0;
+    z-index:20;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 6vw;
+    background:rgba(28,24,21,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+
+  header .brand{
+    color:#ece2cf;
+    font-size:1.25rem;
+    text-decoration:none;
+  }
+
+  header nav a{
+    color:#a89b87;
+  }
+
+  nav a{
+    text-decoration:none;
+    margin-left:26px;
+    font-size:0.9rem;
+    color:var(--ash);
+    transition:color .2s;
+  }
+
+  nav a:hover{
+    color:var(--ember-2);
+  }
+
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:14vh 6vw 10vh;
+  }
+
+  .hero-inner{
+    max-width:900px;
+    position:relative;
+    z-index:1;
+  }
+
+  .hero-bg{
+    position:absolute;
+    inset:0;
+    background-image:url('hero-collage.png');
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    opacity:0.32;
+    filter:grayscale(35%) contrast(1.1) brightness(0.75);
+    mask-image:radial-gradient(ellipse at 50% 50%, black 60%, transparent 95%);
+    -webkit-mask-image:radial-gradient(ellipse at 50% 50%, black 60%, transparent 95%);
+    z-index:-1;
+    pointer-events:none;
+  }
+
+  .hero .eyebrow{
+    display:block;
+    margin-bottom:18px;
+  }
+
+  .hero h1{
+    font-size:clamp(1.25rem, 6vw, 4.4rem);
+    margin:0 0 22px;
+    color:var(--parchment);
+  }
+
+  .hero h1 .burn{
+    background:linear-gradient(90deg, var(--ember) 0%, var(--ember-2) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  .hero p{
+    max-width:52ch;
+    color:var(--parchment);
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:1.2rem;
+  }
+
+  .hero-actions{
+    margin-top:34px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    display:inline-block;
+    padding:12px 16px;
+    border-radius:16px;
+    text-decoration:none;
+    font-size:1.1rem;
+    font-weight:700;
+    letter-spacing:0.02em;
+    transition:transform .18s, box-shadow .18s;
+    border:2px solid transparent;
+  }
+
+  .btn-ember{
+    background:linear-gradient(90deg, var(--ember), var(--ember-2));
+    color:#1c1815;
+    box-shadow:0 10px 26px -8px rgba(226,135,47,0.55);
+  }
+
+  .btn-ember:hover{
+    transform:translateY(-3px) scale(1.02);
+    box-shadow:0 14px 30px -8px rgba(226,135,47,0.6);
+  }
+
+  .btn-ghost{
+    border-color:var(--ember-2);
+    color:var(--parchment);
+    background:rgba(226,135,47,0.06);
+  }
+
+  .btn-ghost:hover{
+    border-color:var(--ember-2);
+    color:var(--ember-2);
+    transform:translateY(-3px) scale(1.02);
+    background:rgba(226,135,47,0.12);
+  }
+
+  section{
+    padding:8vh 6vw;
+  }
+
+  .section-head{
+    margin-bottom:44px;
+    max-width:640px;
+  }
+
+  .section-head h2{
+    font-size:clamp(1.6rem,3vw,2.2rem);
+    margin:10px 0 12px;
+  }
+
+  .section-head p{
+    color:var(--ash);
+  }
+
+  .tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:22px;
+  }
+
+  .tab{
+    cursor:pointer;
+    background:transparent;
+    border:2px solid var(--ember-2);
+    color:var(--parchment);
+    padding:12px 16px;
+    border-radius:999px;
+    font-family:'Karla',sans-serif;
+    font-size:0.95rem;
+    font-weight:700;
+    letter-spacing:0.03em;
+    transition:all .2s;
+  }
+
+  .tab:hover{
+    background:rgba(226,135,47,0.12);
+  }
+
+  .tab.active{
+    background:var(--ember);
+    border-color:var(--ember);
+    color:#1c1815;
+    font-weight:700;
+  }
+
+  .tab-cta{
+    text-decoration:none;
+    border:2px dashed var(--ember-2);
+    color:var(--ember-2);
+    font-weight:700;
+    padding:13px 24px;
+    border-radius:999px;
+    font-size:0.95rem;
+    transition:all .2s;
+  }
+
+  .tab-cta:hover{
+    background:var(--ember-2);
+    color:#1c1815;
+    border-style:solid;
+  }
+
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+    gap:26px;
+  }
+
+  .piece{
+    position:relative;
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:var(--char-2);
+    display:none;
+  }
+
+  .piece.show{
+    display:block;
+  }
+
+  .piece img{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:contain;
+    background:var(--char-2);
+    filter:saturate(0.92) contrast(1.02);
+    transition:transform .5s ease, filter .5s ease;
+    cursor:zoom-in;
+  }
+
+  .piece .scorch{
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 50% 50%, rgba(226,135,47,0.0) 0%, rgba(181,69,29,0.0) 100%);
+    transition:background .5s ease;
+    pointer-events:none;
+  }
+
+  .piece:hover img{
+    transform:scale(1.05);
+    filter:saturate(1.05) contrast(1.05);
+  }
+
+  .piece:hover .scorch{
+    background:radial-gradient(circle at 50% 50%, rgba(226,135,47,0.18) 0%, rgba(181,69,29,0.0) 70%);
+  }
+
+  .piece .caption{
+    padding:14px 16px;
+  }
+
+  .piece .caption .cat{
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--ash-dim);
+    font-weight:700;
+    display:block;
+    margin-bottom:4px;
+    background:none;
+    border:none;
+    padding:0;
+    cursor:pointer;
+    font-family:inherit;
+  }
+
+  .piece .caption .title{
+    color:#FFFBEB;
+    font-family:'Fraunces', serif;
+    font-size:1.02rem;
+  }
+
+  .placeholder-note{
+    color:var(--ash-dim);
+    font-size:0.8rem;
+    padding:14px 16px 18px;
+    border-top:1px dashed var(--line);
+    margin-top:auto;
+  }
+
+  .available{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:var(--ember-2);
+    color:#1c1815;
+    font-size:0.7rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    padding:4px 10px;
+    border-radius:999px;
+  }
+
+  .set-2plus1{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4px;
+  }
+
+  .set-2plus1 img:nth-child(3){
+    grid-column:1 / -1;
+    aspect-ratio:8/5;
+  }
+
+  .set-2plus1 img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+
+  .set-2up{
+    display:flex;
+    gap:4px;
+  }
+
+  .set-2up img{
+    width:50%;
+  }
+
+  .studio-video video{
+    width:100%;
+    display:block;
+    background:#000;
+    aspect-ratio:16/9;
+    object-fit:contain;
+  }
+
+  .studio-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:26px;
+  }
+
+  .studio-link{
+    display:inline-block;
+    padding:11px 16px;
+    border:2px solid var(--ember-2);
+    border-radius:999px;
+    color:var(--ember-2);
+    text-decoration:none;
+    font-weight:700;
+    transition:all .2s;
+  }
+
+  .studio-link:hover{
+    background:var(--ember-2);
+    color:#1c1815;
+  }
+
+  .commission{
+    background:var(--char);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+
+  .commission-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:start;
+  }
+
+  @media (max-width:820px){
+    .commission-grid{
+      grid-template-columns:1fr;
+    }
+  }
+
+  .commission-grid ol{
+    padding-left:20px;
+    color:var(--ash);
+  }
+
+  .commission-grid ol li{
+    margin-bottom:10px;
+  }
+
+  .commission-grid strong{
+    color:var(--parchment);
+  }
+
+  form{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+
+  label{
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--ash);
+    margin-bottom:6px;
+    display:block;
+    font-weight:700;
+  }
+
+  input,
+  textarea,
+  select{
+    width:100%;
+    background:var(--char);
+    border:1px solid var(--line);
+    color:var(--parchment);
+    padding:12px 14px;
+    border-radius:2px;
+    font-family:'Karla',sans-serif;
+    font-size:0.95rem;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus{
+    outline:none;
+    border-color:var(--ember-2);
+  }
+
+  textarea{
+    min-height:120px;
+    resize:vertical;
+  }
+
+  .field-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+
+  @media (max-width:520px){
+    .field-row{
+      grid-template-columns:1fr;
+    }
+  }
+
+  .form-note{
+    font-size:0.78rem;
+    color:var(--ash-dim);
+  }
+
+  footer{
+    padding:5vh 6vw;
+    text-align:center;
+    color:var(--ash-dim);
+    font-size:0.82rem;
+    border-top:1px solid var(--line);
+  }
+
+  footer a{
+    color:var(--ember-2);
+    text-decoration:none;
+  }
+
+  footer a:hover{
+    text-decoration:underline;
+  }
+
+  .footer-contact{
+    margin-bottom:10px;
+    font-size:0.9rem;
+    color:var(--parchment);
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  .tab:focus-visible{
+    outline:2px solid var(--ember-2);
+    outline-offset:2px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{
+      transition:none !important;
+    }
+  }
+
+  .lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(28,24,21,0.95);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:100;
+    cursor:zoom-out;
+    padding:20px;
+  }
+
+  .lightbox.show{
+    display:flex;
+  }
+
+  .lightbox img{
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+  }
+
+  .back-to-top{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    z-index:50;
+    background:var(--char-2);
+    border:2px solid var(--ember-2);
+    color:var(--parchment);
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.4rem;
+    text-decoration:none;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s, transform .15s;
+  }
+
+  .back-to-top.show{
+    opacity:1;
+    pointer-events:auto;
+  }
+
+  .back-to-top:hover{
+    transform:translateY(-2px);
+    background:var(--ember-2);
+    color:#1c1815;
+  }
+
+  @media (max-width:520px){
+    .back-to-top{
+      left:16px;
+      bottom:80px;
+      width:48px;
+      height:48px;
+    }
+  }
+
+  @media (max-width:520px){
+    .floating-cta{
+      left:16px;
+      right:16px;
+      bottom:16px;
+      text-align:center;
+      padding:16px;
+      font-size:0.95rem;
+    }
+  }
+  
+  @media (max-width:520px){
+  .hero h1{
+    font-size: 1.6rem;
+  }
+  .hero p{
+    font-size: 0.95rem;
+  }
+}
+
+  #wipSubtabs {
+    display: none;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .wip-subtab-thumb {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 6px;
+  }
+  .wip-subtab-btn.coming-soon {
+    border-style: dashed;
+    opacity: 0.75;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .wip-subtab-sub {
+    font-size: 0.75rem;
+    opacity: 0.8;
+  }
+
+</style>
+</head>
+
+<body>
+
+<div class="grain-bg"></div>
+
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
+
+<header>
+  <a href="#top" class="brand"><em>Ember and Grain Studios-Sarah DeFazio</em></a>
+
+  <nav>
+    <a href="#gallery">Gallery</a>
+    <a href="#commission">Commission</a>
+    <a href="mailto:Emberandgrainstudios@gmail.com">Contact</a>
+  </nav>
+</header>
+
+<div id="top" class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-inner">
+    <span class="eyebrow">Sarah finally DID IT! 🫀</span>
+
+    <h1>
+      Art burned into wood,<br class="hidden-mobile">
+      one <span class="burn">ember</span> at a time.
+    </h1>
+
+    <p>
+      Every piece below is hand-burned by myself — all original, one-of-a-kind artwork.
+      Browse the gallery by category. See something available? Send a request to buy it as-is.
+      Love a design that's not for sale, or already sold? I can recreate that exact piece for you.
+      Or, if you'd rather start something new, I'll build a custom piece with you from scratch.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#gallery" class="btn btn-ember">View the gallery</a>
+      <a href="#commission" class="btn btn-ghost">Request a commission</a>
+    </div>
+
+    <div style="margin-top:18px; font-size:0.9rem; font-weight:700; color:#FFFBEB;">
+      🐶 <strong style="color:#FFFBEB;">My name is Shiver — "I always follow you and I can bring you home."</strong>
+    </div>
+  </div>
+</div>
+
+<section id="gallery">
+
+  <div class="section-head">
+    <span class="eyebrow">Gallery</span>
+    <h2>Browse by category</h2>
+    <p>Click a category to view art</p>
+  </div>
+
+  <div class="tabs" role="tablist" aria-label="Filter gallery by category">
+
+    <button class="tab" data-filter="forsale">Currently Available<span class="updated-badge">UPDATED🌟</span></button>
+    <button class="tab" data-filter="studio">Studio Videos</button>
+    <button class="tab" data-filter="wip">Works in Progress<span class="updated-badge">UPDATED🌟</span></button>
+    <button class="tab" data-filter="all">Sarah's World</button>
+    <button class="tab" data-filter="nursery">Nursery and Kids</button>
+    <button class="tab" data-filter="portraits">Portraits</button>
+    <button class="tab" data-filter="animals">Animals</button>
+    <button class="tab" data-filter="kitchen">Kitchen and Table</button>
+    <button class="tab" data-filter="beliefs">Sacred/Spirit/Symbol</button>
+
+    <a href="#commission" class="tab tab-cta">
+      Create Your Custom Art With Me Today →
+    </a>
+  </div>
+
+  <div class="gallery" id="gallery-grid">
+
+    <article class="piece" data-cat="forsale nursery">
+      <div style="position:relative;">
+        <img src="IMG_8623.jpeg" alt="Decor">
+        <span class="available">$40.00</span>
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="forsale">Currently Available</button>
+        <span class="title">Once Upon a Time</span>
+      </div>
+    </article>
+
+  <article class="piece" data-cat="forsale portraits random">
+      <div style="position:relative;">
+        <img src="IMG_8679.jpeg" alt="Van Gogh">
+        <span class="available">$50.00</span>
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="forsale">Currently Available</button>
+        <span class="title">Van Gogh Sunflowers</span>
+      </div>
+    </article>
+    
+        <article class="piece" data-cat="forsale random portraits beliefs" id="shibari">
+      <div style="position:relative;">
+        <img src="IMG_5828.jpeg" alt="Shibari Love" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=Shibari Release'">
+        <span class="available">$Make offer to re-create</span>
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="forsale">Currently Available</button>
+        <span class="title">Shibari Release</span>
+      </div>
+    </article>
+    
+    <article class="piece" data-cat="forsale nursery">
+      <div style="position:relative;">
+        <img src="Not all who wander 2.jpeg" alt="wander">
+        <span class="available">SOLD</span>
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="forsale">Currently Available</button>
+        <span class="title">Not All Are Lost- SOLD</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="forsale random">
+      <div style="position:relative;">
+        <img src="IMG_2968.jpeg" alt="moth">
+        <span class="available">A$20.00</span>
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="forsale">Currently Available</button>
+        <span class="title">A Friend</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="forsale random beliefs">
+      <div style="position:relative;">
+        <img src="Crown of thorns.jpeg" alt="Crown of thorns">
+        <span class="available">$20.00</span>
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="forsale">Currently Available</button>
+        <span class="title">The Weight of Mercy</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="forsale beliefs">
+      <div style="position:relative;">
+        <img src="The virgin mother 2.jpeg" alt="Virgin Mother">
+        <span class="available">$20.00</span>
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="forsale">Currently Available</button>
+        <span class="title">Mother Eternal</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="forsale random">
+      <div style="position:relative;">
+        <img src="IMG_1096.jpeg" alt="Skulls">
+        <span class="available">$40.00</span>
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="forsale">Currently Available</button>
+        <span class="title">Triplets</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="forsale random">
+      <div style="position:relative;">
+        <img src="Never more.jpeg" alt="Nevermore">
+        <span class="available" style="background:#c0392b; color:#ffffff; font-weight:700; font-size:0.85rem; padding:6px 14px;">SOLD</span>
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="forsale">SOLD</button>
+        <span class="title" style="color:#c0392b; font-weight:700;">NEVERMORE — SOLD</span>
+      </div>
+    </article>
+
+<article class="piece" data-cat="forsale portraits random">
+  <div style="position:relative;">
+    <img src="Flower, rainbow.jpeg" alt="Rainbow flower">
+    <span class="available" style="background:#c0392b; color:#ffffff; font-weight:700; font-size:0.85rem; padding:6px 14px;">SOLD</span>
+  </div>
+  <div class="scorch"></div>
+  <div class="caption">
+    <button class="cat" data-filter="forsale">SOLD</button>
+    <span class="title" style="color:#c0392b; font-weight:700;">PROMISED — SOLD</span>
+  </div>
+</article>
+
+    <article class="piece" data-cat="forsale beliefs random">
+      <div style="position:relative;">
+        <img src="Geometric.jpeg" alt="Geometric skull">
+        <span class="available">SOLD</span>
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="forsale">Currently Available</button>
+        <span class="title">The shape of Return - SOLD</span>
+      </div>
+    </article>
+    
+<article class="piece" data-cat="forsale nursery">
+  <div style="position:relative;">
+    <img src="IMG_9750.jpeg" alt="Decor">
+    <span class="available" style="background:#c0392b; color:#ffffff; font-weight:700; font-size:0.85rem; padding:6px 14px;">SOLD</span>
+  </div>
+  <div class="scorch"></div>
+  <div class="caption">
+    <button class="cat" data-filter="forsale">SOLD</button>
+    <span class="title" style="color:#c0392b; font-weight:700;">GROWING UP — SOLD</span>
+  </div>
+</article>
+
+
+    <article class="piece" data-cat="forsale random beliefs">
+      <div style="position:relative;">
+        <img src="Black flames.jpeg" alt="skull">
+        <span class="available">$75.00</span>
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="forsale">Currently Available</button>
+        <span class="title">The Black Flames</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="forsale random beliefs">
+      <div style="position:relative;">
+        <img src="My Shadow.jpeg" alt="Eidolon">
+        <span class="available"> available for the right price</span>
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="forsale">Currently Available</button>
+        <span class="title">Eidolon, Named Night</span><br>
+        <span style="font-size:0.78rem; font-style:italic; color:var(--ash);">after Edgar Allan Poe's "Dream-Land"</span>
+      </div>
+    </article>
+
+
+    <div class="wip-subtabs" id="wipSubtabs">
+  <button class="wip-subtab-btn coming-soon" disabled>✨ Coming Soon — Getting ready to build something exciting</button>
+  <button class="wip-subtab-btn" data-project="fbb1">Forest Baby Boy 1</button>
+  <button class="wip-subtab-btn" data-project="fbb2">Forest Baby Boy 2</button>
+</div>
+
+     <!-- WORKS IN PROGRESS -->
+<article class="piece studio-video" data-cat="nursery studio" data-project="fbb1" id="boy">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/Boy.MOV" type="video/quicktime">
+  </video>
+  <div class="caption">
+    <span class="title">For The Peterson Family</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="fbb1-photo" data-project="fbb1">
+  <img src="images/bowls/1.jpeg" alt="Blank wood slice, ready to burn">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Step 1 — Blank Slice</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="fbb1-photo" data-project="fbb1">
+  <img src="images/bowls/2.jpeg" alt="Boot design sketched and first boot burned in">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Step 2</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="fbb1-photo" data-project="fbb1">
+  <img src="images/bowls/3.jpeg" alt="Both boots burned in">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Step 3 —</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="fbb1-photo" data-project="fbb1">
+  <img src="images/bowls/5.jpeg" alt="Full scene sketched, boots outlined only">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Step 4</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="fbb1-photo" data-project="fbb1">
+  <img src="images/bowls/6.jpeg" alt="Boot woodburning close detail">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Step 5</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="fbb1-photo" data-project="fbb1">
+  <img src="images/bowls/9.jpeg" alt="Boots, mountains, and birds burned, left tree line still unburned sketch">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Step 6</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="fbb1-photo" data-project="fbb1">
+  <img src="images/bowls/10.jpeg" alt="Close detail shot of boots and mountains mid-burn">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Step 7</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="fbb1-photo" data-project="fbb1">
+  <img src="images/bowls/11.jpeg" alt="Full scene nearly complete, all trees burned in">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Step 8-Progress Check</span>
+  </div>
+</article>
+  
+  <article class="piece" data-cat="fbb1-photo" data-project="fbb1">
+  <img src="images/bowls/12.jpeg" alt="Full scene nearly complete, all trees burned in">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Step 9-Progress</span>
+  </div>
+</article>
+  
+  <article class="piece" data-cat="nursery" data-project="fbb1">
+  <img src="images/bowls/13.jpeg" alt="Full scene nearly complete, all trees burned in">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Final</span>
+  </div>
+</article>
+
+ <article class="piece" data-cat="fbb2-photo" data-project="fbb2">
+  <img src="images/IMG_3230.jpeg" alt="Forest Baby Boy 2 process photo">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Step 1</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="fbb2-photo" data-project="fbb2">
+  <img src="images/IMG_3281.jpeg" alt="Forest Baby Boy 2 process photo">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Step 2</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="fbb2-photo" data-project="fbb2">
+  <img src="images/IMG_3589.jpeg" alt="Forest Baby Boy 2 process photo">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Step 3</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="fbb2-photo" data-project="fbb2">
+  <img src="images/IMG_3634.jpeg" alt="Forest Baby Boy 2 process photo">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Final</span>
+  </div>
+</article>
+
+<!-- END WORKS IN PROGRESS -->
+
+    <!-- NURSERY and KIDS -->
+
+    <article class="piece" data-cat="nursery">
+      <div class="scorch"></div>
+      <div class="set-2plus1">
+        <img src="IMG_6917.jpeg" alt="Teddy bears playing sports, woodburning">
+        <img src="IMG_6918.jpeg" alt="Teddy bears playing sports, woodburning">
+        <img src="RDR_Sports_Bears_Monogram_FULL_VIEW.jpg" alt="Teddy bears sports personalized">
+      </div>
+      <div class="caption">
+        <span class="title">Monogram Teddy Bears Playing Sports</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="nursery">
+      <div class="scorch"></div>
+      <div class="set-2plus1">
+        <img src="IMG_3844.jpeg" alt="Wildflower set 1 of 3">
+        <img src="IMG_3863.jpeg" alt="Wildflower set 2 of 3">
+        <img src="IMG_3864.jpeg" alt="Wildflower set 3 of 3">
+      </div>
+      <div class="caption">
+        <span class="title">Wildflowers Set</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="nursery">
+      <img src="highland_cow_front_full.jpg" alt="decor">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Highland Cows</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="nursery animals">
+      <img src="IMG_4936.jpeg" alt="decor">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Golden Retriever</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="nursery">
+      <img src="IMG_5013.jpeg" alt="decor">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Minecraft</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="nursery">
+      <img src="IMG_7185.jpeg" alt="decor">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Personalized Clipboard</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="nursery">
+      <img src="Baseball.jpeg" alt="decor">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Personalized Sports Gift</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="nursery">
+      <img src="Lightning McQueen personalized.jpeg" alt="decor">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Personalized Lightning McQueen</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="nursery">
+      <img src="Kingston.jpeg" alt="decor">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Personalized Door Decor</span>
+      </div>
+    </article>
+
+    <!-- PORTRAITS -->
+
+    <article class="piece" data-cat="portraits">
+      <img src="Dixie.jpeg" alt="memorial">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Dixie💛Yellow Roses</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="portraits">
+      <div class="set-2up">
+        <img src="IMG_5573.jpg" alt="twins">
+        <img src="IMG_5569.JPG" alt="twins">
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Mohawk Twins</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="portraits animals">
+      <img src="IMG_4508.jpeg" alt="memorial">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Sassie</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="portraits">
+      <img src="Dale - memorial.jpeg" alt="memorial">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Dale - Memorial</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="portraits kitchen animals">
+      <div class="set-2up">
+        <img src="Momma Cat front .jpeg" alt="Boards">
+        <img src="IMG_6987.jpeg" alt="Boards">
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Momma Cat Double Sided Cutting Board</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="portraits animals">
+      <div class="set-2up">
+        <img src="IMG_5189.jpeg" alt="memorial">
+        <img src="imagejpeg_0.jpg" alt="memorial">
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Sugar R.I.P.</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="portraits random animals">
+      <div class="set-2up">
+        <img src="IMG_A7A19E8B-F56B-40E0-92CD-5091057614E4.JPEG" alt="Wooden Box">
+        <img src="Joey.jpg" alt="Joey portrait woodburning">
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Joey Wooden Box</span>
+      </div>
+    </article>
+
+    <!-- ANIMALS -->
+
+    <article class="piece" data-cat="animals">
+      <div class="set-2up">
+        <img src="Farm cows.jpeg" alt="cows, woodburning">
+        <img src="Cow with flowers.jpeg" alt="Decor">
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Farm Cows</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="animals">
+      <img src="IMG_3584.jpeg" alt="Decor">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Garden Cat</span>
+      </div>
+    </article>
+
+    <!-- KITCHEN AND TABLE -->
+
+    <article class="piece" data-cat="kitchen">
+      <div class="set-2up">
+        <img src="IMG_4421.jpeg" alt="kitchen spoon">
+        <img src="IMG_4438.jpeg" alt="Decor">
+      </div>
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Wooden Spoons</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="kitchen">
+      <img src="Kitchen1.jpeg" alt="Boards">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Personalized Cutting Board</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="kitchen">
+      <img src="IMG_2845.jpeg" alt="Boards">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">German Traditional Dessert Board Small</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="kitchen">
+      <img src="Longboard.jpeg" alt="Boards">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">German Traditional Dessert Board Long</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="kitchen">
+      <img src="Just Breath Round board.png" alt="Boards">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Round Kitchen Decor Cutting Board</span>
+      </div>
+    </article>
+
+    <!-- SACRED / SPIRIT / SYMBOL -->
+
+    <article class="piece" data-cat="beliefs random">
+      <img src="Ouija board Large.jpeg" alt="Boards">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Ouija</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="beliefs random">
+      <img src="IMG_4422.jpeg" alt="Skull">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Hell is Hot</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="beliefs random">
+      <img src="IMG_20240824_0009.jpeg" alt="metatron">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Metatron Cube</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="beliefs random">
+      <img src="IMG_2047.jpeg" alt="Chakra">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Sarah's Chakra Table</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="beliefs portrait">
+      <img src="IMG_2549.jpeg" alt="Jesus Christ">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Jesus Cross</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="beliefs portraits">
+      <img src="IMG_1220.jpeg" alt="Jesus Christ">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Jesus</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="beliefs">
+      <img src="IMG_3409.jpeg" alt="Cross">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Cross</span>
+      </div>
+    </article>
+
+    <!-- RANDOM -->
+
+    <article class="piece" data-cat="random portraits">
+      <img src="IMG_2548.jpeg" alt="Medusa woodburning">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Medusa</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_2986.jpeg" alt="Boards">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Make A Wish and Just Breathe</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_4171.jpeg" alt="decor">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">The first two pieces I ever made, and sold</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random beliefs">
+      <img src="IMG_4223.jpeg" alt="Skull">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title">Queen of the Dead</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_4455.jpeg" alt="DESCRIPTION">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title"></span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_4527.jpeg" alt="DESCRIPTION">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title"></span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_5229.jpeg" alt="DESCRIPTION">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title"></span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_5230.jpeg" alt="DESCRIPTION">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title"></span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_5530.jpeg" alt="DESCRIPTION">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title"></span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_5571.jpeg" alt="DESCRIPTION">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title"></span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_5713.jpeg" alt="DESCRIPTION">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title"></span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_6661.jpeg" alt="DESCRIPTION">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title"></span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_6670.jpeg" alt="DESCRIPTION">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title"></span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_6810.jpeg" alt="DESCRIPTION">
+      <div class="scorch"></div>
+      <div class="caption">
+        <span class="title"></span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_9257.jpeg" alt="DESCRIPTION">
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="random">Random</button>
+        <span class="title"></span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_9345.jpeg" alt="DESCRIPTION">
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="random">Random</button>
+        <span class="title">Sarah</span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_9348.jpeg" alt="DESCRIPTION">
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="random">Random</button>
+        <span class="title"></span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_9360.jpeg" alt="">
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="random">Random</button>
+        <span class="title"></span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random beliefs">
+      <img src="IMG_9458.jpeg" alt="DESCRIPTION">
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="random">Random</button>
+        <span class="Hamsa"></span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_9751.jpeg" alt="heart strings">
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="random">Random</button>
+        <span class="Puppet Master"></span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="highland_cow_back_laney_full.jpg" alt="DESCRIPTION">
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="random">Random</button>
+        <span class="Backside of Highland Cow Nursery Board"></span>
+      </div>
+    </article>
+
+    <article class="piece" data-cat="random">
+      <img src="IMG_4229.jpeg" alt="DESCRIPTION">
+      <div class="scorch"></div>
+      <div class="caption">
+        <button class="cat" data-filter="random">Random</button>
+        <span class="Anniversary Gift"></span>
+      </div>
+    </article>
+
+    <!-- STUDIO VIDEOS -->
+
+<article class="piece studio-video" data-cat="studio" data-project="fbb2">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/8ba9b84491a3429587d313ec7ef2f2c4.mov" type="video/quicktime">
+    </video>
+    <div class="caption">
+    <span class="title">baby boy forest #2</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="bby1.MOV" type="video/quicktime">
+  </video>
+  <div class="caption">
+    <span class="title">baby boy forest</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="export_1788471519432.mov" type="video/quicktime">
+  </video>
+  <div class="caption">
+    <span class="title">commissioned art build- for Nena</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/Teddy sports.MP4" type="video/mp4">
+  </video>
+  <div class="caption">
+    <span class="title">Teddy Bears Nursery</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/Proud.MOV" type="video/quicktime">
+  </video>
+  <div class="caption">
+    <span class="title">Proud</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/Bdayart.mov" type="video/quicktime">
+  </video>
+  <div class="caption">
+    <span class="title">Teach them</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/1color.MP4" type="video/mp4">
+  </video>
+  <div class="caption">
+    <span class="title">sarah</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/Art-istic%20.MOV" type="video/quicktime">
+  </video>
+  <div class="caption">
+    <span class="title">Art-istic .MOV</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/Did%20something%20cool%20.MP4" type="video/mp4">
+  </video>
+  <div class="caption">
+    <span class="title">Did something cool .MP4</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/IMG_8013.MOV" type="video/quicktime">
+  </video>
+  <div class="caption">
+    <span class="title">For Sabrina - Joey Dog</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/Just%20practicing%20.MOV" type="video/quicktime">
+  </video>
+  <div class="caption">
+    <span class="title">Just practicing</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/export_1788471505845.mov" type="video/quicktime">
+  </video>
+  <div class="caption">
+    <span class="title">Love to Love ya</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/12.MP4" type="video/mp4">
+  </video>
+  <div class="caption">
+    <span class="title">🧠🪦💀</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/Vangogh3.MP4" type="video/mp4">
+  </video>
+  <div class="caption">
+    <span class="title">🌻</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/Tree2.MP4" type="video/mp4">
+  </video>
+  <div class="caption">
+    <span class="title">🕉️🪾</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/Confidence.MP4" type="video/mp4">
+  </video>
+  <div class="caption">
+    <span class="title"> I think I found my confidence song</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/export_1788472122632.mov" type="video/quicktime">
+  </video>
+  <div class="caption">
+    <span class="title">Jesus and All Them Witches🎶🎵</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/export_1788472155139.mov" type="video/quicktime">
+  </video>
+  <div class="caption">
+    <span class="title">Once Upon A Time I Was Lost</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/2color.MP4" type="video/mp4">
+  </video>
+  <div class="caption">
+    <span class="title">worda and stuff</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/export_1788472210219.mov" type="video/quicktime">
+  </video>
+  <div class="caption">
+    <span class="title">Eidolon named Night Progression</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/Ok.MP4" type="video/mp4">
+  </video>
+  <div class="caption">
+    <span class="title"> sometimes you just have to be still</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/export_1788472221269.mov" type="video/quicktime">
+  </video>
+  <div class="caption">
+    <span class="title">Shibari 🪷</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/Toohotduh.MP4" type="video/mp4">
+  </video>
+  <div class="caption">
+    <span class="title">DUH! too hot</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/export_1788472502315.mov" type="video/quicktime">
+  </video>
+  <div class="caption">
+    <span class="title">What Makes You Happy? - MY BOYS!! 🫀🫀</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/export_1788472590448.mov" type="video/quicktime">
+  </video>
+  <div class="caption">
+    <span class="title">Wildflowers for a Friends Baby Girl</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="studio">
+  <video controls playsinline preload="metadata" width="100%">
+    <source src="images/Media/Try.MP4" type="video/mp4">
+  </video>
+  <div class="caption">
+    <span class="title">Try</span>
+  </div>
+</article>
+
+    <!-- END STUDIO VIDEOS -->
+
+  </div>
+</section>
+
+<section id="commission" class="commission">
+
+  <div class="commission-grid">
+
+    <div>
+      <span class="eyebrow">Create Together</span>
+      <h2>Start a custom piece with me</h2>
+
+      <p style="color:var(--ash); margin-bottom:26px;">
+        This isn't a checkout — it's the start of a conversation.
+        Tell me your name, email, and what you're picturing, and I'll reply
+        so we can shape the idea together.
+      </p>
+
+      <ol>
+        <li><strong>You send the spark.</strong> Just a rough idea is fine — subject, mood, who it's for.</li>
+        <li><strong>We talk it through.</strong> I'll follow up by email and we'll refine the idea together.</li>
+        <li><strong>We land on a price together.</strong> Every piece is negotiated one-on-one — no fixed pricing.</li>
+      </ol>
+
+      <p class="form-note"></p>
+    </div>
+
+    <form id="commission-form" action="https://formspree.io/f/xaeynkao" method="POST">
+
+      <div class="field-row">
+
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+      </div>
+
+      <div>
+        <label for="details">What are you looking for?</label>
+
+        <textarea
+          id="details"
+          name="details"
+          placeholder="Tell me your idea — subject, occasion, size, wood preference, timeline. We'll refine it together from here."
+          required
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-ember"
+        style="align-self:flex-start;"
+      >
+        Start the conversation
+      </button>
+
+    </form>
+
+  </div>
+</section>
+
+<footer>
+
+  <p class="footer-contact">
+    Contact us directly:
+    <a href="mailto:Emberandgrainstdios@gmail.com">
+      Emberandgrainstudios@gmail.com
+    </a>
+  </p>
+
+  &copy;
+  <span id="year"></span>
+  Sarah DeFazio - Ember and Grain Studios.
+  All pieces are original, hand-burned work.
+  All rights reserved.
+  Original artwork, photography, designs, and written content may not be reproduced,
+  copied, distributed, or used without permission.
+
+</footer>
+
+<script>
+
+  /* ---------- lightbox ---------- */
+
+  document.querySelectorAll('.piece img').forEach(img => {
+
+    img.addEventListener('click', () => {
+
+      document.getElementById('lightbox-img').src = img.src;
+
+      document.getElementById('lightbox').classList.add('show');
+
+    });
+
+  });
+
+  document.getElementById('lightbox').addEventListener('click', () => {
+
+    document.getElementById('lightbox').classList.remove('show');
+
+  });
+
+
+  /* ---------- category filter ---------- */
+
+  const tabs = document.querySelectorAll('.tab');
+  const pieces = document.querySelectorAll('.piece');
+  const catButtons = document.querySelectorAll('.piece .caption .cat');
+
+
+  function getCats(p) {
+
+    return p.dataset.cat.split(' ');
+
+  }
+
+
+  function applyFilter(filter) {
+
+    tabs.forEach(t => {
+
+      t.classList.toggle(
+        'active',
+        t.dataset.filter === filter
+      );
+
+    });
+
+
+    pieces.forEach(p => {
+
+      p.classList.toggle(
+        'show',
+        filter === 'all' || getCats(p).includes(filter)
+      );
+
+    });
+
+
+    catButtons.forEach(btn => {
+
+      btn.style.display =
+        (filter === 'all') ? '' : 'none';
+
+    });
+
+    const wipSubtabs = document.getElementById('wipSubtabs');
+    if (wipSubtabs) {
+      wipSubtabs.style.display = (filter === 'wip') ? 'flex' : 'none';
+    }
+
+    if (filter === 'wip') {
+      document.querySelectorAll('.piece[data-project]').forEach(p => {
+        p.classList.remove('show');
+      });
+      document.querySelectorAll('.wip-subtab-btn[data-project]').forEach(btn => {
+        btn.classList.remove('active');
+      });
+    }
+
+  }
+
+
+  function applyProjectFilter(project) {
+    document.querySelectorAll('.wip-subtab-btn[data-project]').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.project === project);
+    });
+
+    document.querySelectorAll('.piece[data-project]').forEach(p => {
+      p.classList.toggle('show', p.dataset.project === project);
+    });
+  }
+
+  document.querySelectorAll('.wip-subtab-btn[data-project]').forEach(btn => {
+    btn.addEventListener('click', () => applyProjectFilter(btn.dataset.project));
+  });
+
+
+  function showPreview() {
+
+    tabs.forEach(t =>
+      t.classList.remove('active')
+    );
+
+    const seen = new Set();
+
+
+    pieces.forEach(p => {
+
+      const newCat =
+        getCats(p).find(c => !seen.has(c));
+
+
+      if (newCat) {
+
+        seen.add(newCat);
+        p.classList.add('show');
+
+      } else {
+
+        p.classList.remove('show');
+
+      }
+
+    });
+
+
+    catButtons.forEach(btn => {
+
+      btn.style.display = '';
+
+    });
+
+  }
+
+
+  tabs.forEach(tab => {
+
+    tab.addEventListener('click', () => {
+
+      const filter = tab.dataset.filter;
+
+      applyFilter(filter);
+
+      history.replaceState(
+        null,
+        '',
+        filter === 'all'
+          ? '#gallery'
+          : '#' + filter
+      );
+
+    });
+
+  });
+
+
+  catButtons.forEach(btn => {
+
+    btn.addEventListener('click', () => {
+
+      const filter = btn.dataset.filter;
+
+      applyFilter(filter);
+
+      history.replaceState(
+        null,
+        '',
+        '#' + filter
+      );
+
+      document.getElementById('gallery')
+        .scrollIntoView();
+
+    });
+
+  });
+
+
+  /* ---------- direct URL filters ---------- */
+
+  const startFilter =
+    window.location.hash.replace('#', '');
+
+  const validFilters = [
+    'all',
+    'nursery',
+    'portraits',
+    'forsale',
+    'random',
+    'animals',
+    'kitchen',
+    'beliefs',
+    'studio',
+    'wip'
+  ];
+
+
+  if (startFilter === 'shibari') {
+
+    applyFilter('forsale');
+
+    document.getElementById('shibari')
+      .scrollIntoView();
+
+  } else if (validFilters.includes(startFilter)) {
+
+    applyFilter(startFilter);
+
+    document.getElementById('gallery')
+      .scrollIntoView();
+
+  } else {
+
+    applyFilter('forsale');
+
+  }
+
+
+  /* ---------- year ---------- */
+
+  document.getElementById('year').textContent =
+    new Date().getFullYear();
+
+
+  /* ---------- back to top ---------- */
+
+  const backToTop =
+    document.getElementById('back-to-top');
+
+
+  window.addEventListener('scroll', () => {
+
+    backToTop.classList.toggle(
+      'show',
+      window.scrollY > 500
+    );
+
+  });
+
+
+  backToTop.addEventListener('click', () => {
+
+    window.scrollTo({
+      top:0,
+      behavior:'smooth'
+    });
+
+  });
+
+</script>
+
+</body>
+</html>
