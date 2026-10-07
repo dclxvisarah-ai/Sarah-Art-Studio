@@ -591,6 +591,40 @@
     object-fit:contain;
   }
 
+  /* ---------- Fresh off the burner corner card ---------- */
+  .fresh-card{
+    position:fixed; right:20px; bottom:20px; z-index:60;
+    width:300px; max-width:calc(100vw - 32px);
+    background:var(--char-2); color:var(--parchment);
+    border:2px solid var(--ember-2); border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,.55), 0 0 18px rgba(226,135,47,.25);
+    padding:14px 14px 14px 12px;
+    display:flex; gap:12px; align-items:center;
+    transform:translateY(140%); opacity:0;
+    transition:transform .5s cubic-bezier(.2,.9,.3,1.2), opacity .4s;
+  }
+  .fresh-card[hidden]{ display:none; }
+  .fresh-card.show{ transform:translateY(0); opacity:1; }
+  .fresh-card img{ width:86px; height:86px; object-fit:contain; flex-shrink:0;
+    filter:drop-shadow(0 0 6px rgba(226,135,47,.45)); cursor:pointer; }
+  .fresh-card .fresh-label{ font-size:.72rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ember-2); font-weight:700; }
+  .fresh-card .fresh-title{ font-family:'Fraunces', serif; font-size:1.05rem; margin:2px 0 4px; }
+  .fresh-card .fresh-sub{ font-size:.8rem; opacity:.85; margin-bottom:8px; }
+  .fresh-card .fresh-actions{ display:flex; gap:6px; flex-wrap:wrap; }
+  .fresh-card .fresh-actions a, .fresh-card .fresh-actions button{
+    font:inherit; font-size:.78rem; padding:5px 10px; border-radius:999px; cursor:pointer;
+    text-decoration:none; border:1px solid var(--ember-2); background:transparent; color:var(--parchment);
+  }
+  .fresh-card .fresh-actions .primary{ background:linear-gradient(90deg, var(--ember), var(--ember-2)); border-color:transparent; }
+  .fresh-close{ position:absolute; top:4px; right:8px; background:none; border:none;
+    color:var(--parchment); font-size:1.3rem; line-height:1; cursor:pointer; opacity:.7; padding:4px; }
+  .fresh-close:hover{ opacity:1; color:var(--ember-2); }
+  @media (max-width:520px){
+    .fresh-card{ right:16px; left:16px; bottom:16px; width:auto; max-width:none; }
+  }
+  @media (prefers-reduced-motion:reduce){ .fresh-card{ transition:opacity .3s; } }
+
   .back-to-top{
     position:fixed;
     bottom:20px;
@@ -694,6 +728,21 @@
 </div>
 
 <button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
+
+<!-- FRESH OFF THE BURNER: to feature a new piece later, swap the img, title text, the "See her" target id, and change data-piece so everyone sees it again -->
+<aside class="fresh-card" id="fresh-card" data-piece="ofrenda" data-project="dmg" data-target="ofrenda-final" aria-label="Newest finished piece" hidden>
+  <button type="button" class="fresh-close" id="fresh-close" aria-label="Close">×</button>
+  <img src="images/ofrenda-card.webp" alt="Ofrenda, newly finished woodburning" id="fresh-img">
+  <div>
+    <div class="fresh-label">🔥 Fresh off the burner</div>
+    <div class="fresh-title">Ofrenda</div>
+    <div class="fresh-sub">Just finished! Want one like her?</div>
+    <div class="fresh-actions">
+      <button type="button" id="fresh-see">See her</button>
+      <a href="#commission" class="primary" id="fresh-order">Commission yours</a>
+    </div>
+  </div>
+</aside>
 
 <header>
   <a href="#top" class="brand"><em>Ember and Grain Studios-Sarah DeFazio</em></a>
@@ -951,6 +1000,15 @@
   </video>
   <div class="caption">
     <span class="title">Ofrenda</span>
+  </div>
+</article>
+
+<!-- FINAL: Ofrenda completed — shows in Ofrenda WIP + Portraits + Sacred/Spirit/Symbol -->
+<article class="piece" data-cat="dmg-photo portraits beliefs" data-project="dmg" id="ofrenda-final">
+  <img src="Final.jpeg" alt="Ofrenda — finished Día de los Muertos woodburning on a heart-shaped panel with a silk flower crown">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Ofrenda — Finished ✨</span>
   </div>
 </article>
 
@@ -2092,6 +2150,39 @@
     });
 
   });
+
+
+  /* ---------- fresh off the burner card ---------- */
+  (function(){
+    const card = document.getElementById('fresh-card');
+    if (!card) return;
+    const key = 'freshSeen-' + card.dataset.piece;
+    try { if (localStorage.getItem(key) === '1') return; } catch(e) {}
+
+    function dismiss(){
+      card.classList.remove('show');
+      try { localStorage.setItem(key, '1'); } catch(e) {}
+      setTimeout(() => { card.hidden = true; }, 500);
+    }
+    function seeHer(){
+      applyFilter('wip');
+      applyProjectFilter(card.dataset.project);
+      const el = document.getElementById(card.dataset.target);
+      if (el) el.scrollIntoView({ behavior:'smooth', block:'center' });
+      dismiss();
+    }
+
+    setTimeout(() => {
+      card.hidden = false;
+      requestAnimationFrame(() => requestAnimationFrame(() => card.classList.add('show')));
+    }, 2500);
+
+    document.getElementById('fresh-close').addEventListener('click', dismiss);
+    document.getElementById('fresh-see').addEventListener('click', seeHer);
+    document.getElementById('fresh-img').addEventListener('click', seeHer);
+    document.getElementById('fresh-order').addEventListener('click', dismiss);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !card.hidden) dismiss(); });
+  })();
 
 </script>
 
