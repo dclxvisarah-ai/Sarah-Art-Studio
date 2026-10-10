@@ -2136,7 +2136,18 @@
   ];
 
 
-  if (startFilter === 'shibari') {
+  /* Customer links: emberandgrainstudios.com/#amen opens that project */
+  const projectLinks = { amen:'wip', princess:'wip', ofrenda:'done', babyforest:'done' };
+  const projectIds   = { amen:'amen', princess:'princess', ofrenda:'dmg', babyforest:'LS' };
+
+  if (projectLinks[startFilter]) {
+
+    applyFilter(projectLinks[startFilter]);
+    applyProjectFilter(projectIds[startFilter]);
+    const bar = document.getElementById(projectLinks[startFilter] === 'wip' ? 'wipSubtabs' : 'doneSubtabs');
+    if (bar) bar.scrollIntoView();
+
+  } else if (startFilter === 'shibari') {
 
     applyFilter('portraits');
 
