@@ -686,7 +686,7 @@
   }
 }
 
-  #wipSubtabs {
+  #wipSubtabs, #doneSubtabs {
     display: none;
     gap: 10px;
     flex-wrap: wrap;
@@ -796,6 +796,7 @@
     <button class="tab" data-filter="forsale">Currently Available<span class="updated-badge">UPDATED🌟</span></button>
     <button class="tab" data-filter="studio">Studio Videos</button>
     <button class="tab" data-filter="wip">Works in Progress<span class="updated-badge">UPDATED🌟</span></button>
+    <button class="tab" data-filter="done">Completed Projects<span class="updated-badge">NEW🌟</span></button>
     <button class="tab" data-filter="all">Sarah's World</button>
     <button class="tab" data-filter="nursery">Nursery and Kids</button>
     <button class="tab" data-filter="portraits">Portraits</button>
@@ -983,18 +984,29 @@
 
     <div class="wip-subtabs" id="wipSubtabs">
   <button class="wip-subtab-btn coming-soon" disabled>✨ Coming Soon — Getting ready to build something exciting</button>
-  <button class="wip-subtab-btn" data-project="LS">Baby Forest</button>
-  <button class="wip-subtab-btn" data-project="dmg">Ofrenda</button>
+  <button class="wip-subtab-btn" data-project="amen">Amen</button>
       <button class="wip-subtab-btn" data-project="">✨ORDER YOUR ART TODAY!✨</button>
-
-
-
 </div>
+
+    <!-- COMPLETED PROJECTS: finished commissions, start-to-finish progression -->
+    <div class="wip-subtabs" id="doneSubtabs">
+  <button class="wip-subtab-btn" data-project="dmg">Ofrenda</button>
+  <button class="wip-subtab-btn" data-project="LS">Baby Forest</button>
+</div>
+
+<!-- WIP: Amen (Jesus) -->
+<article class="piece" data-cat="amen-photo" data-project="amen">
+  <img src="images/amen1.jpeg" alt="Amen — Jesus with crown of thorns, design traced onto wood, ready to burn">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Step 1 — traced and ready to burn</span>
+  </div>
+</article>
 
      <!-- WORKS IN PROGRESS -->
 
-<!-- SHOWCASE: Azulia video — first in Studio Videos AND first in Ofrenda WIP -->
-<article class="piece studio-video" data-cat="studio dmg-photo" data-project="dmg" id="azulia">
+<!-- SHOWCASE: Azulia video — first in Studio Videos AND first in Ofrenda (Completed Projects) -->
+<article class="piece studio-video" data-cat="studio done-photo" data-project="dmg" id="azulia">
   <video controls playsinline preload="metadata" width="100%">
     <source src="Azulia.MOV" type="video/quicktime">
   </video>
@@ -1004,7 +1016,7 @@
 </article>
 
 <!-- FINAL: Ofrenda completed — shows in Ofrenda WIP + Portraits + Sacred/Spirit/Symbol -->
-<article class="piece" data-cat="dmg-photo portraits beliefs" data-project="dmg" id="ofrenda-final">
+<article class="piece" data-cat="done-photo portraits beliefs" data-project="dmg" id="ofrenda-final">
   <img src="Final.jpeg" alt="Ofrenda — finished Día de los Muertos woodburning on a heart-shaped panel with a silk flower crown">
   <div class="scorch"></div>
   <div class="caption">
@@ -1021,7 +1033,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="LS-photo" data-project="LS">
+<article class="piece" data-cat="done-photo" data-project="LS">
   <img src="LA2.jpeg" alt="ready to burn">
   <div class="scorch"></div>
   <div class="caption">
@@ -1029,7 +1041,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="LS-photo" data-project="LS">
+<article class="piece" data-cat="done-photo" data-project="LS">
   <img src="LS1.jpeg" alt="life sign burned">
   <div class="scorch"></div>
   <div class="caption">
@@ -1037,7 +1049,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="LS-photo" data-project="LS">
+<article class="piece" data-cat="done-photo" data-project="LS">
   <img src="IMG_4688.jpeg" alt="Baby Forest progress, almost done">
   <div class="scorch"></div>
   <div class="caption">
@@ -1073,7 +1085,7 @@
   </div>
 </article>
 
-   <article class="piece" data-cat="dmg-photo" data-project="dmg">
+   <article class="piece" data-cat="done-photo" data-project="dmg">
   <img src="images/IMG_3697.jpeg" alt="Dia de los Muertos Girl process photo">
   <div class="scorch"></div>
   <div class="caption">
@@ -1081,7 +1093,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="dmg-photo" data-project="dmg">
+<article class="piece" data-cat="done-photo" data-project="dmg">
   <img src="IMG_4094.jpeg" alt="Dia de los Muertos Girl process photo">
   <div class="scorch"></div>
   <div class="caption">
@@ -1089,7 +1101,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="dmg-photo" data-project="dmg">
+<article class="piece" data-cat="done-photo" data-project="dmg">
   <img src="images/dmg2.jpeg" alt="Dia de los Muertos Girl process photo">
   <div class="scorch"></div>
   <div class="caption">
@@ -1097,7 +1109,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="dmg-photo" data-project="dmg">
+<article class="piece" data-cat="done-photo" data-project="dmg">
   <img src="Step3.jpeg" alt="Dia de los Muertos Girl process photo">
   <div class="scorch"></div>
   <div class="caption">
@@ -1105,7 +1117,7 @@
   </div>
 </article>
 
-<article class="piece" data-cat="dmg-photo" data-project="dmg">
+<article class="piece" data-cat="done-photo" data-project="dmg">
   <img src="IMG_4676.jpeg" alt="Dia de los Muertos Girl extra art">
   <div class="scorch"></div>
   <div class="caption">
@@ -1981,8 +1993,12 @@
     if (wipSubtabs) {
       wipSubtabs.style.display = (filter === 'wip') ? 'flex' : 'none';
     }
+    const doneSubtabs = document.getElementById('doneSubtabs');
+    if (doneSubtabs) {
+      doneSubtabs.style.display = (filter === 'done') ? 'flex' : 'none';
+    }
 
-    if (filter === 'wip') {
+    if (filter === 'wip' || filter === 'done') {
       document.querySelectorAll('.piece[data-project]').forEach(p => {
         p.classList.remove('show');
       });
@@ -2105,7 +2121,8 @@
     'kitchen',
     'beliefs',
     'studio',
-    'wip'
+    'wip',
+    'done'
   ];
 
 
@@ -2175,7 +2192,7 @@
       setTimeout(() => { card.hidden = true; }, 500);
     }
     function seeHer(){
-      applyFilter('wip');
+      applyFilter('done');
       applyProjectFilter(card.dataset.project);
       const el = document.getElementById(card.dataset.target);
       if (el) el.scrollIntoView({ behavior:'smooth', block:'center' });
