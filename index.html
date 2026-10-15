@@ -986,6 +986,7 @@
   <button class="wip-subtab-btn coming-soon" disabled>✨ Coming Soon — Getting ready to build something exciting</button>
   <button class="wip-subtab-btn" data-project="amen">Amen</button>
   <button class="wip-subtab-btn" data-project="princess">Little Princess</button>
+  <button class="wip-subtab-btn" data-project="butterflykiss">Butterfly Kiss</button>
       <button class="wip-subtab-btn" data-project="">✨ORDER YOUR ART TODAY!✨</button>
 </div>
 
@@ -1009,6 +1010,14 @@
   <div class="scorch"></div>
   <div class="caption">
     <span class="title">Step 2 — burning in progress</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="princess-photo" data-project="princess">
+  <img src="images/princess3.jpeg" alt="Little Princess — tree, branches and mountains burned in">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Step 3 — the tree and mountains come in</span>
   </div>
 </article>
 
@@ -1042,6 +1051,16 @@
   <div class="scorch"></div>
   <div class="caption">
     <span class="title">Step 4 — almost there</span>
+  </div>
+</article>
+
+<!-- WIP: Butterfly Kiss (cat + butterfly) — upcoming for-sale piece -->
+<article class="piece" data-cat="butterflykiss-photo" data-project="butterflykiss">
+  <img src="images/butterflykiss1.jpeg" alt="Butterfly Kiss — a cat with a butterfly on its nose, sketched on wood, ready to burn">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Butterfly Kiss — Step 1, sketched</span><br>
+    <span style="font-size:0.8rem;">Upcoming for-sale piece · <a href="#commission" style="color:var(--ember-2);">Request if interested →</a></span>
   </div>
 </article>
 
@@ -2169,8 +2188,8 @@
 
 
   /* Customer links: emberandgrainstudios.com/#amen opens that project */
-  const projectLinks = { amen:'wip', princess:'wip', ofrenda:'done', babyforest:'done' };
-  const projectIds   = { amen:'amen', princess:'princess', ofrenda:'dmg', babyforest:'LS' };
+  const projectLinks = { amen:'wip', princess:'wip', butterflykiss:'wip', ofrenda:'done', babyforest:'done' };
+  const projectIds   = { amen:'amen', princess:'princess', butterflykiss:'butterflykiss', ofrenda:'dmg', babyforest:'LS' };
 
   if (projectLinks[startFilter]) {
 
