@@ -624,6 +624,12 @@
     .fresh-card{ right:16px; left:16px; bottom:16px; width:auto; max-width:none; }
   }
   @media (prefers-reduced-motion:reduce){ .fresh-card{ transition:opacity .3s; } }
+  .fresh-card img, .fresh-card .fresh-body-fade{ transition:opacity .35s; }
+  .fresh-card.swapping img, .fresh-card.swapping .fresh-title, .fresh-card.swapping .fresh-sub, .fresh-card.swapping .fresh-label{ opacity:0; }
+  .fresh-card .fresh-title, .fresh-card .fresh-sub, .fresh-card .fresh-label{ transition:opacity .35s; }
+  .fresh-dots{ display:flex; gap:5px; margin-top:8px; }
+  .fresh-dots span{ width:6px; height:6px; border-radius:50%; background:var(--parchment); opacity:.3; }
+  .fresh-dots span.on{ background:var(--ember-2); opacity:1; }
 
   .back-to-top{
     position:fixed;
@@ -730,7 +736,7 @@
 <button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
 
 <!-- FRESH OFF THE BURNER: to feature a new piece later, swap the img, title text, the "See her" target id, and change data-piece so everyone sees it again -->
-<aside class="fresh-card" id="fresh-card" data-piece="ofrenda" data-project="dmg" data-target="ofrenda-final" aria-label="Newest finished piece" hidden>
+<aside class="fresh-card" id="fresh-card" data-piece="ofrenda-butterflykiss" aria-label="Newest and upcoming pieces" hidden>
   <button type="button" class="fresh-close" id="fresh-close" aria-label="Close">×</button>
   <img src="images/ofrenda-card.webp" alt="Ofrenda, newly finished woodburning" id="fresh-img">
   <div>
@@ -741,6 +747,7 @@
       <button type="button" id="fresh-see">See her</button>
       <a href="#commission" class="primary" id="fresh-order">Commission yours</a>
     </div>
+    <div class="fresh-dots" id="fresh-dots" aria-hidden="true"><span class="on"></span><span></span></div>
   </div>
 </aside>
 
@@ -2251,35 +2258,71 @@
   });
 
 
-  /* ---------- fresh off the burner card ---------- */
+  /* ---------- fresh off the burner card ----------
+     To change what it shows: edit the "slides" list below.
+     Change data-piece on the <aside> so returning visitors see it again. */
   (function(){
     const card = document.getElementById('fresh-card');
     if (!card) return;
     const key = 'freshSeen-' + card.dataset.piece;
     try { if (localStorage.getItem(key) === '1') return; } catch(e) {}
 
+    const slides = [
+      { img:'images/ofrenda-card.webp', alt:'Ofrenda, newly finished woodburning',
+        label:'🔥 Fresh off the burner', title:'Ofrenda', sub:'Just finished! Want one like her?',
+        see:'See her', order:'Commission yours', tab:'done', project:'dmg', target:'ofrenda-final' },
+      { img:'images/butterflykiss-card.webp', alt:'Butterfly Kiss, upcoming woodburning of a cat with a butterfly',
+        label:'🦋 Coming soon', title:'Butterfly Kiss', sub:'On the burner now. Will be for sale!',
+        see:'Watch progress', order:'Request if interested', tab:'wip', project:'butterflykiss', target:null }
+    ];
+    const $ = id => document.getElementById(id);
+    const img = $('fresh-img'), lab = card.querySelector('.fresh-label'),
+          ttl = card.querySelector('.fresh-title'), sub = card.querySelector('.fresh-sub'),
+          see = $('fresh-see'), order = $('fresh-order'), dots = [...$('fresh-dots').children];
+    let i = 0, timer = null;
+
+    function render(n){
+      const d = slides[n];
+      img.src = d.img; img.alt = d.alt; lab.textContent = d.label; ttl.textContent = d.title;
+      sub.textContent = d.sub; see.textContent = d.see; order.textContent = d.order;
+      dots.forEach((el, k) => el.classList.toggle('on', k === n));
+    }
+    function next(){
+      card.classList.add('swapping');
+      setTimeout(() => { i = (i + 1) % slides.length; render(i); card.classList.remove('swapping'); }, 350);
+    }
+    function start(){ if (!timer && slides.length > 1) timer = setInterval(next, 6000); }
+    function stop(){ clearInterval(timer); timer = null; }
+
     function dismiss(){
+      stop();
       card.classList.remove('show');
       try { localStorage.setItem(key, '1'); } catch(e) {}
       setTimeout(() => { card.hidden = true; }, 500);
     }
-    function seeHer(){
-      applyFilter('done');
-      applyProjectFilter(card.dataset.project);
-      const el = document.getElementById(card.dataset.target);
-      if (el) el.scrollIntoView({ behavior:'smooth', block:'center' });
+    function seeIt(){
+      const d = slides[i];
+      applyFilter(d.tab);
+      applyProjectFilter(d.project);
+      const el = d.target ? document.getElementById(d.target)
+                          : document.getElementById(d.tab === 'wip' ? 'wipSubtabs' : 'doneSubtabs');
+      if (el) el.scrollIntoView({ behavior:'smooth', block: d.target ? 'center' : 'start' });
       dismiss();
     }
 
+    render(0);
     setTimeout(() => {
       card.hidden = false;
       requestAnimationFrame(() => requestAnimationFrame(() => card.classList.add('show')));
+      start();
     }, 2500);
 
-    document.getElementById('fresh-close').addEventListener('click', dismiss);
-    document.getElementById('fresh-see').addEventListener('click', seeHer);
-    document.getElementById('fresh-img').addEventListener('click', seeHer);
-    document.getElementById('fresh-order').addEventListener('click', dismiss);
+    card.addEventListener('mouseenter', stop);
+    card.addEventListener('mouseleave', start);
+    $('fresh-close').addEventListener('click', dismiss);
+    see.addEventListener('click', seeIt);
+    img.addEventListener('click', seeIt);
+    order.addEventListener('click', dismiss);
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !card.hidden) dismiss(); });
   })();
 
