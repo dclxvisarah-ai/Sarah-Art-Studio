@@ -736,18 +736,18 @@
 <button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
 
 <!-- FRESH OFF THE BURNER: to feature a new piece later, swap the img, title text, the "See her" target id, and change data-piece so everyone sees it again -->
-<aside class="fresh-card" id="fresh-card" data-piece="ofrenda-butterflykiss" aria-label="Newest and upcoming pieces" hidden>
+<aside class="fresh-card" id="fresh-card" data-piece="amen-ofrenda-butterflykiss" aria-label="Newest and upcoming pieces" hidden>
   <button type="button" class="fresh-close" id="fresh-close" aria-label="Close">×</button>
-  <img src="images/ofrenda-card.webp" alt="Ofrenda, newly finished woodburning" id="fresh-img">
+  <img src="images/amen-card.webp" alt="Amen, newly finished woodburning" id="fresh-img">
   <div>
     <div class="fresh-label">🔥 Fresh off the burner</div>
-    <div class="fresh-title">Ofrenda</div>
-    <div class="fresh-sub">Just finished! Want one like her?</div>
+    <div class="fresh-title">Amen</div>
+    <div class="fresh-sub">Just finished! Want one like it?</div>
     <div class="fresh-actions">
-      <button type="button" id="fresh-see">See her</button>
+      <button type="button" id="fresh-see">See it</button>
       <a href="#commission" class="primary" id="fresh-order">Commission yours</a>
     </div>
-    <div class="fresh-dots" id="fresh-dots" aria-hidden="true"><span class="on"></span><span></span></div>
+    <div class="fresh-dots" id="fresh-dots" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
   </div>
 </aside>
 
@@ -800,6 +800,7 @@
 
   <div class="tabs" role="tablist" aria-label="Filter gallery by category">
 
+    <button class="tab" data-filter="featured">🔥 Best Work</button>
     <button class="tab" data-filter="forsale">Currently Available<span class="updated-badge">UPDATED🌟</span></button>
     <button class="tab" data-filter="studio">Studio Videos</button>
     <button class="tab" data-filter="wip">Works in Progress<span class="updated-badge">UPDATED🌟</span></button>
@@ -818,7 +819,7 @@
 
   <div class="gallery" id="gallery-grid">
 
-    <article class="piece" data-cat="forsale nursery">
+    <article class="piece" data-cat="forsale nursery featured">
       <div style="position:relative;">
         <img src="IMG_8623.jpeg" alt="Decor">
         <span class="available">$40.00</span>
@@ -830,7 +831,7 @@
       </div>
     </article>
 
-  <article class="piece" data-cat="forsale portraits random">
+  <article class="piece" data-cat="forsale portraits random featured">
       <div style="position:relative;">
         <img src="IMG_8679.jpeg" alt="Van Gogh">
         <span class="available">$50.00</span>
@@ -842,7 +843,7 @@
       </div>
     </article>
     
-        <article class="piece" data-cat="random portraits beliefs" id="shibari">
+        <article class="piece" data-cat="random portraits beliefs featured" id="shibari">
       <div style="position:relative;">
         <img src="IMG_5828.jpeg" alt="Shibari Love" onerror="this.src='https://placehold.co/600x750/262019/a89b87?text=Shibari Release'">
         <span class="available">Not for sale · Recreation by request</span>
@@ -866,7 +867,7 @@
       </div>
     </article>
 
-    <article class="piece" data-cat="forsale random">
+    <article class="piece" data-cat="forsale random featured">
       <div style="position:relative;">
         <img src="IMG_2968.jpeg" alt="moth">
         <span class="available">A$20.00</span>
@@ -878,7 +879,7 @@
       </div>
     </article>
 
-    <article class="piece" data-cat="forsale random beliefs">
+    <article class="piece" data-cat="forsale random beliefs featured">
       <div style="position:relative;">
         <img src="Crown of thorns.jpeg" alt="Crown of thorns">
         <span class="available">$20.00</span>
@@ -890,7 +891,7 @@
       </div>
     </article>
 
-    <article class="piece" data-cat="forsale beliefs">
+    <article class="piece" data-cat="forsale beliefs featured">
       <div style="position:relative;">
         <img src="The virgin mother 2.jpeg" alt="Virgin Mother">
         <span class="available">$20.00</span>
@@ -902,7 +903,7 @@
       </div>
     </article>
 
-    <article class="piece" data-cat="forsale random">
+    <article class="piece" data-cat="forsale random featured">
       <div style="position:relative;">
         <img src="IMG_1096.jpeg" alt="Skulls">
         <span class="available">$40.00</span>
@@ -963,7 +964,7 @@
 </article>
 
 
-    <article class="piece" data-cat="forsale random beliefs">
+    <article class="piece" data-cat="forsale random beliefs featured">
       <div style="position:relative;">
         <img src="Black flames.jpeg" alt="skull">
         <span class="available">$75.00</span>
@@ -975,7 +976,7 @@
       </div>
     </article>
 
-    <article class="piece" data-cat="random beliefs">
+    <article class="piece" data-cat="random beliefs featured">
       <div style="position:relative;">
         <img src="My Shadow.jpeg" alt="Eidolon">
         <span class="available">Private collection · Not for sale</span>
@@ -999,6 +1000,7 @@
 
     <!-- COMPLETED PROJECTS: finished commissions, start-to-finish progression -->
     <div class="wip-subtabs" id="doneSubtabs">
+  <button class="wip-subtab-btn" data-project="amen">Amen</button>
   <button class="wip-subtab-btn" data-project="dmg">Ofrenda</button>
   <button class="wip-subtab-btn" data-project="LS">Baby Forest</button>
 </div>
@@ -1053,11 +1055,19 @@
   </div>
 </article>
 
-<article class="piece" data-cat="amen-photo portrait" data-project="amen">
+<article class="piece" data-cat="amen-photo" data-project="amen">
   <img src="images/amen4.jpeg" alt="Amen — burn nearly complete, close-up">
   <div class="scorch"></div>
   <div class="caption">
     <span class="title">Step 4 — almost there</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="amen-photo done-photo portraits featured" data-project="amen" id="amen-final">
+  <img src="images/amen-final.jpeg" alt="Amen — finished woodburning of Jesus with a crown of thorns on a pine board">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Amen — Finished ✨</span>
   </div>
 </article>
 
@@ -1084,7 +1094,7 @@
 </article>
 
 <!-- FINAL: Ofrenda completed — shows in Ofrenda WIP + Portraits + Sacred/Spirit/Symbol -->
-<article class="piece" data-cat="done-photo portraits beliefs" data-project="dmg" id="ofrenda-final">
+<article class="piece" data-cat="done-photo portraits beliefs featured" data-project="dmg" id="ofrenda-final">
   <img src="Final.jpeg" alt="Ofrenda — finished Día de los Muertos woodburning on a heart-shaped panel with a silk flower crown">
   <div class="scorch"></div>
   <div class="caption">
@@ -1126,7 +1136,7 @@
 </article>
 
 <!-- FINAL: Baby Forest completed (gifted) — shows in Baby Forest + Nursery -->
-<article class="piece" data-cat="done-photo nursery" data-project="LS" id="babyforest-final">
+<article class="piece" data-cat="done-photo nursery featured" data-project="LS" id="babyforest-final">
   <div style="position:relative;">
     <img src="images/kind-curious-brave.jpeg" alt="Baby Forest — finished round compass and forest sign woodburning: Kind, Curious, Brave, Imaginative, Loved">
     <span class="available">GIFTED</span>
@@ -1210,7 +1220,7 @@
 
     <!-- NURSERY and KIDS -->
 
-    <article class="piece" data-cat="nursery">
+    <article class="piece" data-cat="nursery featured">
       <div class="scorch"></div>
       <div class="set-2plus1">
         <img src="IMG_6917.jpeg" alt="Teddy bears playing sports, woodburning">
@@ -1222,7 +1232,7 @@
       </div>
     </article>
 
-    <article class="piece" data-cat="nursery">
+    <article class="piece" data-cat="nursery featured">
       <div class="scorch"></div>
       <div class="set-2plus1">
         <img src="IMG_3844.jpeg" alt="Wildflower set 1 of 3">
@@ -1242,7 +1252,7 @@
       </div>
     </article>
 
-    <article class="piece" data-cat="nursery animals">
+    <article class="piece" data-cat="nursery animals featured">
       <img src="IMG_4936.jpeg" alt="decor">
       <div class="scorch"></div>
       <div class="caption">
@@ -1282,7 +1292,7 @@
       </div>
     </article>
 
-    <article class="piece" data-cat="nursery">
+    <article class="piece" data-cat="nursery featured">
       <img src="Kingston.jpeg" alt="decor">
       <div class="scorch"></div>
       <div class="caption">
@@ -1292,7 +1302,7 @@
 
     <!-- PORTRAITS -->
 
-    <article class="piece" data-cat="portraits">
+    <article class="piece" data-cat="portraits featured">
       <img src="Dixie.jpeg" alt="memorial">
       <div class="scorch"></div>
       <div class="caption">
@@ -1327,7 +1337,7 @@
       </div>
     </article>
 
-    <article class="piece" data-cat="portraits kitchen animals">
+    <article class="piece" data-cat="portraits kitchen animals featured">
       <div class="set-2up">
         <img src="Momma Cat front .jpeg" alt="Boards">
         <img src="IMG_6987.jpeg" alt="Boards">
@@ -1338,7 +1348,7 @@
       </div>
     </article>
 
-    <article class="piece" data-cat="portraits animals">
+    <article class="piece" data-cat="portraits animals featured">
       <div class="set-2up">
         <img src="IMG_5189.jpeg" alt="memorial">
         <img src="imagejpeg_0.jpg" alt="memorial">
@@ -1373,7 +1383,7 @@
       </div>
     </article>
 
-    <article class="piece" data-cat="animals">
+    <article class="piece" data-cat="animals featured">
       <img src="IMG_3584.jpeg" alt="Decor">
       <div class="scorch"></div>
       <div class="caption">
@@ -1486,7 +1496,7 @@
 
     <!-- RANDOM -->
 
-    <article class="piece" data-cat="random portraits">
+    <article class="piece" data-cat="random portraits featured">
       <img src="IMG_2548.jpeg" alt="Medusa woodburning">
       <div class="scorch"></div>
       <div class="caption">
@@ -2078,6 +2088,17 @@
       doneSubtabs.style.display = (filter === 'done') ? 'flex' : 'none';
     }
 
+    /* Best Work: newest finished piece stays first, the rest shuffle every time */
+    pieces.forEach(p => { p.style.order = ''; });
+    if (filter === 'featured') {
+      const best = [...pieces].filter(p => getCats(p).includes('featured'));
+      for (let i = best.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [best[i], best[j]] = [best[j], best[i]];
+      }
+      best.forEach((p, i) => { p.style.order = (p.id === 'amen-final') ? -1 : i; });
+    }
+
     if (filter === 'wip' || filter === 'done') {
       document.querySelectorAll('.piece[data-project]').forEach(p => {
         p.classList.remove('show');
@@ -2192,6 +2213,7 @@
     window.location.hash.replace('#', '');
 
   const validFilters = [
+    'featured',
     'all',
     'nursery',
     'portraits',
@@ -2207,7 +2229,7 @@
 
 
   /* Customer links: emberandgrainstudios.com/#amen opens that project */
-  const projectLinks = { amen:'wip', princess:'wip', butterflykiss:'wip', ofrenda:'done', babyforest:'done' };
+  const projectLinks = { amen:'done', princess:'wip', butterflykiss:'wip', ofrenda:'done', babyforest:'done' };
   const projectIds   = { amen:'amen', princess:'princess', butterflykiss:'butterflykiss', ofrenda:'dmg', babyforest:'LS' };
 
   if (projectLinks[startFilter]) {
@@ -2233,7 +2255,7 @@
 
   } else {
 
-    applyFilter('forsale');
+    applyFilter('featured');
 
   }
 
@@ -2280,8 +2302,11 @@
     try { if (localStorage.getItem(key) === '1') return; } catch(e) {}
 
     const slides = [
+      { img:'images/amen-card.webp', alt:'Amen, newly finished woodburning',
+        label:'🔥 Fresh off the burner', title:'Amen', sub:'Just finished! Want one like it?',
+        see:'See it', order:'Commission yours', tab:'done', project:'amen', target:'amen-final' },
       { img:'images/ofrenda-card.webp', alt:'Ofrenda, newly finished woodburning',
-        label:'🔥 Fresh off the burner', title:'Ofrenda', sub:'Just finished! Want one like her?',
+        label:'🔥 Recently finished', title:'Ofrenda', sub:'Want one like her?',
         see:'See her', order:'Commission yours', tab:'done', project:'dmg', target:'ofrenda-final' },
       { img:'images/butterflykiss-card.webp', alt:'Butterfly Kiss, upcoming woodburning of a cat with a butterfly',
         label:'🦋 Coming soon', title:'Butterfly Kiss', sub:'On the burner now. Will be for sale!',
