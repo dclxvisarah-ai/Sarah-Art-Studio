@@ -766,12 +766,12 @@
 <button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
 
 <!-- FRESH OFF THE BURNER: to feature a new piece later, swap the img, title text, the "See her" target id, and change data-piece so everyone sees it again -->
-<aside class="fresh-card" id="fresh-card" data-piece="amen-ofrenda-butterflykiss" aria-label="Newest and upcoming pieces" hidden>
+<aside class="fresh-card" id="fresh-card" data-piece="princess-amen-butterflykiss" aria-label="Newest and upcoming pieces" hidden>
   <button type="button" class="fresh-close" id="fresh-close" aria-label="Close">×</button>
-  <img src="images/amen-card.webp" alt="Amen, newly finished woodburning" id="fresh-img">
+  <img src="images/princess-card.webp" alt="Little Princess, newly finished woodburning" id="fresh-img">
   <div>
     <div class="fresh-label">🔥 Fresh off the burner</div>
-    <div class="fresh-title">Amen</div>
+    <div class="fresh-title">Little Princess &amp; Prince</div>
     <div class="fresh-sub">Just finished! Want one like it?</div>
     <div class="fresh-actions">
       <button type="button" id="fresh-see">See it</button>
@@ -1030,6 +1030,7 @@
 
     <!-- COMPLETED PROJECTS: finished commissions, start-to-finish progression -->
     <div class="wip-subtabs" id="doneSubtabs">
+  <button class="wip-subtab-btn" data-project="princess">Little Princess &amp; Prince</button>
   <button class="wip-subtab-btn" data-project="amen">Amen</button>
   <button class="wip-subtab-btn" data-project="dmg">Ofrenda</button>
   <button class="wip-subtab-btn" data-project="LS">Baby Forest</button>
@@ -1065,6 +1066,25 @@
   <div class="scorch"></div>
   <div class="caption">
     <span class="title">Step 4 — leaves, lake and her name burned in</span>
+  </div>
+</article>
+
+<!-- FINAL: Little Princess + Little Prince (sold as one set) — shows in WIP + Completed + Nursery + Best Work -->
+<article class="piece" data-cat="princess-photo done-photo nursery featured" data-project="princess" id="princess-final">
+  <img src="images/princess-final.jpeg" alt="Little Princess — finished woodburning of a girl in a crown on a tree swing by a mountain lake, named Jennifer">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Little Princess — Finished ✨</span><br>
+    <span style="font-size:0.8rem;">Sold as a set with her brother's Little Prince</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="princess-photo done-photo nursery featured" data-project="princess" id="prince-final">
+  <img src="images/prince-final.jpeg" alt="Little Prince — finished woodburning of a boy in a crown sitting on a log under the moon and stars, named Calvin">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Little Prince — Finished 👑</span><br>
+    <span style="font-size:0.8rem;">The other half of the set</span>
   </div>
 </article>
 
@@ -2151,7 +2171,7 @@
         const j = Math.floor(Math.random() * (i + 1));
         [best[i], best[j]] = [best[j], best[i]];
       }
-      best.forEach((p, i) => { p.style.order = (p.id === 'amen-final') ? -1 : i; });
+      best.forEach((p, i) => { p.style.order = (p.id === 'princess-final') ? -1 : i; });
     }
 
     if (filter === 'wip' || filter === 'done') {
@@ -2284,7 +2304,7 @@
 
 
   /* Customer links: emberandgrainstudios.com/#amen opens that project */
-  const projectLinks = { amen:'done', princess:'wip', butterflykiss:'wip', ofrenda:'done', babyforest:'done' };
+  const projectLinks = { amen:'done', princess:'done', butterflykiss:'wip', ofrenda:'done', babyforest:'done' };
   const projectIds   = { amen:'amen', princess:'princess', butterflykiss:'butterflykiss', ofrenda:'dmg', babyforest:'LS' };
 
   if (projectLinks[startFilter]) {
@@ -2357,12 +2377,12 @@
     try { if (localStorage.getItem(key) === '1') return; } catch(e) {}
 
     const slides = [
+      { img:'images/princess-card.webp', alt:'Little Princess, newly finished woodburning',
+        label:'🔥 Fresh off the burner', title:'Little Princess & Prince', sub:'Just finished, a sibling set! Want one?',
+        see:'See them', order:'Commission yours', tab:'done', project:'princess', target:'princess-final' },
       { img:'images/amen-card.webp', alt:'Amen, newly finished woodburning',
-        label:'🔥 Fresh off the burner', title:'Amen', sub:'Just finished! Want one like it?',
+        label:'🔥 Recently finished', title:'Amen', sub:'Want one like it?',
         see:'See it', order:'Commission yours', tab:'done', project:'amen', target:'amen-final' },
-      { img:'images/ofrenda-card.webp', alt:'Ofrenda, newly finished woodburning',
-        label:'🔥 Recently finished', title:'Ofrenda', sub:'Want one like her?',
-        see:'See her', order:'Commission yours', tab:'done', project:'dmg', target:'ofrenda-final' },
       { img:'images/butterflykiss-card.webp', alt:'Butterfly Kiss, upcoming woodburning of a cat with a butterfly',
         label:'🦋 Coming soon', title:'Butterfly Kiss', sub:'On the burner now. Will be for sale!',
         see:'Watch progress', order:'Request if interested', tab:'wip', project:'butterflykiss', target:null }
