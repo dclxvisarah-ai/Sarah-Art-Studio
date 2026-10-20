@@ -2415,6 +2415,16 @@
     document.getElementById('shibari')
       .scrollIntoView();
 
+  } else if (startFilter === 'hector') {
+
+    /* emberandgrainstudios.com/#hector opens straight to his Nevermore video */
+    applyFilter('studio');
+    const hv = document.getElementById('nevermore-hector');
+    if (hv) {
+      hv.scrollIntoView({ block: 'center' });
+      setTimeout(() => hv.scrollIntoView({ behavior: 'smooth', block: 'center' }), 600);
+    }
+
   } else if (validFilters.includes(startFilter)) {
 
     applyFilter(startFilter);
