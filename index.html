@@ -797,6 +797,20 @@
     color:var(--ash);
   }
   .review-card figcaption a{ color:var(--ember-2); }
+
+  /* ---------- Leave a review (opened by links like /#review-amen) ---------- */
+  #leave-review{ display:none; border-top:1px solid var(--line); }
+  #leave-review.open{ display:block; }
+  #leave-review .review-wrap{ max-width:640px; margin:0 auto; padding-bottom:70px; }
+  #leave-review h2{ margin:10px 0 8px; }
+  #leave-review .review-intro{ color:var(--ash); margin-bottom:22px; }
+  #leave-review .ok-row{ padding-left:56px;
+    display:flex; gap:10px; align-items:flex-start;
+    color:var(--parchment); font-size:0.95rem; text-transform:none; letter-spacing:0;
+  }
+  #leave-review .ok-row input{ width:auto; margin-top:4px; }
+  .kind-words .review-cta{ color:var(--ash); font-size:0.95rem; margin-top:6px; }
+  .kind-words .review-cta a{ color:var(--ember-2); }
 </style>
 </head>
 
@@ -2142,6 +2156,7 @@
         <span>Little Prince &amp; Little Princess · <a href="#princess" onclick="location.hash='princess'; location.reload(); return false;">see the pieces</a></span>
       </figcaption>
     </figure>
+    <p class="review-cta">Got a piece from me? <a href="#review" onclick="location.hash='review'; location.reload(); return false;">Leave a review</a></p>
   </div>
 </section>
 
@@ -2223,6 +2238,54 @@
 
     </form>
 
+  </div>
+</section>
+
+<!-- LEAVE A REVIEW — hidden until someone opens a review link.
+     Links to send customers:
+       emberandgrainstudios.com/#review-amen
+       emberandgrainstudios.com/#review-ofrenda
+       emberandgrainstudios.com/#review-babyforest
+       emberandgrainstudios.com/#review-princess
+     To add a project: add it to reviewProjects in the script below. -->
+<section id="leave-review">
+  <div class="review-wrap">
+    <span class="eyebrow">Leave a Review</span>
+    <h2>How did your piece turn out?</h2>
+    <p class="review-intro">Thank you for letting me make something for you. A few words from you help other people trust a handmade piece. I read every one before anything goes on the site.</p>
+
+    <form id="review-form" action="https://formspree.io/f/xaeynkao" method="POST">
+      <input type="hidden" name="form_type" value="REVIEW">
+      <input type="hidden" name="_subject" id="review-subject" value="New review">
+
+      <div>
+        <label for="review-project">Your piece</label>
+        <input type="text" id="review-project" name="project" placeholder="Which piece did I make you?" required>
+      </div>
+
+      <div class="field-row">
+        <div>
+          <label for="review-name">How should I credit you?</label>
+          <input type="text" id="review-name" name="credit_as" placeholder="e.g. Katie D., Spokane, WA — or Anonymous" required>
+        </div>
+        <div>
+          <label for="review-email">Email (never shown)</label>
+          <input type="email" id="review-email" name="email">
+        </div>
+      </div>
+
+      <div>
+        <label for="review-text">Your review</label>
+        <textarea id="review-text" name="review" placeholder="What did you love? How was working with me?" required></textarea>
+      </div>
+
+      <label class="ok-row">
+        <input type="checkbox" name="ok_to_post" value="Yes, OK to post on the site">
+        <span>It's OK to share my review on Sarah's website</span>
+      </label>
+
+      <button type="submit" class="btn btn-ember" style="align-self:flex-start;">Send my review</button>
+    </form>
   </div>
 </section>
 
@@ -2607,6 +2670,40 @@
 
 </script>
 
+
+<script>
+/* ---------- Leave-a-review links: /#review-amen etc. ---------- */
+(function(){
+  const reviewProjects = {
+    amen: 'Amen',
+    ofrenda: 'Ofrenda',
+    babyforest: 'Baby Forest',
+    princess: 'Little Princess & Little Prince'
+  };
+  function openReview(){
+    const h = window.location.hash.replace('#','');
+    if (h !== 'review' && h.indexOf('review-') !== 0) return;
+    const key = h.replace('review-','');
+    const sec = document.getElementById('leave-review');
+    if (!sec) return;
+    sec.classList.add('open');
+    const name = reviewProjects[key];
+    if (name) {
+      document.getElementById('review-project').value = name;
+      document.getElementById('review-subject').value = 'New review: ' + name;
+    }
+    setTimeout(function(){ sec.scrollIntoView(); }, 300);
+  }
+  const f = document.getElementById('review-form');
+  if (f) f.addEventListener('submit', function(){
+    const v = document.getElementById('review-project').value;
+    document.getElementById('review-subject').value = 'New review: ' + (v || 'unnamed piece');
+  });
+  window.addEventListener('hashchange', openReview);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', openReview);
+  else openReview();
+})();
+</script>
 <script data-goatcounter="https://dclxvisarah.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
