@@ -752,6 +752,51 @@
     opacity: 0.8;
   }
 
+
+  /* ---------- Kind Words (reviews) ---------- */
+  .kind-words{
+    max-width:760px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .kind-words h2{ margin:10px 0 28px; }
+  .review-card{
+    margin:0 0 22px;
+    padding:26px 24px;
+    background:var(--char-2);
+    border:1px solid var(--line);
+    border-left:4px solid var(--ember);
+    border-radius:10px;
+    text-align:left;
+  }
+  .review-card blockquote{
+    margin:0;
+    font-family:'Fraunces', Georgia, serif;
+    font-style:italic;
+    font-size:1.05rem;
+    line-height:1.7;
+    color:var(--parchment);
+  }
+  .review-card blockquote::before{
+    content:"\201C";
+    font-size:3rem;
+    color:var(--ember-2);
+    line-height:0;
+    vertical-align:-1.1rem;
+    margin-right:4px;
+  }
+  .review-card figcaption{
+    margin-top:16px;
+    font-weight:700;
+    color:var(--parchment);
+  }
+  .review-card figcaption span{
+    display:block;
+    font-weight:400;
+    font-size:0.9rem;
+    color:var(--ash);
+  }
+  .review-card figcaption a{ color:var(--ember-2); }
 </style>
 </head>
 
@@ -2079,6 +2124,24 @@
 
     <!-- END STUDIO VIDEOS -->
 
+  </div>
+</section>
+
+<!-- KIND WORDS / REVIEWS — to add one: copy a <figure> block, paste it below, swap the words -->
+<section id="kind-words" class="kind-words-section">
+  <div class="kind-words">
+    <span class="eyebrow">Kind Words</span>
+    <h2>From the people who took one home</h2>
+
+    <figure class="review-card">
+      <blockquote>
+        Sarah made the Little Prince and Little Princess for my grandchildren (you can see the pictures in her gallery) and these pieces are perfect.....just what I was looking for. I did not want a mass produced, plastic thing for their rooms, what I got was real wood, hand made and really well done. Sarah was very communicative, checking in with me about her process, her prices are reasonable and I would highly recommend Ember and Grain to future customers.
+      </blockquote>
+      <figcaption>
+        — Katie D., Spokane, WA
+        <span>Little Prince &amp; Little Princess · <a href="#princess" onclick="location.hash='princess'; location.reload(); return false;">see the pieces</a></span>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
