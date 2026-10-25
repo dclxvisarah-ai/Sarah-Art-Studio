@@ -2681,9 +2681,11 @@
     princess: 'Little Princess & Little Prince'
   };
   function openReview(){
-    const h = window.location.hash.replace('#','');
-    if (h !== 'review' && h.indexOf('review-') !== 0) return;
-    const key = h.replace('review-','');
+    let h = window.location.hash.replace('#','');
+    try { h = decodeURIComponent(h); } catch(e) {}
+    h = h.toLowerCase().replace(/[\u2010-\u2015_\s]/g,'-').replace(/-+/g,'-');
+    if (h.indexOf('review') !== 0) return;
+    const key = h.replace(/^review-?/,'').replace(/-/g,'');
     const sec = document.getElementById('leave-review');
     if (!sec) return;
     sec.classList.add('open');
