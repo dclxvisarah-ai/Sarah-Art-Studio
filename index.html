@@ -825,7 +825,7 @@
 <button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
 
 <!-- FRESH OFF THE BURNER: to feature a new piece later, swap the img, title text, the "See her" target id, and change data-piece so everyone sees it again -->
-<aside class="fresh-card" id="fresh-card" data-piece="princess-amen-butterflykiss" aria-label="Newest and upcoming pieces" hidden>
+<aside class="fresh-card" id="fresh-card" data-piece="princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
   <button type="button" class="fresh-close" id="fresh-close" aria-label="Close">×</button>
   <img src="images/princess-card.webp" alt="Little Princess, newly finished woodburning" id="fresh-img">
   <div>
@@ -836,7 +836,7 @@
       <button type="button" id="fresh-see">See it</button>
       <a href="#commission" class="primary" id="fresh-order">Commission yours</a>
     </div>
-    <div class="fresh-dots" id="fresh-dots" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
+    <div class="fresh-dots" id="fresh-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span></div>
   </div>
 </aside>
 
@@ -1093,6 +1093,7 @@
   <button class="wip-subtab-btn" data-project="amen">Amen</button>
   <button class="wip-subtab-btn" data-project="princess">Little Princess</button>
   <button class="wip-subtab-btn" data-project="butterflykiss">Butterfly Kiss</button>
+  <button class="wip-subtab-btn" data-project="dev">For Dev 💛</button>
       <button class="wip-subtab-btn" data-project="">✨ORDER YOUR ART TODAY!✨</button>
 </div>
 
@@ -1259,6 +1260,16 @@
   <div class="caption">
     <span class="title">Butterfly Kiss — Step 5, the butterfly lands</span><br>
     <span style="font-size:0.8rem;">Upcoming for-sale piece · <a href="#commission" style="color:var(--ember-2);">Request if interested →</a></span>
+  </div>
+</article>
+
+<!-- WIP: For Dev — upcoming piece for Sarah's son. Dev picked the picture and the words. Not for sale. -->
+<article class="piece" data-cat="dev-photo" data-project="dev" id="dev-design">
+  <img src="images/dev1.jpeg" alt="For Dev — line design of a mother holding her sleeping baby, with the words Shy, Silly, Imaginative, Observant, Welcoming" loading="lazy">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">For Dev — the design</span><br>
+    <span style="font-size:0.8rem;">Coming soon · Dev picked the picture and the words: Shy · Silly · Imaginative · Observant · Welcoming</span>
   </div>
 </article>
 
@@ -2545,8 +2556,8 @@
 
 
   /* Customer links: emberandgrainstudios.com/#amen opens that project */
-  const projectLinks = { amen:'done', princess:'done', butterflykiss:'wip', ofrenda:'done', babyforest:'done' };
-  const projectIds   = { amen:'amen', princess:'princess', butterflykiss:'butterflykiss', ofrenda:'dmg', babyforest:'LS' };
+  const projectLinks = { amen:'done', princess:'done', butterflykiss:'wip', dev:'wip', ofrenda:'done', babyforest:'done' };
+  const projectIds   = { amen:'amen', princess:'princess', butterflykiss:'butterflykiss', dev:'dev', ofrenda:'dmg', babyforest:'LS' };
 
   if (projectLinks[startFilter]) {
 
@@ -2636,7 +2647,10 @@
         see:'See it', order:'Commission yours', tab:'done', project:'amen', target:'amen-final' },
       { img:'images/butterflykiss-card.webp', alt:'Butterfly Kiss, upcoming woodburning of a cat with a butterfly',
         label:'🦋 Coming soon', title:'Butterfly Kiss', sub:'On the burner now. Will be for sale!',
-        see:'Watch progress', order:'Request if interested', tab:'wip', project:'butterflykiss', target:null }
+        see:'Watch progress', order:'Request if interested', tab:'wip', project:'butterflykiss', target:null },
+      { img:'images/dev-card.webp', alt:'For Dev, an upcoming woodburning of a mother holding her sleeping baby',
+        label:'💛 Coming soon', title:'For Dev', sub:'He picked the picture and the words.',
+        see:'See the design', order:'Commission yours', tab:'wip', project:'dev', target:'dev-design' }
     ];
     const $ = id => document.getElementById(id);
     const img = $('fresh-img'), lab = card.querySelector('.fresh-label'),
