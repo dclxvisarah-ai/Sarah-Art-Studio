@@ -825,18 +825,18 @@
 <button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
 
 <!-- FRESH OFF THE BURNER: to feature a new piece later, swap the img, title text, the "See her" target id, and change data-piece so everyone sees it again -->
-<aside class="fresh-card" id="fresh-card" data-piece="princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
+<aside class="fresh-card" id="fresh-card" data-piece="joker-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
   <button type="button" class="fresh-close" id="fresh-close" aria-label="Close">×</button>
-  <img src="images/princess-card.webp" alt="Little Princess, newly finished woodburning" id="fresh-img">
+  <img src="images/maddie-joker-card.webp" alt="The Joker, newly finished woodburning of a jester skull" id="fresh-img">
   <div>
     <div class="fresh-label">🔥 Fresh off the burner</div>
-    <div class="fresh-title">Little Princess &amp; Prince</div>
+    <div class="fresh-title">The Joker</div>
     <div class="fresh-sub">Just finished! Want one like it?</div>
     <div class="fresh-actions">
       <button type="button" id="fresh-see">See it</button>
       <a href="#commission" class="primary" id="fresh-order">Commission yours</a>
     </div>
-    <div class="fresh-dots" id="fresh-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span></div>
+    <div class="fresh-dots" id="fresh-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span></div>
   </div>
 </aside>
 
@@ -2700,8 +2700,11 @@
     try { if (localStorage.getItem(key) === '1') return; } catch(e) {}
 
     const slides = [
+      { img:'images/maddie-joker-card.webp', alt:'The Joker, newly finished woodburning of a jester skull',
+        label:'🔥 Fresh off the burner', title:'The Joker', sub:'Just finished! Want one like it?',
+        see:'See it', order:'Commission yours', tab:'wip', project:'maddie', target:'maddie-joker3' },
       { img:'images/princess-card.webp', alt:'Little Princess, newly finished woodburning',
-        label:'🔥 Fresh off the burner', title:'Little Princess & Prince', sub:'Just finished, a sibling set! Want one?',
+        label:'🔥 Recently finished', title:'Little Princess & Prince', sub:'Just finished, a sibling set! Want one?',
         see:'See them', order:'Commission yours', tab:'done', project:'princess', target:'princess-final' },
       { img:'images/amen-card.webp', alt:'Amen, newly finished woodburning',
         label:'🔥 Recently finished', title:'Amen', sub:'Want one like it?',
