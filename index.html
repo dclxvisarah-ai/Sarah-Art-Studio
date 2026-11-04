@@ -825,13 +825,13 @@
 <button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
 
 <!-- FRESH OFF THE BURNER: to feature a new piece later, swap the img, title text, the "See her" target id, and change data-piece so everyone sees it again -->
-<aside class="fresh-card" id="fresh-card" data-piece="joker-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
+<aside class="fresh-card" id="fresh-card" data-piece="maddiedone-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
   <button type="button" class="fresh-close" id="fresh-close" aria-label="Close">×</button>
-  <img src="images/maddie-joker-card.webp" alt="The Joker, newly finished woodburning of a jester skull" id="fresh-img">
+  <img src="images/maddie-card.webp" alt="The Joker and Sriracha, two newly finished woodburnings for Maddie" id="fresh-img">
   <div>
     <div class="fresh-label">🔥 Fresh off the burner</div>
-    <div class="fresh-title">The Joker</div>
-    <div class="fresh-sub">Just finished! Want one like it?</div>
+    <div class="fresh-title">The Joker &amp; Sriracha</div>
+    <div class="fresh-sub">Just finished, both for Maddie! Want one?</div>
     <div class="fresh-actions">
       <button type="button" id="fresh-see">See it</button>
       <a href="#commission" class="primary" id="fresh-order">Commission yours</a>
@@ -1094,12 +1094,12 @@
   <button class="wip-subtab-btn" data-project="princess">Little Princess</button>
   <button class="wip-subtab-btn" data-project="butterflykiss">Butterfly Kiss</button>
   <button class="wip-subtab-btn" data-project="dev">For Dev 💛</button>
-  <button class="wip-subtab-btn" data-project="maddie">For Maddie</button>
       <button class="wip-subtab-btn" data-project="">✨ORDER YOUR ART TODAY!✨</button>
 </div>
 
     <!-- COMPLETED PROJECTS: finished commissions, start-to-finish progression -->
     <div class="wip-subtabs" id="doneSubtabs">
+  <button class="wip-subtab-btn" data-project="maddie">For Maddie</button>
   <button class="wip-subtab-btn" data-project="princess">Little Princess &amp; Prince</button>
   <button class="wip-subtab-btn" data-project="amen">Amen</button>
   <button class="wip-subtab-btn" data-project="dmg">Ofrenda</button>
@@ -1282,7 +1282,7 @@
   </div>
 </article>
 
-<!-- WIP: For Maddie — two pieces. Joker (paid commission, for her girlfriend) + dog piece (promised gift). Link: emberandgrainstudios.com/#maddie -->
+<!-- COMPLETED 11/3/26: For Maddie — two pieces. Joker (paid commission, for her girlfriend) + dog piece (promised gift). Link: emberandgrainstudios.com/#maddie -->
 <article class="piece" data-cat="maddie-photo" data-project="maddie" id="maddie-joker1">
   <img src="images/maddie-joker1.jpeg" alt="Jester skull with a star-and-moon hat and bells, linework burned into a wood round" loading="lazy">
   <div class="scorch"></div>
@@ -1358,6 +1358,26 @@
   <div class="caption">
     <span class="title">The dog piece — face and ears shaded</span><br>
     <span style="font-size:0.8rem;">Almost there · Halloween night</span>
+  </div>
+</article>
+
+<!-- FINAL: For Maddie — The Joker + Sriracha, both done. Shows in Completed (For Maddie) + Best Work (first) -->
+<article class="piece" data-cat="maddie-photo done-photo featured" data-project="maddie" id="maddie-final">
+  <img src="images/maddie-final.jpeg" alt="Both finished pieces side by side: the jester skull on a wood round, and Sriracha the German Shepherd on a hot chili sauce label board" loading="lazy">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">For Maddie — The Joker &amp; Sriracha, finished 🔥</span><br>
+    <span style="font-size:0.8rem;">Done · 11/3/26</span>
+  </div>
+</article>
+
+<!-- PORTRAIT: Sriracha is a real dog — shows in Portraits -->
+<article class="piece" data-cat="portraits" id="sriracha">
+  <img src="images/sriracha-final.jpeg" alt="Sriracha the German Shepherd, burned on a board styled like a hot chili sauce label with a rooster" loading="lazy">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Sriracha 🌶️</span><br>
+    <span style="font-size:0.8rem;">A real good dog · for Maddie</span>
   </div>
 </article>
 
@@ -2513,7 +2533,7 @@
         const j = Math.floor(Math.random() * (i + 1));
         [best[i], best[j]] = [best[j], best[i]];
       }
-      best.forEach((p, i) => { p.style.order = (p.id === 'princess-final') ? -1 : i; });
+      best.forEach((p, i) => { p.style.order = (p.id === 'maddie-final') ? -1 : i; });
     }
 
     if (filter === 'wip' || filter === 'done') {
@@ -2646,7 +2666,7 @@
 
 
   /* Customer links: emberandgrainstudios.com/#amen opens that project */
-  const projectLinks = { amen:'done', princess:'done', butterflykiss:'wip', dev:'wip', maddie:'wip', ofrenda:'done', babyforest:'done' };
+  const projectLinks = { amen:'done', princess:'done', butterflykiss:'wip', dev:'wip', maddie:'done', ofrenda:'done', babyforest:'done' };
   const projectIds   = { amen:'amen', princess:'princess', butterflykiss:'butterflykiss', dev:'dev', maddie:'maddie', ofrenda:'dmg', babyforest:'LS' };
 
   if (projectLinks[startFilter]) {
@@ -2729,9 +2749,9 @@
     try { if (localStorage.getItem(key) === '1') return; } catch(e) {}
 
     const slides = [
-      { img:'images/maddie-joker-card.webp', alt:'The Joker, newly finished woodburning of a jester skull',
-        label:'🔥 Fresh off the burner', title:'The Joker', sub:'Just finished! Want one like it?',
-        see:'See it', order:'Commission yours', tab:'wip', project:'maddie', target:'maddie-joker3' },
+      { img:'images/maddie-card.webp', alt:'The Joker and Sriracha, two newly finished woodburnings for Maddie',
+        label:'🔥 Fresh off the burner', title:'The Joker & Sriracha', sub:'Just finished, both for Maddie! Want one?',
+        see:'See them', order:'Commission yours', tab:'done', project:'maddie', target:'maddie-final' },
       { img:'images/princess-card.webp', alt:'Little Princess, newly finished woodburning',
         label:'🔥 Recently finished', title:'Little Princess & Prince', sub:'Just finished, a sibling set! Want one?',
         see:'See them', order:'Commission yours', tab:'done', project:'princess', target:'princess-final' },
