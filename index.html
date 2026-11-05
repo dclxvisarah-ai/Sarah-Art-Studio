@@ -825,18 +825,18 @@
 <button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
 
 <!-- FRESH OFF THE BURNER: to feature a new piece later, swap the img, title text, the "See her" target id, and change data-piece so everyone sees it again -->
-<aside class="fresh-card" id="fresh-card" data-piece="maddiedone-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
+<aside class="fresh-card" id="fresh-card" data-piece="hamsa-maddiedone-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
   <button type="button" class="fresh-close" id="fresh-close" aria-label="Close">×</button>
-  <img src="images/maddie-card.webp" alt="The Joker and Sriracha, two newly finished woodburnings for Maddie" id="fresh-img">
+  <img src="images/hamsa-card.webp" alt="Hamsa, a newly finished woodburning of a hand with an evil eye" id="fresh-img">
   <div>
     <div class="fresh-label">🔥 Fresh off the burner</div>
-    <div class="fresh-title">The Joker &amp; Sriracha</div>
-    <div class="fresh-sub">Just finished, both for Maddie! Want one?</div>
+    <div class="fresh-title">Hamsa 🪬</div>
+    <div class="fresh-sub">A studio keeper. No evil will harm me.</div>
     <div class="fresh-actions">
       <button type="button" id="fresh-see">See it</button>
       <a href="#commission" class="primary" id="fresh-order">Commission yours</a>
     </div>
-    <div class="fresh-dots" id="fresh-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span></div>
+    <div class="fresh-dots" id="fresh-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span><span></span></div>
   </div>
 </aside>
 
@@ -1100,6 +1100,7 @@
 
     <!-- COMPLETED PROJECTS: finished commissions, start-to-finish progression -->
     <div class="wip-subtabs" id="doneSubtabs">
+  <button class="wip-subtab-btn" data-project="hamsa">Hamsa 🪬</button>
   <button class="wip-subtab-btn" data-project="maddie">For Maddie</button>
   <button class="wip-subtab-btn" data-project="princess">Little Princess &amp; Prince</button>
   <button class="wip-subtab-btn" data-project="amen">Amen</button>
@@ -1290,6 +1291,16 @@
   <div class="caption">
     <span class="title">Hamsa 🪬 — Step 1, linework burned in</span><br>
     <span style="font-size:0.8rem;">A studio keeper. No evil will harm me. Paint highlights coming at the end.</span>
+  </div>
+</article>
+
+<!-- FINAL 11/5/26: Hamsa finished — studio keeper, not for sale. Shows in WIP + Completed (Hamsa) + Best Work (first) + Sacred/Spirit/Symbol -->
+<article class="piece" data-cat="hamsa-photo done-photo beliefs featured" data-project="hamsa" id="hamsa-final">
+  <img src="images/hamsa-final.jpeg" alt="Finished Hamsa woodburning: a hand with patterned fingers and an evil eye at the center, burned into a light pine board" loading="lazy">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Hamsa 🪬 — finished</span><br>
+    <span style="font-size:0.8rem;">A studio keeper. No evil will harm me. · Done 11/5/26</span>
   </div>
 </article>
 
@@ -2544,7 +2555,7 @@
         const j = Math.floor(Math.random() * (i + 1));
         [best[i], best[j]] = [best[j], best[i]];
       }
-      best.forEach((p, i) => { p.style.order = (p.id === 'maddie-final') ? -1 : i; });
+      best.forEach((p, i) => { p.style.order = (p.id === 'hamsa-final') ? -2 : (p.id === 'maddie-final') ? -1 : i; });
     }
 
     if (filter === 'wip' || filter === 'done') {
@@ -2677,8 +2688,8 @@
 
 
   /* Customer links: emberandgrainstudios.com/#amen opens that project */
-  const projectLinks = { amen:'done', princess:'done', butterflykiss:'wip', dev:'wip', maddie:'done', ofrenda:'done', babyforest:'done' };
-  const projectIds   = { amen:'amen', princess:'princess', butterflykiss:'butterflykiss', dev:'dev', maddie:'maddie', ofrenda:'dmg', babyforest:'LS' };
+  const projectLinks = { amen:'done', princess:'done', butterflykiss:'wip', dev:'wip', maddie:'done', hamsa:'done', ofrenda:'done', babyforest:'done' };
+  const projectIds   = { amen:'amen', princess:'princess', butterflykiss:'butterflykiss', dev:'dev', maddie:'maddie', hamsa:'hamsa', ofrenda:'dmg', babyforest:'LS' };
 
   if (projectLinks[startFilter]) {
 
@@ -2760,8 +2771,11 @@
     try { if (localStorage.getItem(key) === '1') return; } catch(e) {}
 
     const slides = [
+      { img:'images/hamsa-card.webp', alt:'Hamsa, a newly finished woodburning of a hand with an evil eye',
+        label:'🔥 Fresh off the burner', title:'Hamsa 🪬', sub:'A studio keeper. No evil will harm me.',
+        see:'See it', order:'Commission yours', tab:'done', project:'hamsa', target:'hamsa-final' },
       { img:'images/maddie-card.webp', alt:'The Joker and Sriracha, two newly finished woodburnings for Maddie',
-        label:'🔥 Fresh off the burner', title:'The Joker & Sriracha', sub:'Just finished, both for Maddie! Want one?',
+        label:'🔥 Recently finished', title:'The Joker & Sriracha', sub:'Just finished, both for Maddie! Want one?',
         see:'See them', order:'Commission yours', tab:'done', project:'maddie', target:'maddie-final' },
       { img:'images/princess-card.webp', alt:'Little Princess, newly finished woodburning',
         label:'🔥 Recently finished', title:'Little Princess & Prince', sub:'Just finished, a sibling set! Want one?',
