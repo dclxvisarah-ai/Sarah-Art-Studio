@@ -827,7 +827,7 @@
 <button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
 
 <!-- FRESH OFF THE BURNER: to feature a new piece later, swap the img, title text, the "See her" target id, and change data-piece so everyone sees it again -->
-<aside class="fresh-card" id="fresh-card" data-piece="hamsa-maddiedone-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
+<aside class="fresh-card" id="fresh-card" data-piece="noevil-hamsa-maddiedone-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
   <button type="button" class="fresh-close" id="fresh-close" aria-label="Close">×</button>
   <img src="images/hamsa-card.webp" alt="Hamsa, a newly finished woodburning of a hand with an evil eye" id="fresh-img">
   <div>
@@ -838,7 +838,7 @@
       <button type="button" id="fresh-see">See it</button>
       <a href="#commission" class="primary" id="fresh-order">Commission yours</a>
     </div>
-    <div class="fresh-dots" id="fresh-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="fresh-dots" id="fresh-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
   </div>
 </aside>
 
@@ -1097,6 +1097,7 @@
   <button class="wip-subtab-btn" data-project="butterflykiss">Butterfly Kiss</button>
   <button class="wip-subtab-btn" data-project="dev">For Dev 💛</button>
   <button class="wip-subtab-btn" data-project="hamsa">Hamsa 🪬</button>
+  <button class="wip-subtab-btn" data-project="noevil">Hear No, Speak No, See No Evil 🙉🙊🙈</button>
       <button class="wip-subtab-btn" data-project="">✨ORDER YOUR ART TODAY!✨</button>
 </div>
 
@@ -1283,6 +1284,16 @@
   <div class="caption">
     <span class="title">For Dev — the design</span><br>
     <span style="font-size:0.8rem;">Coming soon · Dev picked the picture and the words: Shy · Silly · Imaginative · Observant · Welcoming</span>
+  </div>
+</article>
+
+<!-- WIP 11/5/26: Hear No, Speak No, See No Evil — three cherubs, available (for sale / can be reproduced) -->
+<article class="piece" data-cat="noevil-photo" data-project="noevil" id="noevil">
+  <img src="images/noevil1.jpeg" alt="Three stacked cherubs sketched on wood: one covering its ears, one hushing, one covering its eyes, with the first eye just burned in" loading="lazy">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Hear No, Speak No, See No Evil 🙉🙊🙈 — Step 1, sketched, first burns</span><br>
+    <span style="font-size:0.8rem;">Available · can also be reproduced · <a href="#commission" style="color:var(--ember-2);">Request if interested →</a></span>
   </div>
 </article>
 
@@ -2691,8 +2702,8 @@
 
 
   /* Customer links: emberandgrainstudios.com/#amen opens that project */
-  const projectLinks = { amen:'done', princess:'done', butterflykiss:'wip', dev:'wip', maddie:'done', hamsa:'done', ofrenda:'done', babyforest:'done' };
-  const projectIds   = { amen:'amen', princess:'princess', butterflykiss:'butterflykiss', dev:'dev', maddie:'maddie', hamsa:'hamsa', ofrenda:'dmg', babyforest:'LS' };
+  const projectLinks = { amen:'done', princess:'done', butterflykiss:'wip', dev:'wip', noevil:'wip', maddie:'done', hamsa:'done', ofrenda:'done', babyforest:'done' };
+  const projectIds   = { amen:'amen', princess:'princess', butterflykiss:'butterflykiss', dev:'dev', noevil:'noevil', maddie:'maddie', hamsa:'hamsa', ofrenda:'dmg', babyforest:'LS' };
 
   if (projectLinks[startFilter]) {
 
@@ -2777,6 +2788,9 @@
       { img:'images/hamsa-card.webp', alt:'Hamsa, a newly finished woodburning of a hand with an evil eye',
         label:'🔥 Fresh off the burner', title:'Hamsa 🪬', sub:'A studio keeper. No evil will harm me.',
         see:'See it', order:'Commission yours', tab:'done', project:'hamsa', target:'hamsa-final' },
+      { img:'images/noevil-card.webp', alt:'Hear No, Speak No, See No Evil, three cherubs on the burner now',
+        label:'🙉 On the burner now', title:'Hear No, Speak No, See No Evil', sub:'Three little angels. Available!',
+        see:'Watch progress', order:'Request if interested', tab:'wip', project:'noevil', target:null },
       { img:'images/maddie-card.webp', alt:'The Joker and Sriracha, two newly finished woodburnings for Maddie',
         label:'🔥 Recently finished', title:'The Joker & Sriracha', sub:'Just finished, both for Maddie! Want one?',
         see:'See them', order:'Commission yours', tab:'done', project:'maddie', target:'maddie-final' },
