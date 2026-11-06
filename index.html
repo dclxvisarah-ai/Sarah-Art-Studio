@@ -809,6 +809,8 @@
     color:var(--parchment); font-size:0.95rem; text-transform:none; letter-spacing:0;
   }
   #leave-review .ok-row input{ width:auto; margin-top:4px; }
+  #leave-review .past-reviews{ margin:46px 0 0; padding:28px 0 0; border-top:1px solid var(--line); max-width:none; }
+  #leave-review .past-reviews h3{ margin:6px 0 14px; }
   .kind-words .review-cta{ color:var(--ash); font-size:0.95rem; margin-top:6px; }
   .kind-words .review-cta a{ color:var(--ember-2); }
 </style>
@@ -2411,6 +2413,7 @@
        emberandgrainstudios.com/#review-ofrenda
        emberandgrainstudios.com/#review-babyforest
        emberandgrainstudios.com/#review-princess
+       emberandgrainstudios.com/#review-maddie
      To add a project: add it to reviewProjects in the script below. -->
 <section id="leave-review">
   <div class="review-wrap">
@@ -2851,7 +2854,9 @@
     amen: 'Amen',
     ofrenda: 'Ofrenda',
     babyforest: 'Baby Forest (compass sign + baby boots on the stump)',
-    princess: 'Little Princess & Little Prince'
+    princess: 'Little Princess & Little Prince',
+    maddie: 'For Maddie (The Joker + Sriracha)',
+    maddy: 'For Maddie (The Joker + Sriracha)'
   };
   function openReview(){
     let h = window.location.hash.replace('#','');
@@ -2865,6 +2870,18 @@
     /* move the form to the top of the page so loading photos can't push it away */
     const firstSection = document.querySelector('body > section');
     if (firstSection && sec !== firstSection) firstSection.parentNode.insertBefore(sec, firstSection);
+    /* show the existing Kind Words reviews under the form, so new customers see what others said */
+    if (!document.getElementById('past-reviews')) {
+      const cards = document.querySelectorAll('#kind-words .review-card');
+      if (cards.length) {
+        const box = document.createElement('div');
+        box.id = 'past-reviews';
+        box.className = 'kind-words past-reviews';
+        box.innerHTML = '<span class="eyebrow">Kind Words</span><h3>What others have said</h3>';
+        cards.forEach(function(c){ box.appendChild(c.cloneNode(true)); });
+        sec.querySelector('.review-wrap').appendChild(box);
+      }
+    }
     const name = reviewProjects[key];
     if (name) {
       document.getElementById('review-project').value = name;
