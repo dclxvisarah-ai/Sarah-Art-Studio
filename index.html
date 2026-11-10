@@ -1098,6 +1098,7 @@
   <button class="wip-subtab-btn" data-project="dev">For Dev 💛</button>
   <button class="wip-subtab-btn" data-project="hamsa">Hamsa 🪬</button>
   <button class="wip-subtab-btn" data-project="noevil">Hear No, Speak No, See No Evil 🙉🙊🙈</button>
+  <button class="wip-subtab-btn" data-project="z370">370Z 🏎️</button>
       <button class="wip-subtab-btn" data-project="">✨ORDER YOUR ART TODAY!✨</button>
 </div>
 
@@ -1321,6 +1322,32 @@
   <div class="caption">
     <span class="title">Hear No, Speak No, See No Evil 🙉🙊🙈 — Step 4, top angel and wings done</span><br>
     <span style="font-size:0.8rem;">Available · can also be reproduced · <a href="#commission" style="color:var(--ember-2);">Request if interested →</a></span>
+  </div>
+</article>
+
+<article class="piece" data-cat="noevil-photo" data-project="noevil">
+  <img src="images/noevil5.jpeg" alt="Three cherubs on wood, the top two cherubs burned in dark stipple, the bottom cherub's hands and face burned while its wings are still in pencil" loading="lazy">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Hear No, Speak No, See No Evil 🙉🙊🙈 — Step 5, all three faces burned in</span><br>
+    <span style="font-size:0.8rem;">Available · can also be reproduced · <a href="#commission" style="color:var(--ember-2);">Request if interested →</a></span>
+  </div>
+</article>
+
+<!-- WIP 11/9/26: 370Z — car in the mountains -->
+<article class="piece" data-cat="z370-photo" data-project="z370" id="z370">
+  <img src="images/z1.jpeg" alt="A Nissan Z sports car parked under a tree with mountains, pine trees and a setting sun behind it, sketched in pencil on a wood panel" loading="lazy">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">370Z 🏎️ — Step 1, sketched and ready to burn</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="z370-photo" data-project="z370">
+  <img src="images/z2.jpeg" alt="The same Nissan Z scene with the car, mountains, pine trees and clouds burned and shaded into the wood, the tree and sun still in pencil" loading="lazy">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">370Z 🏎️ — Step 2, burned and shaded</span>
   </div>
 </article>
 
@@ -2739,8 +2766,8 @@
 
 
   /* Customer links: emberandgrainstudios.com/#amen opens that project */
-  const projectLinks = { amen:'done', princess:'done', butterflykiss:'wip', dev:'wip', noevil:'wip', maddie:'done', hamsa:'done', ofrenda:'done', babyforest:'done' };
-  const projectIds   = { amen:'amen', princess:'princess', butterflykiss:'butterflykiss', dev:'dev', noevil:'noevil', maddie:'maddie', hamsa:'hamsa', ofrenda:'dmg', babyforest:'LS' };
+  const projectLinks = { amen:'done', princess:'done', butterflykiss:'wip', dev:'wip', noevil:'wip', '370z':'wip', maddie:'done', hamsa:'done', ofrenda:'done', babyforest:'done' };
+  const projectIds   = { amen:'amen', princess:'princess', butterflykiss:'butterflykiss', dev:'dev', noevil:'noevil', '370z':'z370', maddie:'maddie', hamsa:'hamsa', ofrenda:'dmg', babyforest:'LS' };
 
   if (projectLinks[startFilter]) {
 
@@ -2825,7 +2852,7 @@
       { img:'images/hamsa-card.webp', alt:'Hamsa, a newly finished woodburning of a hand with an evil eye',
         label:'🔥 Fresh off the burner', title:'Hamsa 🪬', sub:'A studio keeper. No evil will harm me.',
         see:'See it', order:'Commission yours', tab:'done', project:'hamsa', target:'hamsa-final' },
-      { img:'images/noevil-card.webp', alt:'Hear No, Speak No, See No Evil, three cherubs with the top angel and wings fully burned',
+      { img:'images/noevil-card.webp', alt:'Hear No, Speak No, See No Evil, three cherubs with all three faces burned in',
         label:'🙉 On the burner now', title:'Hear No, Speak No, See No Evil', sub:'Three little angels. Available!',
         see:'Watch progress', order:'Request if interested', tab:'wip', project:'noevil', target:null },
       { img:'images/maddie-card.webp', alt:'The Joker and Sriracha, two newly finished woodburnings for Maddie',
