@@ -1092,7 +1092,6 @@
 
     <div class="wip-subtabs" id="wipSubtabs">
   <button class="wip-subtab-btn" data-project="spark">Spark &amp; Grain 😉</button>
-  <button class="wip-subtab-btn" data-project="butterflykiss">Butterfly Kiss</button>
   <button class="wip-subtab-btn" data-project="dev">For Dev 💛</button>
   <button class="wip-subtab-btn" data-project="noevil">Hear No, Speak No, See No Evil 🙉🙊🙈</button>
   <button class="wip-subtab-btn" data-project="z370">370Z 🏎️</button>
@@ -1101,6 +1100,7 @@
 
     <!-- COMPLETED PROJECTS: finished commissions, start-to-finish progression -->
     <div class="wip-subtabs" id="doneSubtabs">
+  <button class="wip-subtab-btn" data-project="butterflykiss">Butterfly Kiss</button>
   <button class="wip-subtab-btn" data-project="hamsa">Hamsa 🪬</button>
   <button class="wip-subtab-btn" data-project="maddie">For Maddie</button>
   <button class="wip-subtab-btn" data-project="princess">Little Princess &amp; Prince</button>
@@ -2773,7 +2773,7 @@
 
 
   /* Customer links: emberandgrainstudios.com/#amen opens that project */
-  const projectLinks = { amen:'done', princess:'done', butterflykiss:'wip', dev:'wip', noevil:'wip', '370z':'wip', spark:'wip', maddie:'done', hamsa:'done', ofrenda:'done', babyforest:'done' };
+  const projectLinks = { amen:'done', princess:'done', butterflykiss:'done', dev:'wip', noevil:'wip', '370z':'wip', spark:'wip', maddie:'done', hamsa:'done', ofrenda:'done', babyforest:'done' };
   const projectIds   = { amen:'amen', princess:'princess', butterflykiss:'butterflykiss', dev:'dev', noevil:'noevil', '370z':'z370', spark:'spark', maddie:'maddie', hamsa:'hamsa', ofrenda:'dmg', babyforest:'LS' };
 
   if (projectLinks[startFilter]) {
@@ -2871,9 +2871,9 @@
       { img:'images/amen-card.webp', alt:'Amen, newly finished woodburning',
         label:'🔥 Recently finished', title:'Amen', sub:'Want one like it?',
         see:'See it', order:'Commission yours', tab:'done', project:'amen', target:'amen-final' },
-      { img:'images/butterflykiss-card.webp', alt:'Butterfly Kiss, upcoming woodburning of a cat with a butterfly',
-        label:'🦋 Coming soon', title:'Butterfly Kiss', sub:'On the burner now. Will be for sale!',
-        see:'Watch progress', order:'Request if interested', tab:'wip', project:'butterflykiss', target:null },
+      { img:'images/butterflykiss-card.webp', alt:'Butterfly Kiss, a finished woodburning of a cat with a butterfly on its nose',
+        label:'🔥 Recently finished', title:'Butterfly Kiss', sub:'Finished, and for sale!',
+        see:'See it', order:'Request if interested', tab:'done', project:'butterflykiss', target:null },
       { img:'images/dev-card.webp', alt:'For Dev, an upcoming woodburning of a mother holding her sleeping baby',
         label:'💛 Coming soon', title:'For Dev', sub:'He picked the picture and the words.',
         see:'See the design', order:'Commission yours', tab:'wip', project:'dev', target:'dev-design' }
