@@ -827,16 +827,16 @@
 <button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
 
 <!-- FRESH OFF THE BURNER: to feature a new piece later, swap the img, title text, the "See her" target id, and change data-piece so everyone sees it again -->
-<aside class="fresh-card" id="fresh-card" data-piece="noevil-hamsa-maddiedone-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
+<aside class="fresh-card" id="fresh-card" data-piece="noevildone-hamsa-maddiedone-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
   <button type="button" class="fresh-close" id="fresh-close" aria-label="Close">×</button>
-  <img src="images/hamsa-card.webp" alt="Hamsa, a newly finished woodburning of a hand with an evil eye" id="fresh-img">
+  <img src="images/noevil-done-card.webp" alt="Every Dot Was a Thought, a finished stippled woodburning of three cherubs: hear no, speak no, see no evil" id="fresh-img">
   <div>
     <div class="fresh-label">🔥 Fresh off the burner</div>
-    <div class="fresh-title">Hamsa 🪬</div>
-    <div class="fresh-sub">A studio keeper. No evil will harm me.</div>
+    <div class="fresh-title">Every Dot Was a Thought</div>
+    <div class="fresh-sub">Hear no, speak no, see no evil. Available!</div>
     <div class="fresh-actions">
       <button type="button" id="fresh-see">See it</button>
-      <a href="#commission" class="primary" id="fresh-order">Commission yours</a>
+      <a href="#commission" class="primary" id="fresh-order">Request if interested</a>
     </div>
     <div class="fresh-dots" id="fresh-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
   </div>
@@ -1093,13 +1093,13 @@
     <div class="wip-subtabs" id="wipSubtabs">
   <button class="wip-subtab-btn" data-project="spark">Spark &amp; Grain 😉</button>
   <button class="wip-subtab-btn" data-project="dev">For Dev 💛</button>
-  <button class="wip-subtab-btn" data-project="noevil">Hear No, Speak No, See No Evil 🙉🙊🙈</button>
   <button class="wip-subtab-btn" data-project="z370">370Z 🏎️</button>
       <button class="wip-subtab-btn" data-project="">✨ORDER YOUR ART TODAY!✨</button>
 </div>
 
     <!-- COMPLETED PROJECTS: finished commissions, start-to-finish progression -->
     <div class="wip-subtabs" id="doneSubtabs">
+  <button class="wip-subtab-btn" data-project="noevil">Every Dot Was a Thought 🙉🙊🙈</button>
   <button class="wip-subtab-btn" data-project="butterflykiss">Butterfly Kiss</button>
   <button class="wip-subtab-btn" data-project="hamsa">Hamsa 🪬</button>
   <button class="wip-subtab-btn" data-project="maddie">For Maddie</button>
@@ -1341,6 +1341,46 @@
   <div class="caption">
     <span class="title">Hear No, Speak No, See No Evil 🙉🙊🙈 — Step 5, all three faces burned in</span><br>
     <span style="font-size:0.8rem;">Available · can also be reproduced · <a href="#commission" style="color:var(--ember-2);">Request if interested →</a></span>
+  </div>
+</article>
+
+<article class="piece" data-cat="noevil-photo" data-project="noevil">
+  <img src="images/noevil6.jpeg" alt="Three cherubs on wood, half burned in dark stipple and half still in pencil, the lower wings sketched in gray" loading="lazy">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Hear No, Speak No, See No Evil 🙉🙊🙈 — Step 6, half burned, half pencil</span>
+  </div>
+</article>
+
+<!-- COMPLETED 11/11/26: Every Dot Was a Thought (Hear No, Speak No, See No Evil) — finished, available / can be reproduced. Link: emberandgrainstudios.com/#noevil -->
+<article class="piece" data-cat="noevil-photo done-photo beliefs forsale featured" data-project="noevil" id="noevil-final">
+  <div style="position:relative;">
+    <img src="images/noevil-final.jpeg" alt="Every Dot Was a Thought — a finished stippled woodburning of three stacked cherubs: one covering its ears, one hushing with a finger to its lips, one covering its eyes" loading="lazy">
+    <span class="available">Available</span>
+  </div>
+  <div class="scorch"></div>
+  <div class="caption">
+    <button class="cat" data-filter="beliefs">Sacred/Spirit/Symbol</button>
+    <span class="title">Every. Dot. Was. A. Thought.</span><br>
+    <span style="font-size:0.78rem; font-style:italic; color:var(--ash);">Hear no evil · Speak no evil · See no evil</span><br>
+    <span style="font-size:0.8rem;">Three angels stacked like the choices we make: what we let in, what we let out, and what we refuse to look at. No lines. No shortcuts. Every dot burned by hand, one thought at a time.</span><br>
+    <span style="font-size:0.8rem;">Hand-stippled pyrography on wood · Available · can also be reproduced · <a href="#commission" style="color:var(--ember-2);">Request if interested →</a></span>
+  </div>
+</article>
+
+<article class="piece" data-cat="noevil-photo" data-project="noevil">
+  <img src="images/noevil-detail.jpeg" alt="Close-up of the finished cherubs, every line built from individual burned dots" loading="lazy">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Every Dot Was a Thought — up close</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="noevil-photo" data-project="noevil">
+  <img src="images/noevil-texture.jpeg" alt="The finished cherubs photographed at a low angle so the raised burned dots catch the light" loading="lazy">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Every Dot Was a Thought — the texture of the burn</span>
   </div>
 </article>
 
@@ -2786,7 +2826,7 @@
 
 
   /* Customer links: emberandgrainstudios.com/#amen opens that project */
-  const projectLinks = { amen:'done', princess:'done', butterflykiss:'done', dev:'wip', noevil:'wip', '370z':'wip', spark:'wip', maddie:'done', hamsa:'done', ofrenda:'done', babyforest:'done' };
+  const projectLinks = { amen:'done', princess:'done', butterflykiss:'done', dev:'wip', noevil:'done', '370z':'wip', spark:'wip', maddie:'done', hamsa:'done', ofrenda:'done', babyforest:'done' };
   const projectIds   = { amen:'amen', princess:'princess', butterflykiss:'butterflykiss', dev:'dev', noevil:'noevil', '370z':'z370', spark:'spark', maddie:'maddie', hamsa:'hamsa', ofrenda:'dmg', babyforest:'LS' };
 
   if (projectLinks[startFilter]) {
@@ -2869,12 +2909,12 @@
     try { if (localStorage.getItem(key) === '1') return; } catch(e) {}
 
     const slides = [
+      { img:'images/noevil-done-card.webp', alt:'Every Dot Was a Thought, a finished stippled woodburning of three cherubs: hear no, speak no, see no evil',
+        label:'🔥 Fresh off the burner', title:'Every Dot Was a Thought', sub:'Hear no, speak no, see no evil. Available!',
+        see:'See it', order:'Request if interested', tab:'done', project:'noevil', target:'noevil-final' },
       { img:'images/hamsa-card.webp', alt:'Hamsa, a newly finished woodburning of a hand with an evil eye',
-        label:'🔥 Fresh off the burner', title:'Hamsa 🪬', sub:'A studio keeper. No evil will harm me.',
+        label:'🔥 Recently finished', title:'Hamsa 🪬', sub:'A studio keeper. No evil will harm me.',
         see:'See it', order:'Commission yours', tab:'done', project:'hamsa', target:'hamsa-final' },
-      { img:'images/noevil-card.webp', alt:'Hear No, Speak No, See No Evil, three cherubs with all three faces burned in',
-        label:'🙉 On the burner now', title:'Hear No, Speak No, See No Evil', sub:'Three little angels. Available!',
-        see:'Watch progress', order:'Request if interested', tab:'wip', project:'noevil', target:null },
       { img:'images/maddie-card.webp', alt:'The Joker and Sriracha, two newly finished woodburnings for Maddie',
         label:'🔥 Recently finished', title:'The Joker & Sriracha', sub:'Just finished, both for Maddie! Want one?',
         see:'See them', order:'Commission yours', tab:'done', project:'maddie', target:'maddie-final' },
