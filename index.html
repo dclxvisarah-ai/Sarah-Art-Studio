@@ -827,18 +827,18 @@
 <button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
 
 <!-- FRESH OFF THE BURNER: to feature a new piece later, swap the img, title text, the "See her" target id, and change data-piece so everyone sees it again -->
-<aside class="fresh-card" id="fresh-card" data-piece="noevildone-hamsa-maddiedone-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
+<aside class="fresh-card" id="fresh-card" data-piece="mementomori-noevildone-hamsa-maddiedone-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
   <button type="button" class="fresh-close" id="fresh-close" aria-label="Close">×</button>
-  <img src="images/noevil-done-card.webp" alt="Every Dot Was a Thought, a finished stippled woodburning of three cherubs: hear no, speak no, see no evil" id="fresh-img">
+  <img src="images/mementomori-card.webp" alt="Memento Mori, a woodburning in progress of a skeleton smoking a cigarette" id="fresh-img">
   <div>
-    <div class="fresh-label">🔥 Fresh off the burner</div>
-    <div class="fresh-title">Every Dot Was a Thought</div>
-    <div class="fresh-sub">Hear no, speak no, see no evil. Available!</div>
+    <div class="fresh-label">🔥 On the burner now</div>
+    <div class="fresh-title">Memento Mori 💀</div>
+    <div class="fresh-sub">Work in progress. Come watch it burn.</div>
     <div class="fresh-actions">
       <button type="button" id="fresh-see">See it</button>
-      <a href="#commission" class="primary" id="fresh-order">Request if interested</a>
+      <a href="#commission" class="primary" id="fresh-order">Commission yours</a>
     </div>
-    <div class="fresh-dots" id="fresh-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="fresh-dots" id="fresh-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
   </div>
 </aside>
 
@@ -1091,6 +1091,7 @@
 
 
     <div class="wip-subtabs" id="wipSubtabs">
+  <button class="wip-subtab-btn" data-project="mementomori">Memento Mori 💀</button>
   <button class="wip-subtab-btn" data-project="spark">Up next: Primary Design Co. ⚡</button>
   <button class="wip-subtab-btn" data-project="dev">For Dev 💛</button>
   <button class="wip-subtab-btn" data-project="nic">Up next: Nic 🐺</button>
@@ -1389,6 +1390,33 @@
   <div class="scorch"></div>
   <div class="caption">
     <span class="title">Every Dot Was a Thought — in the morning sun ☀️</span>
+  </div>
+</article>
+
+<!-- WIP 11/21/26: Memento Mori — skull with a burning cigarette, after Van Gogh (1886). Promoted on socials -->
+<article class="piece" data-cat="mementomori-photo" data-project="mementomori" id="mementomori">
+  <img src="images/mementomori1.jpeg" alt="A woodburning in progress on an oval wood plaque: a skeleton smoking a cigarette, the skull and neck burned and shaded, the shoulders and ribs still in pencil" loading="lazy">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Memento Mori 💀 — on the burner now</span>
+  </div>
+</article>
+
+<article class="piece studio-video" data-cat="mementomori-photo" data-project="mementomori" id="mementomori-video">
+  <video controls playsinline preload="metadata" width="100%" poster="images/mementomori-video-poster.jpg">
+    <source src="images/mementomori-video.mp4" type="video/mp4">
+  </video>
+  <div class="caption">
+    <span class="title">Memento Mori 💀 — in progress</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="mementomori-photo" data-project="mementomori" id="mementomori-inspo">
+  <img src="images/mementomori-inspo.jpeg" alt="Vincent van Gogh's 1886 painting Head of a Skeleton with a Burning Cigarette, the inspiration for this piece" loading="lazy">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">The inspiration</span><br>
+    <span style="font-size:0.78rem; font-style:italic; color:var(--ash);">Vincent van Gogh, Head of a Skeleton with a Burning Cigarette (1886)</span>
   </div>
 </article>
 
@@ -2873,8 +2901,8 @@
 
 
   /* Customer links: emberandgrainstudios.com/#amen opens that project. #loko and #370z now land on Best Work (11/21/26) */
-  const projectLinks = { amen:'done', princess:'done', butterflykiss:'done', dev:'wip', noevil:'done', nic:'wip', NIC:'wip', Nic:'wip', spark:'wip', maddie:'done', hamsa:'done', ofrenda:'done', babyforest:'done' };
-  const projectIds   = { amen:'amen', princess:'princess', butterflykiss:'butterflykiss', dev:'dev', noevil:'noevil', nic:'nic', NIC:'nic', Nic:'nic', spark:'spark', maddie:'maddie', hamsa:'hamsa', ofrenda:'dmg', babyforest:'LS' };
+  const projectLinks = { mementomori:'wip', amen:'done', princess:'done', butterflykiss:'done', dev:'wip', noevil:'done', nic:'wip', NIC:'wip', Nic:'wip', spark:'wip', maddie:'done', hamsa:'done', ofrenda:'done', babyforest:'done' };
+  const projectIds   = { mementomori:'mementomori', amen:'amen', princess:'princess', butterflykiss:'butterflykiss', dev:'dev', noevil:'noevil', nic:'nic', NIC:'nic', Nic:'nic', spark:'spark', maddie:'maddie', hamsa:'hamsa', ofrenda:'dmg', babyforest:'LS' };
 
   if (projectLinks[startFilter]) {
 
@@ -2956,6 +2984,9 @@
     try { if (localStorage.getItem(key) === '1') return; } catch(e) {}
 
     const slides = [
+      { img:'images/mementomori-card.webp', alt:'Memento Mori, a woodburning in progress of a skeleton smoking a cigarette',
+        label:'🔥 On the burner now', title:'Memento Mori 💀', sub:'Work in progress. Come watch it burn.',
+        see:'See it', order:'Commission yours', tab:'wip', project:'mementomori', target:'mementomori' },
       { img:'images/noevil-done-card.webp', alt:'Every Dot Was a Thought, a finished stippled woodburning of three cherubs: hear no, speak no, see no evil',
         label:'🔥 Fresh off the burner', title:'Every Dot Was a Thought', sub:'Hear no, speak no, see no evil. Available!',
         see:'See it', order:'Request if interested', tab:'done', project:'noevil', target:'noevil-final' },
