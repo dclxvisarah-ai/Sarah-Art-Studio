@@ -827,13 +827,13 @@
 <button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
 
 <!-- FRESH OFF THE BURNER: to feature a new piece later, swap the img, title text, the "See her" target id, and change data-piece so everyone sees it again -->
-<aside class="fresh-card" id="fresh-card" data-piece="mementomori-noevildone-hamsa-maddiedone-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
+<aside class="fresh-card" id="fresh-card" data-piece="mementomori2-noevildone-hamsa-maddiedone-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
   <button type="button" class="fresh-close" id="fresh-close" aria-label="Close">×</button>
   <img src="images/mementomori-card.webp" alt="Memento Mori, a woodburning in progress of a skeleton smoking a cigarette" id="fresh-img">
   <div>
     <div class="fresh-label">🔥 On the burner now</div>
     <div class="fresh-title">Memento Mori 💀</div>
-    <div class="fresh-sub">Work in progress. Come watch it burn.</div>
+    <div class="fresh-sub">Color is in. Now smoking the sky black with a lighter.</div>
     <div class="fresh-actions">
       <button type="button" id="fresh-see">See it</button>
       <a href="#commission" class="primary" id="fresh-order">Commission yours</a>
@@ -1394,11 +1394,21 @@
 </article>
 
 <!-- WIP 11/21/26: Memento Mori — skull with a burning cigarette, after Van Gogh (1886). Promoted on socials -->
+<!-- Progress 11/21/26 late: color in, top half blackened with a lighter. Newest photo keeps id="mementomori" so the #mementomori link + corner card land on it -->
 <article class="piece" data-cat="mementomori-photo" data-project="mementomori" id="mementomori">
+  <img src="images/mementomori2.jpeg" alt="Memento Mori in progress on an oval wood plaque: the burned skull and smoking cigarette, the bones painted yellow, orange burned flames rising around it, and the top of the plaque blackened with a lighter flame" loading="lazy">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">Memento Mori 💀 — color's in, now burning the sky</span><br>
+    <span style="font-size:0.78rem; font-style:italic; color:var(--ash);">That solid black up top? No paint. I'm smoking it in with a lighter, one pass at a time. 🔥</span>
+  </div>
+</article>
+
+<article class="piece" data-cat="mementomori-photo" data-project="mementomori" id="mementomori-start">
   <img src="images/mementomori1.jpeg" alt="A woodburning in progress on an oval wood plaque: a skeleton smoking a cigarette, the skull and neck burned and shaded, the shoulders and ribs still in pencil" loading="lazy">
   <div class="scorch"></div>
   <div class="caption">
-    <span class="title">Memento Mori 💀 — on the burner now</span>
+    <span class="title">Memento Mori 💀 — where it started</span>
   </div>
 </article>
 
@@ -2985,7 +2995,7 @@
 
     const slides = [
       { img:'images/mementomori-card.webp', alt:'Memento Mori, a woodburning in progress of a skeleton smoking a cigarette',
-        label:'🔥 On the burner now', title:'Memento Mori 💀', sub:'Work in progress. Come watch it burn.',
+        label:'🔥 On the burner now', title:'Memento Mori 💀', sub:'Color is in. Now smoking the sky black with a lighter.',
         see:'See it', order:'Commission yours', tab:'wip', project:'mementomori', target:'mementomori' },
       { img:'images/noevil-done-card.webp', alt:'Every Dot Was a Thought, a finished stippled woodburning of three cherubs: hear no, speak no, see no evil',
         label:'🔥 Fresh off the burner', title:'Every Dot Was a Thought', sub:'Hear no, speak no, see no evil. Available!',
