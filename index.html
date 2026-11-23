@@ -827,18 +827,18 @@
 <button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
 
 <!-- FRESH OFF THE BURNER: to feature a new piece later, swap the img, title text, the "See her" target id, and change data-piece so everyone sees it again -->
-<aside class="fresh-card" id="fresh-card" data-piece="mementomori2-noevildone-hamsa-maddiedone-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
+<aside class="fresh-card" id="fresh-card" data-piece="nic2-mementomori2-noevildone-hamsa-maddiedone-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
   <button type="button" class="fresh-close" id="fresh-close" aria-label="Close">×</button>
-  <img src="images/mementomori-card.webp" alt="Memento Mori, a woodburning in progress of a skeleton smoking a cigarette" id="fresh-img">
+  <img src="images/nic-card.webp" alt="A pencil drawing of a howling wolf, full moon and Mazda on a square wood board, ready to burn" id="fresh-img">
   <div>
-    <div class="fresh-label">🔥 On the burner now</div>
-    <div class="fresh-title">Memento Mori 💀</div>
-    <div class="fresh-sub">Color is in. Now smoking the sky black with a lighter.</div>
+    <div class="fresh-label">🔥 On the board now</div>
+    <div class="fresh-title">For Nic 🐺</div>
+    <div class="fresh-sub">Pencil is on wood. The burner is next.</div>
     <div class="fresh-actions">
       <button type="button" id="fresh-see">See it</button>
       <a href="#commission" class="primary" id="fresh-order">Commission yours</a>
     </div>
-    <div class="fresh-dots" id="fresh-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="fresh-dots" id="fresh-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
   </div>
 </aside>
 
@@ -1094,7 +1094,7 @@
   <button class="wip-subtab-btn" data-project="mementomori">Memento Mori 💀</button>
   <button class="wip-subtab-btn" data-project="spark">Up next: Primary Design Co. ⚡</button>
   <button class="wip-subtab-btn" data-project="dev">For Dev 💛</button>
-  <button class="wip-subtab-btn" data-project="nic">Up next: Nic 🐺</button>
+  <button class="wip-subtab-btn" data-project="nic">Nic 🐺</button>
       <button class="wip-subtab-btn" data-project="">✨ORDER YOUR ART TODAY!✨</button>
 </div>
 
@@ -1486,13 +1486,23 @@
   </div>
 </article>
 
-<!-- WIP 11/14/26: Nic (AlonelyWolfMedia) — wolf in the moon + his Mazda, 15x15 square. Approved concept -->
+<!-- Progress 11/23/26: full design pencilled onto the 15x15 board. Newest photo keeps id="nic" so the #nic link + corner card land on it -->
 <article class="piece" data-cat="nic-photo" data-project="nic" id="nic">
+  <img src="images/nic2.jpeg" alt="Pencil drawing on a square wood board: a howling wolf in front of a full moon, stars, the AlonelyWolfMedia lettering, pine trees, and a Mazda 3 on rocky ground, ready to be burned" loading="lazy">
+  <div class="scorch"></div>
+  <div class="caption">
+    <span class="title">On the board 🐺🌕 — for Nic / AlonelyWolfMedia</span><br>
+    <span style="font-size:0.8rem;">Pencil is on wood. Every line traced from his logo. The burner's next.</span>
+  </div>
+</article>
+
+<!-- WIP 11/14/26: Nic (AlonelyWolfMedia) — wolf in the moon + his Mazda, 15x15 square. Approved concept -->
+<article class="piece" data-cat="nic-photo" data-project="nic" id="nic-concept">
   <img src="images/nic1.jpeg" alt="Approved design concept: a howling wolf in front of a full moon with the AlonelyWolfMedia lettering, pine trees, and a black Mazda 3 with purple wheels on rocky ground, shown as a burn on a square wood board" loading="lazy">
   <div class="scorch"></div>
   <div class="caption">
-    <span class="title">Upcoming 🐺🌕 — for Nic / AlonelyWolfMedia</span><br>
-    <span style="font-size:0.8rem;">Approved concept. His wolf, his moon, his ride, on a 15×15 square. Pencil hits wood soon.</span>
+    <span class="title">The approved concept 🐺🌕 — for Nic / AlonelyWolfMedia</span><br>
+    <span style="font-size:0.8rem;">His wolf, his moon, his ride, on a 15×15 square.</span>
   </div>
 </article>
 
@@ -2998,6 +3008,9 @@
     try { if (localStorage.getItem(key) === '1') return; } catch(e) {}
 
     const slides = [
+      { img:'images/nic-card.webp', alt:'A pencil drawing of a howling wolf, full moon and Mazda on a square wood board, ready to burn',
+        label:'🔥 On the board now', title:'For Nic 🐺', sub:'Pencil is on wood. The burner is next.',
+        see:'See it', order:'Commission yours', tab:'wip', project:'nic', target:'nic' },
       { img:'images/mementomori-card.webp', alt:'Memento Mori, a woodburning in progress of a skeleton smoking a cigarette',
         label:'🔥 On the burner now', title:'Memento Mori 💀', sub:'Color is in. Now smoking the sky black with a lighter.',
         see:'See it', order:'Commission yours', tab:'wip', project:'mementomori', target:'mementomori' },
