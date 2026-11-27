@@ -827,12 +827,12 @@
 <button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
 
 <!-- FRESH OFF THE BURNER: to feature a new piece later, swap the img, title text, the "See her" target id, and change data-piece so everyone sees it again -->
-<aside class="fresh-card" id="fresh-card" data-piece="mementomoridone-nic3-noevildone-hamsa-maddiedone-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
+<aside class="fresh-card" id="fresh-card" data-piece="hushdone-mementomoridone-nic3-noevildone-hamsa-maddiedone-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
   <button type="button" class="fresh-close" id="fresh-close" aria-label="Close">×</button>
-  <img src="images/mementomori-final-card.webp" alt="Memento Mori, a finished woodburning of a skull with a burning cigarette surrounded by flames" id="fresh-img">
+  <img src="images/hush-final-card.webp" alt="Hush Now, Child, a finished woodburning of a mother kissing her baby's head" id="fresh-img">
   <div>
     <div class="fresh-label">🔥 Fresh off the burner</div>
-    <div class="fresh-title">Memento Mori 💀</div>
+    <div class="fresh-title">Hush Now, Child 🤍</div>
     <div class="fresh-sub">Finished, and for sale!</div>
     <div class="fresh-actions">
       <button type="button" id="fresh-see">See it</button>
@@ -1197,7 +1197,6 @@
     </article>
 
     <div class="wip-subtabs" id="wipSubtabs">
-  <button class="wip-subtab-btn" data-project="hush">Coming soon: Hush Now, Child 🤍</button>
   <button class="wip-subtab-btn" data-project="spark">Up next: Primary Design Co. ⚡</button>
   <button class="wip-subtab-btn" data-project="dev">For Dev 💛</button>
   <button class="wip-subtab-btn" data-project="nic">Nic 🐺</button>
@@ -1206,6 +1205,7 @@
 
     <!-- COMPLETED PROJECTS: finished commissions, start-to-finish progression -->
     <div class="wip-subtabs" id="doneSubtabs">
+  <button class="wip-subtab-btn" data-project="hush">Hush Now, Child 🤍</button>
   <button class="wip-subtab-btn" data-project="mementomori">Memento Mori 💀</button>
   <button class="wip-subtab-btn" data-project="noevil">Every Dot Was a Thought 🙉🙊🙈</button>
   <button class="wip-subtab-btn" data-project="butterflykiss">Butterfly Kiss</button>
@@ -1407,12 +1407,25 @@
 </article>
 
 <!-- WIP 11/26/26: Hush Now, Child — mother kissing her baby, on a round. For sale when finished -->
-<article class="piece" data-cat="hush-photo" data-project="hush" id="hush">
+<!-- COMPLETED 11/27/26: Hush Now, Child — finished, for sale -->
+<article class="piece" data-cat="hush-photo done-photo beliefs portraits forsale featured" data-project="hush" id="hush-final">
+  <div style="position:relative;">
+    <img src="images/hush-final.jpeg" alt="Hush Now, Child — a finished woodburning on a round board: a mother in a head covering kissing the head of the baby held close in her arms, in bold burned lines" loading="lazy">
+    <span class="available">$125.00</span>
+  </div>
+  <div class="scorch"></div>
+  <div class="caption">
+    <button class="cat" data-filter="beliefs">Sacred/Spirit/Symbol</button>
+    <span class="title">Hush Now, Child 🤍 — Finished</span><br>
+    <span style="font-size:0.8rem;">For sale · <a href="#commission" style="color:var(--ember-2);">Request if interested →</a></span>
+  </div>
+</article>
+
+<article class="piece" data-cat="hush-photo" data-project="hush" id="hush-sketch">
   <img src="images/hush1.jpeg" alt="Hush Now, Child — a mother in a head covering kissing the head of the baby in her arms, outlined in pencil on a round wood board, ready to burn" loading="lazy">
   <div class="scorch"></div>
   <div class="caption">
-    <span class="title">Hush Now, Child 🤍 — sketched, ready to burn</span><br>
-    <span style="font-size:0.8rem;">Coming soon · will be for sale · <a href="#commission" style="color:var(--ember-2);">Request if interested →</a></span>
+    <span class="title">Hush Now, Child 🤍 — Step 1, sketched</span>
   </div>
 </article>
 
@@ -2938,7 +2951,7 @@
         const j = Math.floor(Math.random() * (i + 1));
         [best[i], best[j]] = [best[j], best[i]];
       }
-      best.forEach((p, i) => { p.style.order = (p.id === 'mementomori-final') ? -3 : (p.id === 'hamsa-final') ? -2 : (p.id === 'maddie-final') ? -1 : i; });
+      best.forEach((p, i) => { p.style.order = (p.id === 'hush-final') ? -4 : (p.id === 'mementomori-final') ? -3 : (p.id === 'hamsa-final') ? -2 : (p.id === 'maddie-final') ? -1 : i; });
     }
 
     if (filter === 'wip' || filter === 'done') {
@@ -3072,7 +3085,7 @@
 
 
   /* Customer links: emberandgrainstudios.com/#amen opens that project. #loko and #370z now land on Best Work (11/21/26) */
-  const projectLinks = { hush:'wip', mementomori:'done', amen:'done', princess:'done', butterflykiss:'done', dev:'wip', noevil:'done', nic:'wip', NIC:'wip', Nic:'wip', spark:'wip', maddie:'done', hamsa:'done', ofrenda:'done', babyforest:'done' };
+  const projectLinks = { hush:'done', mementomori:'done', amen:'done', princess:'done', butterflykiss:'done', dev:'wip', noevil:'done', nic:'wip', NIC:'wip', Nic:'wip', spark:'wip', maddie:'done', hamsa:'done', ofrenda:'done', babyforest:'done' };
   const projectIds   = { hush:'hush', mementomori:'mementomori', amen:'amen', princess:'princess', butterflykiss:'butterflykiss', dev:'dev', noevil:'noevil', nic:'nic', NIC:'nic', Nic:'nic', spark:'spark', maddie:'maddie', hamsa:'hamsa', ofrenda:'dmg', babyforest:'LS' };
 
   if (projectLinks[startFilter]) {
@@ -3155,6 +3168,9 @@
     try { if (localStorage.getItem(key) === '1') return; } catch(e) {}
 
     const slides = [
+      { img:'images/hush-final-card.webp', alt:"Hush Now, Child, a finished woodburning of a mother kissing her baby's head",
+        label:'🔥 Fresh off the burner', title:'Hush Now, Child 🤍', sub:'Finished, and for sale!',
+        see:'See it', order:'Request if interested', tab:'done', project:'hush', target:'hush-final' },
       { img:'images/mementomori-final-card.webp', alt:'Memento Mori, a finished woodburning of a skull with a burning cigarette surrounded by flames',
         label:'🔥 Fresh off the burner', title:'Memento Mori 💀', sub:'Finished, and for sale!',
         see:'See it', order:'Request if interested', tab:'done', project:'mementomori', target:'mementomori-final' },
