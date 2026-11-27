@@ -827,16 +827,16 @@
 <button type="button" class="back-to-top" id="back-to-top" aria-label="Shiver — bring me home">🐶</button>
 
 <!-- FRESH OFF THE BURNER: to feature a new piece later, swap the img, title text, the "See her" target id, and change data-piece so everyone sees it again -->
-<aside class="fresh-card" id="fresh-card" data-piece="nic3-mementomori2-noevildone-hamsa-maddiedone-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
+<aside class="fresh-card" id="fresh-card" data-piece="mementomoridone-nic3-noevildone-hamsa-maddiedone-princess-amen-butterflykiss-dev" aria-label="Newest and upcoming pieces" hidden>
   <button type="button" class="fresh-close" id="fresh-close" aria-label="Close">×</button>
-  <img src="images/nic-card.webp" alt="A pencil drawing of a howling wolf, full moon and Mazda on a square wood board, ready to burn" id="fresh-img">
+  <img src="images/mementomori-final-card.webp" alt="Memento Mori, a finished woodburning of a skull with a burning cigarette surrounded by flames" id="fresh-img">
   <div>
-    <div class="fresh-label">🔥 On the burner now</div>
-    <div class="fresh-title">For Nic 🐺</div>
-    <div class="fresh-sub">The burn has started. Watch it come alive.</div>
+    <div class="fresh-label">🔥 Fresh off the burner</div>
+    <div class="fresh-title">Memento Mori 💀</div>
+    <div class="fresh-sub">Finished, and for sale!</div>
     <div class="fresh-actions">
       <button type="button" id="fresh-see">See it</button>
-      <a href="#commission" class="primary" id="fresh-order">Commission yours</a>
+      <a href="#commission" class="primary" id="fresh-order">Request if interested</a>
     </div>
     <div class="fresh-dots" id="fresh-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
   </div>
@@ -1091,7 +1091,6 @@
 
 
     <div class="wip-subtabs" id="wipSubtabs">
-  <button class="wip-subtab-btn" data-project="mementomori">Memento Mori 💀</button>
   <button class="wip-subtab-btn" data-project="spark">Up next: Primary Design Co. ⚡</button>
   <button class="wip-subtab-btn" data-project="dev">For Dev 💛</button>
   <button class="wip-subtab-btn" data-project="nic">Nic 🐺</button>
@@ -1100,6 +1099,7 @@
 
     <!-- COMPLETED PROJECTS: finished commissions, start-to-finish progression -->
     <div class="wip-subtabs" id="doneSubtabs">
+  <button class="wip-subtab-btn" data-project="mementomori">Memento Mori 💀</button>
   <button class="wip-subtab-btn" data-project="noevil">Every Dot Was a Thought 🙉🙊🙈</button>
   <button class="wip-subtab-btn" data-project="butterflykiss">Butterfly Kiss</button>
   <button class="wip-subtab-btn" data-project="hamsa">Hamsa 🪬</button>
@@ -1390,6 +1390,20 @@
   <div class="scorch"></div>
   <div class="caption">
     <span class="title">Every Dot Was a Thought — in the morning sun ☀️</span>
+  </div>
+</article>
+
+<!-- COMPLETED 11/26/26: Memento Mori — finished, for sale, highlighted first in Best Work -->
+<article class="piece" data-cat="mementomori-photo done-photo beliefs forsale featured" data-project="mementomori" id="mementomori-final">
+  <div style="position:relative;">
+    <img src="images/mementomori-final.jpeg" alt="Memento Mori — a finished woodburning on an oval plaque: a skull with a burning cigarette, yellow-painted bones, burned orange flames rising around it, and the sky above smoked solid black with a lighter" loading="lazy">
+    <span class="available">$175.00</span>
+  </div>
+  <div class="scorch"></div>
+  <div class="caption">
+    <button class="cat" data-filter="beliefs">Sacred/Spirit/Symbol</button>
+    <span class="title">Memento Mori 💀 — Finished</span><br>
+    <span style="font-size:0.78rem; font-style:italic; color:var(--ash);">Remember you will die. Smoke 'em while you got 'em. After Van Gogh (1886) · sky smoked black with a lighter 🔥</span>
   </div>
 </article>
 
@@ -2803,7 +2817,7 @@
         const j = Math.floor(Math.random() * (i + 1));
         [best[i], best[j]] = [best[j], best[i]];
       }
-      best.forEach((p, i) => { p.style.order = (p.id === 'hamsa-final') ? -2 : (p.id === 'maddie-final') ? -1 : i; });
+      best.forEach((p, i) => { p.style.order = (p.id === 'mementomori-final') ? -3 : (p.id === 'hamsa-final') ? -2 : (p.id === 'maddie-final') ? -1 : i; });
     }
 
     if (filter === 'wip' || filter === 'done') {
@@ -2936,7 +2950,7 @@
 
 
   /* Customer links: emberandgrainstudios.com/#amen opens that project. #loko and #370z now land on Best Work (11/21/26) */
-  const projectLinks = { mementomori:'wip', amen:'done', princess:'done', butterflykiss:'done', dev:'wip', noevil:'done', nic:'wip', NIC:'wip', Nic:'wip', spark:'wip', maddie:'done', hamsa:'done', ofrenda:'done', babyforest:'done' };
+  const projectLinks = { mementomori:'done', amen:'done', princess:'done', butterflykiss:'done', dev:'wip', noevil:'done', nic:'wip', NIC:'wip', Nic:'wip', spark:'wip', maddie:'done', hamsa:'done', ofrenda:'done', babyforest:'done' };
   const projectIds   = { mementomori:'mementomori', amen:'amen', princess:'princess', butterflykiss:'butterflykiss', dev:'dev', noevil:'noevil', nic:'nic', NIC:'nic', Nic:'nic', spark:'spark', maddie:'maddie', hamsa:'hamsa', ofrenda:'dmg', babyforest:'LS' };
 
   if (projectLinks[startFilter]) {
@@ -3019,12 +3033,12 @@
     try { if (localStorage.getItem(key) === '1') return; } catch(e) {}
 
     const slides = [
+      { img:'images/mementomori-final-card.webp', alt:'Memento Mori, a finished woodburning of a skull with a burning cigarette surrounded by flames',
+        label:'🔥 Fresh off the burner', title:'Memento Mori 💀', sub:'Finished, and for sale!',
+        see:'See it', order:'Request if interested', tab:'done', project:'mementomori', target:'mementomori-final' },
       { img:'images/nic-card.webp', alt:'A pencil drawing of a howling wolf, full moon and Mazda on a square wood board, ready to burn',
         label:'🔥 On the burner now', title:'For Nic 🐺', sub:'The burn has started. Watch it come alive.',
         see:'See it', order:'Commission yours', tab:'wip', project:'nic', target:'nic' },
-      { img:'images/mementomori-card.webp', alt:'Memento Mori, a woodburning in progress of a skeleton smoking a cigarette',
-        label:'🔥 On the burner now', title:'Memento Mori 💀', sub:'Color is in. Now smoking the sky black with a lighter.',
-        see:'See it', order:'Commission yours', tab:'wip', project:'mementomori', target:'mementomori' },
       { img:'images/noevil-done-card.webp', alt:'Every Dot Was a Thought, a finished stippled woodburning of three cherubs: hear no, speak no, see no evil',
         label:'🔥 Fresh off the burner', title:'Every Dot Was a Thought', sub:'Hear no, speak no, see no evil. Available!',
         see:'See it', order:'Request if interested', tab:'done', project:'noevil', target:'noevil-final' },
